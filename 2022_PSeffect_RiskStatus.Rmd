@@ -761,6 +761,8 @@ summary(med_mod_psgrams_fit)
 
 There was a significant level indirect effect (p = 0.036) indicating that broccoli intake mediated the interaction between risk status and portion size for gram intake.
 
+
+
 ## kcal
 
 \FloatBarrier
