@@ -1,0 +1,774 @@
+---
+title: "Portion Size Effect for Children at High and Low Familial Risk for Obesity (Food and Brain Study)"
+output:
+  pdf_document:
+    toc: true
+    toc_depth: 2
+    number_sections: true
+header-includes:
+- \usepackage{fullpage}
+- \usepackage{graphicx}
+- \usepackage{subcaption}
+- \usepackage{float}
+- \usepackage{placeins}
+- \usepackage{caption}
+- \usepackage{mathtools}
+# - \usepackage{multirow}
+- \usepackage{amssymb}
+- \usepackage{amsmath}
+- \usepackage{bigstrut}
+- \usepackage{geometry}
+# - \usepackage{pdflscape}
+- \setlength{\parskip}{1em}
+geometry: margin=1.3cm
+---
+
+<!-- Copywrite -->
+
+```{r include=FALSE, echo = FALSE}
+# This script report was written by Alaina Pearce in August 2022 to 
+# examine the portion size effect by risk status (data from Food and Brain Study).
+#
+#     Copyright (C) 2022 Alaina L Pearce
+#
+#     This program is free software: you can redistribute it and/or modify
+#     it under the terms of the GNU General Public License as published by
+#     the Free Software Foundation, either version 3 of the License, or
+#     (at your option) any later version.
+#
+#     This program is distributed in the hope that it will be useful,
+#     but WITHOUT ANY WARRANTY; without even the implied warranty of
+#     MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+#     GNU General Public License for more details.
+#
+#     You should have received a copy of the GNU General Public License
+#     along with this program.  If not, see <https://www.gnu.org/licenses/>.
+
+```
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(tidy = TRUE, tidy.opts = list(comment = FALSE), echo = TRUE, fig.width=6, fig.height=4, fig.path='figs/', echo=FALSE, warning=FALSE, message=FALSE, comment = NA)
+```
+
+<!-- load startup file and any extra packages -->
+
+```{r load, echo=FALSE, include=FALSE}
+library(knitr)
+library(kableExtra)
+library(stats)
+library(haven)
+library(kellertools)
+library(gtsummary)
+theme_gtsummary_compact()
+
+library(car)
+library(emmeans)
+library(reshape2)
+library(lme4)
+library(lmerTest)
+library(ggplot2)
+library(gtsummary)
+library(lavaan)
+library(feisr)
+```
+
+```{r load_scripts, echo=FALSE, results='asis'}
+source('functions.R')
+source('setup_data.R')
+source('analyses.R')
+source('tables.R')
+```
+
+\clearpage
+
+# Demographics
+
+```{r demo_tab, echo=FALSE, results='asis'}
+as_kable_extra(demo_risk_mom_tab, caption = 'Demographics', format = "latex", booktabs = TRUE, longtable = FALSE) %>%
+  kableExtra::kable_styling(latex_options = "hold_position",  full_width = FALSE)
+```
+
+# Portion Size Effect
+
+Note - Portion Size was coded in ps_prop as the proportion increase in amount served: Portion Size 1 = 0, Portion Size 2 = 0.33, Portion Size 3 = 0.66, and Portion Size 4 = 0.99. This means that a 1 unit increase is equal to a 100% increase in amount served -- the difference between Portion Size 1 and Portion Size 4.
+
+\FloatBarrier
+
+```{r intake_tab, echo=FALSE, results='asis'}
+as_kable_extra(intake_tab, caption = 'Intake by Portion Size', format = "latex", booktabs = TRUE, longtable = FALSE) %>%
+  kableExtra::kable_styling(latex_options = "hold_position",  full_width = FALSE)
+```
+
+\FloatBarrier
+
+```{r intake_rs_tab, echo=FALSE, results='asis'}
+as_kable_extra(intake_merge_tab, caption = 'Intake by Portion Size and Risk Status', format = "latex", booktabs = TRUE, longtable = FALSE) %>%
+  kableExtra::kable_styling(latex_options = "hold_position",  full_width = FALSE)
+```
+
+\FloatBarrier
+
+## Base Model - Test Quadratic Effect
+
+All intake models are currently controlling for: pre-meal Freddy Fullness, child BMI, average VAS liking rating for the meal foods conducted at each meal, and meal order.
+
+### Grams
+
+The difference between models with and without quadratic effect was significant (p=0.022) indicating the added model parameters/complexity resulted in significant more variance explained. Should model gram intake with both linear and quadratic effects.
+
+\FloatBarrier
+
+```{r intake_ps_gmod_base, include = TRUE}
+anova(grams_ps_mod, grams_psquad_mod)
+```
+
+\FloatBarrier
+
+```{r intake_psquad_gmod, include = TRUE, echo=FALSE, results='asis'}
+grams_psquad_sum <- summary(grams_psquad_mod)
+
+kable(round(grams_psquad_sum$coefficients, 3), "latex",  digits = 3, caption = "Regression Table: Portion Size for Grams", booktabs=TRUE) %>%
+  kable_styling(latex_options = c("hold_position", "repeat_header"))
+
+```
+
+\FloatBarrier
+
+The quadratic of portion size was significant after controlling for all other variables. This indicates there is a curvelinear effect of portion size on intake. The increase in amount consumed decreases by 63.9 grams for each increase in meal portions (i.e., 33% increase with each meal). The vertex of the curve is at 77% increase, which indicates that intake increased up to the third largest meal (66% increase) with little change between the third and forth meals (i.e., 99% increase).
+
+\*To calculate effect of portion size by 0.33 proportion increase need to first get total quadratic effect. The $\beta$ coefficient for a quadratic effect is half the change in the linear slope for a unit increase, so total change in linear slope = 2 x ps_prop2. Since a 1 unit increase = 100% increase in portion, can then multiply the total effect by 0.33. Therefore, change in linear slope for each 33% increase in amount served = (ps_prop2 x 2) x 0.33. To calculate where the slope switches from positive to negative, need to find the vertex = -ps_prop/(ps_prop2 x 2)
+
+\FloatBarrier
+
+### kcal
+
+The difference between models with and without quadratic effect was not significant (p=0.286) indicating the added model parameters/complexity was not needed Should model kcal intake with only the linear effect.
+
+\FloatBarrier
+
+```{r intake_ps_kcalmod_base, include = TRUE}
+anova(kcal_ps_mod, kcal_psquad_mod)
+```
+
+\FloatBarrier
+
+```{r intake_ps_kcalmod, include = TRUE, echo=FALSE, results='asis'}
+kcal_ps_sum <- summary(kcal_ps_mod)
+
+kable(round(kcal_ps_sum$coefficients, 3), "latex",  digits = 3, caption = "Regression Table: Portion Size for kcal", booktabs=TRUE) %>%
+  kable_styling(latex_options = c("hold_position", "repeat_header"))
+```
+
+\FloatBarrier
+
+Control Variables - There was a significant effect of pre Freddy Fullness such that for each 10 mm more full, 9 fewer kcals were consumed. BMI was also associated with intake such each BMI point increase was associated with 39 greater kcal consumed. Similarly, each unit increase in average liking was associated with a 59 kcal increase.
+
+The linear effect of portion size shows that 113 more kcals were consumed in the largest portion (100% increase) compared to the baseline meal.
+
+\FloatBarrier
+\clearpage
+
+## Risk Status x Portion Size (linear effect)
+
+### Grams
+
+Adding an interaction between Risk Status and Portion Size (linear effect) significantly improved model fit. 
+\FloatBarrier
+
+```{r intake_ps_gmodfit_riskxps, include = TRUE}
+anova(grams_psquad_mod, grams_psxrisk_psquad_mod)
+```
+
+\FloatBarrier
+
+Adding an interaction between Risk Status and the quadradic Portion Size effect did not significantly improve the model fit.
+
+```{r intake_psquad_gmodfit_riskxps, include = TRUE}
+anova(grams_psxrisk_psquad_mod, grams_psxrisk_psquadxrisk_mod)
+```
+
+\FloatBarrier
+
+For the control variables, we see that children consumed 30.6 grams more for each unit higher their BMI was at baseline. Also children consumed 49.9 grams more for each unit higher their average liking of meal foods was.
+
+\FloatBarrier
+
+```{r intake_ps_gmod_riskxps, include = TRUE, echo=FALSE, results='asis'}
+grams_psxrisk_psquad_sum <- summary(grams_psxrisk_psquad_mod)
+
+kable(round(grams_psxrisk_psquad_sum$coefficients, 3), "latex",  digits = 3, caption = "Regression Table: Risk x Portion Size for Grams", booktabs=TRUE) %>%
+  kable_styling(latex_options = c("hold_position", "repeat_header"))
+summary(grams_psxrisk_psquad_mod)
+```
+
+\FloatBarrier
+
+The quadratic effect of portion size was also significant after controlling for all other variables, including Risk Status and Portion Size. This indicates there is a curvelinear effect of portion size on intake. The increase in amount consumed decreases by 63.9 grams for each increase in meal portions (i.e., 33% increase with each meal) such that intake increases up to the third largest meal (66% increase) with little change between the third and forth meals (i.e., 99% increase).
+
+\FloatBarrier
+
+```{r intake_fig_grams_psxr, echo=FALSE, include = FALSE, fig.height = 4, fig.width = 6}
+ggplot(aes(x = ps_prop, y = grams_pred_rxps, color = risk_status_mom), data = intake_long_model) + 
+  labs(y = "Total Intake, Grams - Adjusted", x = "Proportion Increase in Amount Served") +
+  geom_line(aes(group = sub), size = 1, alpha = 0.5, color = 'grey') +
+  stat_smooth(method = "lm", formula = y ~ x + I(x^2), size = 1, se = FALSE) +
+  scale_color_manual(values = c('purple4', 'darkorange1')) +
+  scale_x_continuous(breaks=seq(0.0, 1, 0.33), limits=c(0, 1)) +
+  theme(panel.border = element_blank(), panel.grid.major = element_blank(),
+    panel.grid.minor = element_blank(), axis.line = element_line(colour = "black"),
+    panel.background = element_blank(), axis.text.x = element_text(angle = 90))
+```
+
+
+\begin{figure}
+  \caption{Grams Consumed: Risk Status x Portion Size}
+  \includegraphics{figs/intake_fig_grams_psxr-1.pdf}
+\end{figure}
+
+\FloatBarrier
+
+```{r intake_ps_gmod_riskxps_slopes, include = TRUE, echo=FALSE, results='asis'}
+kable(test(grams_psxrisk_psquad_slopes$emtrends), "latex",  digits = 3, caption = "Estimated Simple Slopes: Risk Status x Linear Portion Size for Grams", booktabs=TRUE) %>%
+  kable_styling(latex_options = c("hold_position", "repeat_header"))
+```
+
+\FloatBarrier
+
+Estimating the simple slopes (adjusted for all other variables) shows both groups have a significant linear portion size effect, however, the significant interaction in the model indicates that the slopes are significantly different from each other. The interaction between Risk Status and Portion Size can be interpreted in 2 ways depending on how we want to phrase it:
+
+1) the difference in gram intake between Low and High Risk groups gets larger with each increase in Portion Size such that by Portion Size 4, the High Risk group consumes 105 fewer grams (i.e., condition effect of risk_status_mom + interaction), after accounting for all other control variables.
+
+2) The association between proportion increase in amount served and amount consumed (i.e., ps_prop) is less positive for the High Risk than Low Risk group. The Low Risk group increases total gram intake by 110 grams when amount served is doubled (100% increase) while the High Risk Group only increased intake by 14 grams (i.e., condition effect of ps_prop + interaction). 
+
+\FloatBarrier
+
+```{r intake_ps_gmod_riskxps_emmeans, include = TRUE, echo=FALSE, results='asis'}
+kable(grams_psxrisk_emmeans_tab, "latex",  digits = 3, caption = "Estimated Marginal Means: Risk Status x Portion Size for Grams", booktabs=TRUE) %>%
+  kable_styling(latex_options = c("hold_position", "repeat_header"))
+```
+
+\FloatBarrier
+
+Given the significant interaction between Risk Status and Portion Size, we cannot interpret the effect of Risk Status in the regression model as a main effect. We can, however, estimate the marginal means (group means after adjusting for all other variables) differ. Overall, the High Risk group consumed fewer grams than the Low Risk group with this difference becoming significant at the 3rd protion size.
+
+```{r intake_ps_gmod_riskxps_ttests, include = TRUE}
+grams_ps1risk_ttest
+grams_ps2risk_ttest
+grams_ps3risk_ttest
+grams_ps4risk_ttest
+```
+
+\FloatBarrier
+
+### kcal
+
+Adding an interaction between Risk Status and Portion Size (linear effect) significantly improved model fit.
+
+```{r intake_ps_kcalmodfit_riskxps, include = TRUE}
+anova(kcal_ps_mod, kcal_psxrisk_mod)
+```
+
+Control Variables -  We see that children consumed 47 kcal more for each unit higher their BMI was at baseline. Children consumed 57 kcal more for each unit higher their average liking of meal foods was. Unlike the grams model, pre-meal fullness was associated with total energy intake such that for each centimeter more 'full', the children ate 9 fewer kcal (Freddy is measured in mm so 10 x preFF gives change in cm).
+
+\FloatBarrier
+
+```{r intake_ps_kcalmod_riskxps, include = TRUE, echo=FALSE, results='asis'}
+kcal_psxrisk_sum <- summary(kcal_psxrisk_mod)
+
+kable(kcal_psxrisk_sum$coefficients, "latex",  digits = 3, caption = "Regression Table: Risk x Portion Size for kcal", booktabs=TRUE) %>%
+  kable_styling(latex_options = c("hold_position", "repeat_header"))
+```
+
+\FloatBarrier
+
+```{r intake_fig_kcal_psxrisk, echo=FALSE, include = FALSE, fig.height = 4, fig.width = 6}
+ggplot(aes(x = ps_prop, y = kcal_pred_rxps, color = risk_status_mom), data = intake_long_model) + 
+  labs(y = "Total Intake, kcal - Adjusted", x = "Proportion Increase in Amount Served") +
+  geom_line(aes(group = sub), size = 1, alpha = 0.5, color = 'grey') +
+  stat_smooth(method = "lm", formula = y ~ x, size = 1, se = FALSE) +
+  scale_color_manual(values = c('purple4', 'darkorange1')) +
+  scale_x_continuous(breaks=seq(0.0, 1, 0.33), limits=c(0, 1)) +
+  theme(panel.border = element_blank(), panel.grid.major = element_blank(),
+    panel.grid.minor = element_blank(), axis.line = element_line(colour = "black"),
+    panel.background = element_blank(), axis.text.x = element_text(angle = 90))
+```
+
+\begin{figure}
+  \caption{kCal Consumed: Risk Status x Portion Size}
+  \includegraphics{figs/intake_fig_kcal_psxrisk-1.pdf}
+\end{figure}
+
+\FloatBarrier
+
+```{r intake_ps_kcalmod_rxps_emtrends, include = TRUE, echo=FALSE, results='asis'}
+kable(test(kcal_psxrisk_slopes$emtrends), "latex",  digits = 3, caption = "Estimated Simple Slopes: Risk Status x Linear Portion Size for kcal", booktabs=TRUE) %>%
+  kable_styling(latex_options = c("hold_position", "repeat_header"))
+```
+
+\FloatBarrier
+
+Estimating the simple slopes (adjusted for all other variables) shows both groups have a significant portion size effect. The  interaction indicates that the slopes are different from each other. The interaction between Risk Status and Portion Size can be interpreted in 2 ways depending on how we want to phrase it:
+
+1) the difference in gram intake between Low and High Risk groups gets larger with each increase in Portion Size such that by Portion Size 4, the High Risk group consumes 109 fewer kcal (i.e., condition effect of risk_status_mom + interaction), after accounting for all other control variables.
+
+2) The association between proportion increase served and kcal consumed (i.e., ps_prop) is less positive for the High Risk than Low Risk group. The Low Risk group increases total gram intake by 149 kcal when amount served is doubled (100% increase) while the High Risk Group only increased intake by 63 kcal (i.e., condition effect of ps_prop + interaction). 
+
+\FloatBarrier
+
+```{r intake_ps_kcalmod_riskxps_emmeans, include = TRUE, echo=FALSE, results='asis'}
+kable(kcal_psxrisk_emmeans_tab, "latex",  digits = 3, caption = "Estimated Marginal Means: Risk Status x Portion Size for kcal", booktabs=TRUE) %>%
+  kable_styling(latex_options = c("hold_position", "repeat_header"))
+```
+
+\FloatBarrier
+
+Given the significant interaction between Risk Status and Portion Size, we cannot interpret the effect of Risk Status in the regression model as a main effect. We can, however, estimate the marginal means (group means after adjusting for all other variables) differ. 
+
+```{r intake_ps_kcalmod_riskxps_ttests, include = TRUE}
+kcal_ps1risk_ttest
+kcal_ps2risk_ttest
+kcal_ps3risk_ttest
+kcal_ps4risk_ttest
+```
+
+\FloatBarrier
+\clearpage
+
+## Exploratory Analyses: Effect of BMI
+
+After controlling for age and sex, there was a difference in BMI by Risk Status such that the High Risk group had BMI that was 0.73 higher on average.
+
+\FloatBarrier
+
+```{r bmixrisk_mod, include = TRUE, echo=FALSE, results='asis'}
+bmi_sum <- summary(bmi_mod)
+
+kable(bmi_sum$coefficients, "latex",  digits = 3, caption = "Regression Table: BMI and Risk Status", booktabs=TRUE) %>%
+  kable_styling(latex_options = c("hold_position", "repeat_header"))
+```
+
+\FloatBarrier
+
+Since BMI was associated with both total grams and kcal intake, I tested if adding a BMI x Poriton Size interaction improved the model. 
+
+\FloatBarrier
+
+### Grams
+
+Adding a BMI x Portion Size interaction did not improve the model for grams
+
+\FloatBarrier
+
+```{r bmixps_modgrams_fit_bmi, include = TRUE}
+anova(grams_psxrisk_psquad_mod, grams_psxrisk_psxbmi_psquad_mod)
+```
+
+\FloatBarrier
+
+### kcal
+
+Adding a BMI x Portion Size interaction did not improve the model for kcal.
+
+\FloatBarrier
+
+```{r bmixps_modgrams_fit, include = TRUE, echo=FALSE, results='asis'}
+anova(kcal_psxrisk_mod, kcal_psxrisk_psxbmi_mod)
+```
+
+\FloatBarrier
+\clearpage
+
+# Exploratory Analyses: Individual Foods 
+
+```{r intake_fig_grams_psxrxfood, echo=FALSE, include = FALSE, fig.height = 4, fig.width = 6}
+ggplot(aes(x = ps_prop, y = grams, group = interaction(food, risk_status_mom), color = food, linetype = risk_status_mom), data = intakefoods_long_model) + 
+  labs(y = "Total Intake, Grams - Adjusted", x = "Proportion Increase in Amount Served") +
+  stat_smooth(method = "lm", formula = y ~ x, size = 1, se = FALSE) +
+  scale_color_manual(values = c('mediumseagreen', 'orange3', 'purple4', 'goldenrod1')) +
+  scale_x_continuous(breaks=seq(0.0, 1, 0.33), limits=c(0, 1)) + 
+  theme(panel.border = element_blank(), panel.grid.major = element_blank(),
+    panel.grid.minor = element_blank(), axis.line = element_line(colour = "black"),
+    panel.background = element_blank(), axis.text.x = element_text(angle = 90))
+```
+
+## Chicken Nuggets
+
+### Grams
+
+#### Base Model
+
+The difference between models with and without quadratic effect was not significant indicating the added model parameters/complexity did not improve model fit. Should only model chicken nugget gram intake with linear effect.
+
+\FloatBarrier
+
+```{r chnug_ps_gmod_base, include = TRUE}
+anova(grams_chnug_ps_mod, grams_chnug_ps_psquad_mod)
+```
+
+\FloatBarrier
+
+#### Risk x Portion Size
+
+\FloatBarrier
+
+```{r chnug_ps_gmod_riskps, include = TRUE, echo=FALSE, results='asis'}
+grams_chnug_psxrisk_sum <- summary(grams_chnug_psxrisk_mod)
+
+kable(grams_chnug_psxrisk_sum$coefficients, "latex",  digits = 3, caption = "Chicken Nugget - Risk x Portion Size for Grams", booktabs=TRUE) %>%
+  kable_styling(latex_options = c("hold_position", "repeat_header"))
+```
+
+\FloatBarrier
+
+
+For the control variables, we see that children consumed 2.5 fewer grams for each cm higher their fullness rating was. Also children consumed 21.4 grams more for each unit higher their liking of chicken nuggets was. Unlike the overall gram model, BMI was not associated with intake. 
+
+\FloatBarrier
+
+```{r chnug_ps_gmod_riskps_slopes, include = TRUE, echo=FALSE, results='asis'}
+kable(test(grams_chnug_psxrisk_slopes), "latex",  digits = 3, caption = "Estimated Simple Slopes: Risk Status x Portion Size for Chicken Nuggets grams", booktabs=TRUE) %>%
+  kable_styling(latex_options = c("hold_position", "repeat_header"))
+```
+
+There was trend for the interaction between Risk Status and Portion Size such that children at low risk consumed 36 more grams of chicken nuggets at 100% increase in portion size compared to the standard size (p < 0.001) while children at high risk consumed only 16 grams more (p = 0.071). At portion size 1, the children at high risk consumed 5 fewer grams with the gap increasing to 25 fewer grams at 100% increase in portion size.
+
+\FloatBarrier
+\clearpage
+
+### kcal
+
+#### Base Model
+
+The difference between models with and without quadratic effect was not significant indicating the added model parameters/complexity did not improve model fit. Should only model chicken nugget kcal intake with linear effect.
+
+\FloatBarrier
+
+```{r chnug_ps_kcalmod_base, include = TRUE}
+anova(kcal_chnug_ps_mod, kcal_chnug_ps_psquad_mod)
+```
+
+\FloatBarrier
+
+#### Risk x Portion Size
+
+\FloatBarrier
+
+```{r chnug_ps_kcalmod_riskxps, include = TRUE, echo=FALSE, results='asis'}
+kcal_chnug_psxrisk_sum <- summary(kcal_chnug_psxrisk_mod)
+
+kable(kcal_chnug_psxrisk_sum$coefficients, "latex",  digits = 3, caption = "Chicken - Nugget Risk x Portion Size for kcal", booktabs=TRUE) %>%
+  kable_styling(latex_options = c("hold_position", "repeat_header"))
+summary(grams_psxrisk_psquad_mod)
+```
+
+For the control variables, we see that children consumed 6.5 fewer kcal for each cm higher their fullness rating was. Also children consumed 53 kcal more for each unit higher their average liking of meal foods was. Unlike the overall gram model, BMI was not associated with intake. 
+
+\FloatBarrier
+
+```{r chnug_ps_kcalmod_riskps_emmeans, include = TRUE, echo=FALSE, results='asis'}
+kable(test(kcal_chnug_psxrisk_slopes), "latex",  digits = 3, caption = "Estimated Simple Slopes: Risk Status x Portion Size for Chicken Nuggets kcal", booktabs=TRUE) %>%
+  kable_styling(latex_options = c("hold_position", "repeat_header"))
+```
+
+There was trend for the interaction between Risk Status and Portion Size such that children at low risk consumed 91 more kcal of chicken nuggets at 100% increase in portion size compared to the standard size (p < 0.001) while children at high risk consumed only 42 grams more (p = 0.071). At portion size 1, the children at high risk consumed 15 fewer kcal with the gap increasing to 50 fewer kcal at 100% increase in portion size.
+
+\FloatBarrier
+\clearpage
+
+## Mac and Cheese
+
+### Grams
+
+#### Base Model
+
+The difference between models with and without quadratic effect was not significant indicating the added model parameters/complexity did not improve model fit. Should only model chicken nugget gram intake with linear effect.
+
+\FloatBarrier
+
+```{r mac_ps_gmod_base, include = TRUE}
+anova(grams_mac_ps_mod, grams_mac_ps_psquad_mod)
+```
+
+\FloatBarrier
+
+#### Risk x Portion Size
+
+\FloatBarrier
+
+```{r mac_ps_gmod_riskps, include = TRUE, echo=FALSE, results='asis'}
+grams_mac_psxrisk_sum <- summary(grams_mac_psxrisk_mod)
+
+kable(grams_mac_psxrisk_sum$coefficients, "latex",  digits = 3, caption = "Mac and Cheese - Risk x Portion Size for Grams", booktabs=TRUE) %>%
+  kable_styling(latex_options = c("hold_position", "repeat_header"))
+summary(grams_psxrisk_psquad_mod)
+```
+
+\FloatBarrier
+
+The interaction between Risk Status and Portion Size was not significant so it was removed from the model.
+
+```{r mac_ps_gmod_risk_ps, include = TRUE, echo=FALSE, results='asis'}
+grams_mac_ps_risk_sum <- summary(grams_mac_ps_risk_mod)
+
+kable(grams_mac_ps_risk_sum$coefficients, "latex",  digits = 3, caption = "Mac and Cheese - Risk x Portion Size for Grams", booktabs=TRUE) %>%
+  kable_styling(latex_options = c("hold_position", "repeat_header"))
+summary(grams_psxrisk_psquad_mod)
+```
+
+For the control variables, we see that children consumed 18 grams more of mac and cheese for each unit higher their BMI was at baseline. Also children consumed 21.3 grams more for each unit higher their average liking of meal foods was. Unlike the overall gram model, BMI was not associated with intake. 
+
+There was a significant effect of portion size such that 16.1 more grams of mac and cheese were consumed in meal 4 (100% increase in portion) than in meal 1. however, there was no effect of risk status.
+
+\FloatBarrier
+\clearpage
+
+### kcal
+
+#### Base Model
+
+The difference between models with and without quadratic effect was not significant indicating the added model parameters/complexity did not improve model fit. Should only model chicken nugget kcal intake with linear effect.
+
+\FloatBarrier
+
+```{r mac_ps_kcalmod_base, include = TRUE}
+anova(kcal_mac_ps_mod, kcal_mac_ps_psquad_mod)
+```
+
+\FloatBarrier
+
+#### Risk x Portion Size
+
+\FloatBarrier
+
+```{r mac_ps_kcalmod_riskxps, include = TRUE, echo=FALSE, results='asis'}
+kcal_mac_psxrisk_sum <- summary(kcal_mac_psxrisk_mod)
+
+kable(kcal_mac_psxrisk_sum$coefficients, "latex",  digits = 3, caption = "Mac and Cheese - Risk x Portion Size for kcal", booktabs=TRUE) %>%
+  kable_styling(latex_options = c("hold_position", "repeat_header"))
+summary(grams_psxrisk_psquad_mod)
+```
+
+\FloatBarrier
+
+The interaction between Risk Status and Portion Size was not significant so it was removed from the model.
+
+```{r mac_ps_kcalmod_risk_ps, include = TRUE, echo=FALSE, results='asis'}
+kcal_mac_ps_risk_sum <- summary(kcal_mac_ps_risk_mod)
+
+kable(kcal_mac_ps_risk_sum$coefficients, "latex",  digits = 3, caption = "Mac and Cheese - Risk x Portion Size for kcal", booktabs=TRUE) %>%
+  kable_styling(latex_options = c("hold_position", "repeat_header"))
+summary(grams_psxrisk_psquad_mod)
+```
+
+For the control variables, we see that children consumed 30.6 more kcal of mac and cheese for unit higher their BMI was. Also children consumed 36.2 kcal more for each unit higher their average liking of meal foods was.
+
+There was a significant effect of portion size such that 27.3 more kcal of mac and cheese were consumed in meal 4 (100% increase in portion) than in meal 1. There was no effect of risk status.
+
+\FloatBarrier
+\clearpage
+
+## Grapes
+
+### Grams
+
+#### Base Model
+
+The difference between models with and without quadratic effect was not significant indicating the added model parameters/complexity did not improve model fit. Should only model chicken nugget gram intake with linear effect.
+
+\FloatBarrier
+
+```{r grape_ps_gmod_base, include = TRUE}
+anova(grams_grape_ps_mod, grams_grape_ps_psquad_mod)
+```
+
+\FloatBarrier
+
+#### Risk x Portion Size
+
+\FloatBarrier
+
+```{r grape_ps_gmod_riskps, include = TRUE, echo=FALSE, results='asis'}
+grams_grape_psxrisk_sum <- summary(grams_grape_psxrisk_mod)
+
+kable(grams_grape_psxrisk_sum$coefficients, "latex",  digits = 3, caption = "Grapes - Risk x Portion Size for Grams", booktabs=TRUE) %>%
+  kable_styling(latex_options = c("hold_position", "repeat_header"))
+summary(grams_psxrisk_psquad_mod)
+```
+
+\FloatBarrier
+
+The interaction between Risk Status and Portion Size was not significiant so it was removed from the model.
+
+```{r grape_ps_gmod_risk_ps, include = TRUE, echo=FALSE, results='asis'}
+grams_grape_ps_risk_sum <- summary(grams_grape_ps_risk_mod)
+
+kable(grams_grape_ps_risk_sum$coefficients, "latex",  digits = 3, caption = "Grapes - Risk x Portion Size for Grams", booktabs=TRUE) %>%
+  kable_styling(latex_options = c("hold_position", "repeat_header"))
+summary(grams_psxrisk_psquad_mod)
+```
+
+For the control variables, we see that children consumed 9.1 grams more for each unit higher their average liking of grapes was. There was also an effect of meal order such that 4.7 fewer grams of grapes were consumed at each subsequent meal, regardless of portion size. Unlike the overall gram model, BMI was not associated with intake. 
+
+There was a significant effect of portion size such that 17.5 more grams of grapes were consumed in meal 4 (100% increase in portion) than in meal 1. However, there was no effect of risk status.
+
+\FloatBarrier
+\clearpage
+
+### kcal
+
+#### Base Model
+
+The difference between models with and without quadratic effect was not significant indicating the added model parameters/complexity did not improve model fit. Should only model chicken nugget kcal intake with linear effect.
+
+\FloatBarrier
+
+```{r grape_ps_kcalmod_base, include = TRUE}
+anova(kcal_grape_ps_mod, kcal_grape_ps_psquad_mod)
+```
+
+\FloatBarrier
+
+#### Risk x Portion Size
+
+\FloatBarrier
+
+```{r grape_ps_kcalmod_riskxps, include = TRUE, echo=FALSE, results='asis'}
+kcal_grape_psxrisk_sum <- summary(kcal_grape_psxrisk_mod)
+
+kable(kcal_grape_psxrisk_sum$coefficients, "latex",  digits = 3, caption = "Grapes - Risk x Portion Size for kcal", booktabs=TRUE) %>%
+  kable_styling(latex_options = c("hold_position", "repeat_header"))
+summary(grams_psxrisk_psquad_mod)
+```
+
+\FloatBarrier
+
+The interaction between Risk Status and Portion Size was not significant so it was removed from the model.
+
+```{r grape_ps_kcalmod_risk_ps, include = TRUE, echo=FALSE, results='asis'}
+kcal_grape_ps_risk_sum <- summary(kcal_grape_ps_risk_mod)
+
+kable(kcal_grape_ps_risk_sum$coefficients, "latex",  digits = 3, caption = "Grapes - Risk x Portion Size for kcal", booktabs=TRUE) %>%
+  kable_styling(latex_options = c("hold_position", "repeat_header"))
+summary(grams_psxrisk_psquad_mod)
+```
+
+For the control variables, we see that children consumed 6.3 kcal more for each unit higher their average liking of meal foods was. The also consumed 3.3 fewer kcal of grapes in each subsequent meal regardless of portion size.
+
+There was a significant effect of portion size such that 12.1 more kcal of grapes consumed in meal 4 (100% increase in portion) than in meal 1. There was no effect of risk status.
+
+\FloatBarrier
+\clearpage
+
+## Broccoli
+
+### Grams
+
+#### Base Model
+
+The difference between models with and without quadratic effect was not significant indicating the added model parameters/complexity did not improve model fit. Should only model chicken nugget gram intake with linear effect.
+
+\FloatBarrier
+
+```{r broc_ps_gmod_base, include = TRUE}
+anova(grams_broc_ps_mod, grams_broc_ps_psquad_mod)
+```
+
+\FloatBarrier
+
+#### Risk x Portion Size
+
+\FloatBarrier
+
+```{r broc_ps_gmod_riskps, include = TRUE, echo=FALSE, results='asis'}
+grams_broc_psxrisk_sum <- summary(grams_broc_psxrisk_mod)
+
+kable(grams_broc_psxrisk_sum$coefficients, "latex",  digits = 3, caption = "brocs - Risk x Portion Size for Grams", booktabs=TRUE) %>%
+  kable_styling(latex_options = c("hold_position", "repeat_header"))
+summary(grams_psxrisk_psquad_mod)
+```
+
+\FloatBarrier
+
+Unlike other models, none of the control variables were associated with broccoli intake.
+
+There was a significant interaction between Risk Status and Portion Size. 
+
+```{r brock_ps_gmod_riskps_slopes, include = TRUE, echo=FALSE, results='asis'}
+kable(test(grams_broc_psxrisk_slopes), "latex",  digits = 3, caption = "Estimated Simple Slopes: Risk Status x Portion Size for Broccoli grams", booktabs=TRUE) %>%
+  kable_styling(latex_options = c("hold_position", "repeat_header"))
+```
+
+There was trend for the interaction between Risk Status and Portion Size such that children at low risk consumed 7.4 more grams of chicken nuggets at 100% increase in portion size compared to the standard size (p = 0.128) while children at high risk consumed 9.3 grams fewer (p = 0.107) - though neither individual slope was different. Regardless of portion size, children with low risk consumed 16.7 grams more broccoli on average, regardless of portion size (p = 0.027) At portion size 1, the children at high risk consumed 2 grams more broccoli but consumed 14.64 fewer grams by the 4th portion (100% increase in portion size).
+
+\FloatBarrier
+\clearpage
+
+### kcal
+
+#### Base Model
+
+The difference between models with and without quadratic effect was not significant indicating the added model parameters/complexity did not improve model fit. Should only model chicken nugget kcal intake with linear effect.
+
+\FloatBarrier
+
+```{r broc_ps_kcalmod_base, include = TRUE}
+anova(kcal_broc_ps_mod, kcal_broc_ps_psquad_mod)
+```
+
+\FloatBarrier
+
+#### Risk x Portion Size
+
+\FloatBarrier
+
+```{r broc_ps_kcalmod_riskxps, include = TRUE, echo=FALSE, results='asis'}
+kcal_broc_psxrisk_sum <- summary(kcal_broc_psxrisk_mod)
+
+kable(kcal_broc_psxrisk_sum$coefficients, "latex",  digits = 3, caption = "brocs - Risk x Portion Size for kcal", booktabs=TRUE) %>%
+  kable_styling(latex_options = c("hold_position", "repeat_header"))
+summary(grams_psxrisk_psquad_mod)
+```
+
+\FloatBarrier
+
+Unlike other models, none of the control variables were associated with broccoli intake.
+
+There was a significant interaction between Risk Status and Portion Size. 
+
+```{r broc_ps_kcalmod_riskps_slopes, include = TRUE, echo=FALSE, results='asis'}
+kable(test(kcal_broc_psxrisk_slopes), "latex",  digits = 3, caption = "Estimated Simple Slopes: Risk Status x Portion Size for Broccoli kcal", booktabs=TRUE) %>%
+  kable_styling(latex_options = c("hold_position", "repeat_header"))
+```
+
+There was trend for the interaction between Risk Status and Portion Size such that children at low risk consumed 7.4 more kcal of chicken nuggets at 100% increase in portion size compared to the standard size (p = 0.128) while children at high risk consumed 9.3 kcal fewer (p = 0.107) - though neither individual slope was different. Regardless of portion size, children with low risk consumed 16.8 kcal more broccoli on average, regardless of portion size (p = 0.027) At portion size 1, the children at high risk consumed 2 kcal more broccoli but consumed 14.69 fewer kcal by the 4th portion (100% increase in portion size).
+
+\FloatBarrier
+\clearpage
+
+# Exploratory Analyses: Mediated Moderation
+
+Since broccoli was the only food showing a Risk Status x Portion Size interaction, I tested whether broccoli intake mediates the overall Risk x Porion Size interaction using a mediated moderation model.
+
+## Grams
+
+\FloatBarrier
+
+```{r broc_medmod_grams_riskxps, include = TRUE}
+summary(med_mod_psgrams_fit)
+```
+
+\FloatBarrier
+
+There was a significant level indirect effect (p = 0.036) indicating that broccoli intake mediated the interaction between risk status and portion size for gram intake.
+
+## kcal
+
+\FloatBarrier
+
+```{r broc_medmod_kcal_riskxps, include = TRUE}
+summary(med_mod_pskcal_fit)
+```
+
+\FloatBarrier
+
+There was a significant level indirect effect (p = 0.048) indicating that broccoli intake mediated the interaction between risk status and portion size for kcal intake.
