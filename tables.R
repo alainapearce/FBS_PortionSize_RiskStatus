@@ -32,26 +32,64 @@
 
 # source('setup_data.R')
 
-# race
-r01_intake$race <- ifelse(r01_intake$race == 0, 'White/Caucasian', ifelse(r01_intake$race == 2, 'Asian', ifelse(r01_intake$race == 3, 'Black/AA', 'Other')))
-
-# ethnicity
-r01_intake$ethnicity <- ifelse(r01_intake$ethnicity == 0, 'Not Hispanic/Lantinx', 'Hispanic/Lantinx')
-
 ## demo table
-intake_demo_data <- r01_intake[c(8, 10, 12, 14:16, 22, 746:747)]
-demo_risk_mom_tab <-
+intake_demo_data <- r01_intake[c(10, 12, 14:16, 22, 746:747)]
+demo_tab <-
   tbl_summary(
     data = intake_demo_data,
+    value = list(age_yr ~ "Age, yr", sex ~ "Sex", ethnicity ~ "Ethnicity", race ~ "Race", income ~ "Income", bmi_percentile ~ "BMI %tile", mom_ed ~ "Mother's Education", dad_ed ~ "Father's Education"),
+    label = list(age_yr ~ "Age, yr", sex ~ "Sex", ethnicity ~ "Ethnicity", race ~ "Race", income ~ "Income", bmi_percentile ~ "BMI %tile", mom_ed ~ "Mother's Education", dad_ed ~ "Father's Education"),
+    type = list(age_yr ~ "continuous", sex ~ "categorical", ethnicity ~ "categorical", race ~ "categorical", income ~ "categorical", bmi_percentile ~ "continuous", mom_ed ~ "categorical", dad_ed ~ "categorical"),
+    statistic = all_continuous() ~ c("{mean} ({sd})"),
+    missing = "ifany",
+    digits = all_continuous() ~ 1)
+
+risk_intake_demo_data <- r01_intake[c(8, 10, 12, 14:16, 22, 746:747)]
+demo_risk_mom_tab <-
+  tbl_summary(
+    data = risk_intake_demo_data,
     by = risk_status_mom,
     value = list(age_yr ~ "Age, yr", sex ~ "Sex", ethnicity ~ "Ethnicity", race ~ "Race", income ~ "Income", bmi_percentile ~ "BMI %tile", mom_ed ~ "Mother's Education", dad_ed ~ "Father's Education"),
     label = list(age_yr ~ "Age, yr", sex ~ "Sex", ethnicity ~ "Ethnicity", race ~ "Race", income ~ "Income", bmi_percentile ~ "BMI %tile", mom_ed ~ "Mother's Education", dad_ed ~ "Father's Education"),
-    statistic = all_continuous() ~ c("{mean} [{min} - {max}]"),
+    type = list(age_yr ~ "continuous", sex ~ "categorical", ethnicity ~ "categorical", race ~ "categorical", income ~ "categorical", bmi_percentile ~ "continuous", mom_ed ~ "categorical", dad_ed ~ "categorical"),
+    statistic = all_continuous() ~ c("{mean} ({sd})"),
     missing = "ifany",
     digits = all_continuous() ~ 1)
 
 
-## intake tables
+demo_merge_tab <-
+  tbl_merge(
+    tbls = list(demo_risk_mom_tab, demo_tab),
+    tab_spanner = c("**Risk Groups**", "**Overall**")
+  )
+
+## intake tables - total
+total_intake_data <- r01_intake[c(606:607, 748, 652:653, 749, 698:699, 750, 744:745, 751)]
+total_intake_tab <-
+  tbl_summary(
+    data = total_intake_data,
+    type = list(ps1_total_g ~ "continuous", ps1_total_kcal ~ "continuous",  ps1_avg_vas ~ "continuous", ps2_total_g ~ "continuous", ps2_total_kcal ~ "continuous", ps2_avg_vas ~ "continuous", ps3_total_g ~ "continuous", ps3_total_kcal ~ "continuous", ps3_avg_vas ~ "continuous", ps4_total_g ~ "continuous",  ps4_total_kcal ~ "continuous", ps4_avg_vas ~ "continuous"),
+    statistic = all_continuous() ~ c("{mean} ({sd})"),
+    missing = "no",
+    digits = all_continuous() ~ 1)
+
+total_intakerisk_data <- r01_intake[c(8, 606:607, 748, 652:653, 749, 698:699, 750, 744:745, 751)]
+total_intakerisk_tab <-
+  tbl_summary(
+    data = total_intakerisk_data,
+    by = risk_status_mom,
+    type = list(ps1_total_g ~ "continuous", ps1_total_kcal ~ "continuous",  ps1_avg_vas ~ "continuous", ps2_total_g ~ "continuous", ps2_total_kcal ~ "continuous", ps2_avg_vas ~ "continuous", ps3_total_g ~ "continuous", ps3_total_kcal ~ "continuous", ps3_avg_vas ~ "continuous", ps4_total_g ~ "continuous",  ps4_total_kcal ~ "continuous", ps4_avg_vas ~ "continuous"),
+    statistic = all_continuous() ~ c("{mean} ({sd})"),
+    missing = "no",
+    digits = all_continuous() ~ 1)
+
+intake_merge_tab <-
+  tbl_merge(
+    tbls = list(total_intakerisk_tab, total_intake_tab),
+    tab_spanner = c("**Risk Groups**", "**Overall**")
+  )
+
+## intake tables - by food
 intake_data <- intake_long[c(8, 17:28)]
 intake_tab <-
   tbl_summary(
@@ -82,8 +120,14 @@ lr_intake_tab <-
     missing = "no",
     digits = all_continuous() ~ 1)
 
-intake_merge_tab <-
-  tbl_merge(
-    tbls = list(hr_intake_tab, lr_intake_tab),
-    tab_spanner = c("**High Risk**", "**Low Risk**")
-  )
+#liking
+
+liking_data <- intake_long[c(8, 11, 25:28)]
+liking_tab <-
+  tbl_summary(
+    data = liking_data,
+    by = PortionSize,
+    type = list(avg_vas ~ "continuous", chnug_vas ~ "continuous",  mac_vas ~ "continuous", grape_vas ~ "continuous", broc_vas ~ "continuous"),
+    statistic = all_continuous() ~ c("{mean} ({sd})"),
+    missing = "no",
+    digits = all_continuous() ~ 1)

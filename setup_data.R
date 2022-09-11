@@ -27,56 +27,7 @@
 # source('functions.R')
 
 #### set up ####
-
-## 1) Demographics Data ####
-## a) Load Data ####
-r01_demo <- as.data.frame(read_spss(("data/demographics_data.sav")))
-names(r01_demo)[1] <- 'sub'
-
-#remove 2 that were removed for ADHD
-r01_demo = r01_demo[r01_demo$sub != 31 & r01_demo$sub != 34, ]
-
-## b) Get Variable Labels and Re-Level ####
-
-# risk status
-r01_demo$risk_status_mom <- droplevels(as_factor(r01_demo$risk_status_mom))
-r01_demo$risk_status_both <- droplevels(as_factor(r01_demo$risk_status_both))
-r01_demo$sex <- as_factor(r01_demo$sex)
-
-# income
-r01_demo$income <- ifelse(is.na(r01_demo$income), NA, ifelse(r01_demo$income < 3, '< $51,000', ifelse(r01_demo$income < 5, "$51,000 - $100,000", '>$100,000')))
-
-# parental ed
-r01_demo$mom_ed <- ifelse(r01_demo$measured_parent == 0, ifelse(r01_demo$parent_ed == 0, 'High School/GED', ifelse(r01_demo$parent_ed < 3, 'AA/Technical Degree', ifelse(r01_demo$parent_ed == 3, 'Bachelor Degree', ifelse(r01_demo$parent_ed < 8, '> Bachelor Degree', 'Other/NA')))), ifelse(r01_demo$partner_ed == 0, 'High School/GED', ifelse(r01_demo$partner_ed < 3, 'AA/Technical Degree', ifelse(r01_demo$partner_ed == 3, 'Bachelor Degree', ifelse(r01_demo$partner_ed < 8, '> Bachelor Degree', 'Other/NA')))))
-
-r01_demo$dad_ed <- ifelse(r01_demo$measured_parent == 1, ifelse(r01_demo$parent_ed == 0, 'High School/GED', ifelse(r01_demo$parent_ed < 3, 'AA/Technical Degree', ifelse(r01_demo$parent_ed == 3, 'Bachelor Degree', ifelse(r01_demo$parent_ed < 8, '> Bachelor Degree', 'Other/NA')))), ifelse(r01_demo$partner_ed == 0, 'High School/GED', ifelse(r01_demo$partner_ed < 3, 'AA/Technical Degree', ifelse(r01_demo$partner_ed == 3, 'Bachelor Degree', ifelse(r01_demo$partner_ed < 8, '> Bachelor Degree', 'Other/NA')))))
-
-# race
-r01_demo$race <- ifelse(r01_demo$race == 0, 'White/Caucasian', ifelse(r01_demo$race == 2, 'Asian', ifelse(r01_demo$race == 3, 'Black/AA', 'Other')))
-
-# ethnicity
-r01_demo$ethnicity <- ifelse(r01_demo$ethnicity == 0, 'Not Hispanic/Lantinx', 'Hispanic/Lantinx')
-
-# tanner
-r01_demo$pds_tanner_cat <- droplevels(as_factor(r01_demo$pds_tanner_cat))
-r01_demo$tanner_silhouette <- ifelse(r01_demo$sex == 'Male', r01_demo$tanner_male, r01_demo$tanner_female)
-r01_demo$tanner_silhouette <- ifelse(r01_demo$tanner_silhouette == 99, 'Skip', ifelse(r01_demo$tanner_silhouette == 1, 'Prepubertal', ifelse(r01_demo$tanner_silhouette == 2, 'Early Puberty', ifelse(r01_demo$tanner_silhouette == 3, 'Mid-Puberty', ifelse(r01_demo$tanner_silhouette == 4, 'Late Puberty', 'Postpubertal')))))
-
-# food insecurity
-r01_demo$hfssm_6item_cat <- droplevels(as_factor(r01_demo$hfssm_6item_cat))
-r01_demo$hfssm_household_cat <- droplevels(as_factor(r01_demo$hfssm_household_cat))
-r01_demo$hfssm_adult_cat <- droplevels(as_factor(r01_demo$hfssm_adult_cat))
-r01_demo$hfssm_child_cat <- droplevels(as_factor(r01_demo$hfssm_child_cat))
-
-r01_demo$hfias_category <- droplevels(as_factor(r01_demo$hfias_category))
-
-r01_demo$cchip_category <- droplevels(as_factor(r01_demo$cchip_category))
-
-# parents/community
-r01_demo$audit_cat <- droplevels(as_factor(r01_demo$audit_cat))
-r01_demo$v7_audit_cat <- droplevels(as_factor(r01_demo$v7_audit_cat))
-
-## 2) Intake Data ####
+## Intake Data ####
 ## a) Load Data ####
 r01_intake <- as.data.frame(read_spss(("data/intake_data.sav")))
 names(r01_intake)[1] <- 'sub'
@@ -96,13 +47,24 @@ r01_intake$risk_status_mom <- droplevels(as_factor(r01_intake$risk_status_mom))
 r01_intake$risk_status_both <- droplevels(as_factor(r01_intake$risk_status_both))
 r01_intake$sex <- as_factor(r01_intake$sex)
 
+# race
+r01_intake$race <- factor(r01_intake$race)
+
+# ethnicity
+r01_intake$ethnicity <- ifelse(r01_intake$ethnicity == 0, 'Not Hispanic/Lantinx', 'Hispanic/Lantinx')
+r01_intake$ethnicity <- factor(r01_intake$ethnicity)
+
 # income
 r01_intake$income <- ifelse(is.na(r01_intake$income), NA, ifelse(r01_intake$income < 3, '< $51,000', ifelse(r01_intake$income < 5, "$51,000 - $100,000", '>$100,000')))
+r01_intake$income <- factor(r01_intake$income)
 
 # parental ed
 r01_intake$mom_ed <- ifelse(r01_intake$measured_parent == 0, ifelse(r01_intake$parent_ed == 0, 'High School/GED', ifelse(r01_intake$parent_ed < 3, 'AA/Technical Degree', ifelse(r01_intake$parent_ed == 3, 'Bachelor Degree', ifelse(r01_intake$parent_ed < 8, '> Bachelor Degree', 'Other/NA')))), ifelse(r01_intake$partner_ed == 0, 'High School/GED', ifelse(r01_intake$partner_ed < 3, 'AA/Technical Degree', ifelse(r01_intake$partner_ed == 3, 'Bachelor Degree', ifelse(r01_intake$partner_ed < 8, '> Bachelor Degree', 'Other/NA')))))
+r01_intake$mom_ed <- factor(r01_intake$mom_ed)
 
 r01_intake$dad_ed <- ifelse(r01_intake$measured_parent == 1, ifelse(r01_intake$parent_ed == 0, 'High School/GED', ifelse(r01_intake$parent_ed < 3, 'AA/Technical Degree', ifelse(r01_intake$parent_ed == 3, 'Bachelor Degree', ifelse(r01_intake$parent_ed < 8, '> Bachelor Degree', 'Other/NA')))), ifelse(r01_intake$partner_ed == 0, 'High School/GED', ifelse(r01_intake$partner_ed < 3, 'AA/Technical Degree', ifelse(r01_intake$partner_ed == 3, 'Bachelor Degree', ifelse(r01_intake$partner_ed < 8, '> Bachelor Degree', 'Other/NA')))))
+r01_intake$dad_ed <- factor(r01_intake$dad_ed)
+
 
 ## average VAS
 r01_intake[c("ps1_vas_mac_cheese","ps1_vas_chkn_nug", "ps1_vas_broccoli","ps1_vas_grape", "ps2_vas_mac_cheese","ps2_vas_chkn_nug", "ps2_vas_broccoli","ps2_vas_grape", "ps3_vas_mac_cheese","ps3_vas_chkn_nug", "ps3_vas_broccoli","ps3_vas_grape", "ps4_vas_mac_cheese","ps4_vas_chkn_nug", "ps4_vas_broccoli","ps4_vas_grape")] <- sapply(r01_intake[c("ps1_vas_mac_cheese","ps1_vas_chkn_nug", "ps1_vas_broccoli","ps1_vas_grape", "ps2_vas_mac_cheese","ps2_vas_chkn_nug", "ps2_vas_broccoli","ps2_vas_grape", "ps3_vas_mac_cheese","ps3_vas_chkn_nug", "ps3_vas_broccoli","ps3_vas_grape", "ps4_vas_mac_cheese","ps4_vas_chkn_nug", "ps4_vas_broccoli","ps4_vas_grape")], FUN = as.numeric)
@@ -188,6 +150,19 @@ intake_long$broc_vas <- intake_broc_vas_long$value
 
 intake_grape_vas_long <- melt(r01_intake[c(1, 568, 614, 660, 706)], id.vars = 'sub')
 intake_long$grape_vas <- intake_grape_vas_long$value
+
+#individual ranks
+intake_mac_rank_long <- melt(r01_intake[c(1, 570, 616, 662, 708)], id.vars = 'sub')
+intake_long$mac_rank <- intake_mac_rank_long$value
+
+intake_chnug_rank_long <- melt(r01_intake[c(1, 571, 617, 663, 709)], id.vars = 'sub')
+intake_long$chnug_rank <- intake_chnug_rank_long$value
+
+intake_grape_rank_long <- melt(r01_intake[c(1, 573, 619, 665, 711)], id.vars = 'sub')
+intake_long$grape_rank <- intake_grape_rank_long$value
+
+intake_broc_rank_long <- melt(r01_intake[c(1, 572, 618, 664, 710)], id.vars = 'sub')
+intake_long$broc_rank <- intake_broc_rank_long$value
 
 #continuous approach:
 intake_long$ps_prop <- ifelse(intake_long[['PortionSize']] == 'PS-1', 0, ifelse(intake_long[['PortionSize']] == 'PS-2', 0.33, ifelse(intake_long[['PortionSize']] == 'PS-3', 0.66, 0.99)))

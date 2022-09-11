@@ -69,7 +69,6 @@ library(lmerTest)
 library(ggplot2)
 library(gtsummary)
 library(lavaan)
-library(feisr)
 ```
 
 ```{r load_scripts, echo=FALSE, results='asis'}
@@ -84,25 +83,66 @@ source('tables.R')
 # Demographics
 
 ```{r demo_tab, echo=FALSE, results='asis'}
-as_kable_extra(demo_risk_mom_tab, caption = 'Demographics', format = "latex", booktabs = TRUE, longtable = FALSE) %>%
+as_kable_extra(demo_merge_tab, caption = 'Demographics', format = "latex", booktabs = TRUE, longtable = FALSE) %>%
   kableExtra::kable_styling(latex_options = "hold_position",  full_width = FALSE)
 ```
 
+```{r demo_age_ttest, echo=FALSE}
+age_ttest
+```
+
+```{r demo_bmi_ttest, echo=FALSE}
+bmi_ttest
+bmi_sd
+```
+
+```{r demo_sex_chi, echo=FALSE}
+sex_chi
+```
+
+```{r demo_income_chi, echo=FALSE}
+income_chi
+```
+
+```{r demo_momed_fisheri, echo=FALSE}
+momed_fisher
+```
+
+# Meal Liking
+
+```{r liking_risk_ttest, echo=FALSE}
+kable(round(liking_sum$coefficients, 3), "latex",  digits = 3, caption = "Regression Table: Portion Size for Grams", booktabs=TRUE) %>%
+  kable_styling(latex_options = c("hold_position", "repeat_header"))
+```
+
+\FloatBarrier
+\clearpage
 # Portion Size Effect
 
 Note - Portion Size was coded in ps_prop as the proportion increase in amount served: Portion Size 1 = 0, Portion Size 2 = 0.33, Portion Size 3 = 0.66, and Portion Size 4 = 0.99. This means that a 1 unit increase is equal to a 100% increase in amount served -- the difference between Portion Size 1 and Portion Size 4.
 
+## Total Intake
+
 \FloatBarrier
 
 ```{r intake_tab, echo=FALSE, results='asis'}
-as_kable_extra(intake_tab, caption = 'Intake by Portion Size', format = "latex", booktabs = TRUE, longtable = FALSE) %>%
+as_kable_extra(intake_merge_tab, caption = 'Intake by Portion Size', format = "latex", booktabs = TRUE, longtable = FALSE) %>%
+  kableExtra::kable_styling(latex_options = "hold_position",  full_width = FALSE)
+```
+
+## Intake by Food
+
+\FloatBarrier
+
+```{r intake_tab_hr, echo=FALSE, results='asis'}
+as_kable_extra(hr_intake_tab, caption = 'High Risk: Intake by Portion Size', format = "latex", booktabs = TRUE, longtable = FALSE) %>%
   kableExtra::kable_styling(latex_options = "hold_position",  full_width = FALSE)
 ```
 
 \FloatBarrier
 
-```{r intake_rs_tab, echo=FALSE, results='asis'}
-as_kable_extra(intake_merge_tab, caption = 'Intake by Portion Size and Risk Status', format = "latex", booktabs = TRUE, longtable = FALSE) %>%
+```{r intake_tab_lr, echo=FALSE, results='asis'}
+as_kable_extra(lr_intake_tab, caption = 'Low Risk: Intake by Portion Size', format = "latex", booktabs = TRUE, longtable = FALSE) %>%
   kableExtra::kable_styling(latex_options = "hold_position",  full_width = FALSE)
 ```
 
@@ -172,19 +212,11 @@ The linear effect of portion size shows that 113 more kcals were consumed in the
 
 ### Grams
 
-Adding an interaction between Risk Status and Portion Size (linear effect) significantly improved model fit. 
+Adding an interaction between Risk Status and Portion Size significantly improved model fit. 
 \FloatBarrier
 
 ```{r intake_ps_gmodfit_riskxps, include = TRUE}
 anova(grams_psquad_mod, grams_psxrisk_psquad_mod)
-```
-
-\FloatBarrier
-
-Adding an interaction between Risk Status and the quadradic Portion Size effect did not significantly improve the model fit.
-
-```{r intake_psquad_gmodfit_riskxps, include = TRUE}
-anova(grams_psxrisk_psquad_mod, grams_psxrisk_psquadxrisk_mod)
 ```
 
 \FloatBarrier
@@ -198,12 +230,7 @@ grams_psxrisk_psquad_sum <- summary(grams_psxrisk_psquad_mod)
 
 kable(round(grams_psxrisk_psquad_sum$coefficients, 3), "latex",  digits = 3, caption = "Regression Table: Risk x Portion Size for Grams", booktabs=TRUE) %>%
   kable_styling(latex_options = c("hold_position", "repeat_header"))
-summary(grams_psxrisk_psquad_mod)
 ```
-
-\FloatBarrier
-
-The quadratic effect of portion size was also significant after controlling for all other variables, including Risk Status and Portion Size. This indicates there is a curvelinear effect of portion size on intake. The increase in amount consumed decreases by 63.9 grams for each increase in meal portions (i.e., 33% increase with each meal) such that intake increases up to the third largest meal (66% increase) with little change between the third and forth meals (i.e., 99% increase).
 
 \FloatBarrier
 
@@ -411,26 +438,21 @@ anova(grams_chnug_ps_mod, grams_chnug_ps_psquad_mod)
 
 \FloatBarrier
 
+```{r chnug_ps_gmod_ps, include = TRUE, echo=FALSE, results='asis'}
+grams_chnug_ps_sum <- summary(grams_chnug_ps_mod)
+
+kable(grams_chnug_ps_sum$coefficients, "latex",  digits = 3, caption = "Chicken Nugget - Portion Size for Grams", booktabs=TRUE) %>%
+  kable_styling(latex_options = c("hold_position", "repeat_header"))
+```
+
+\FloatBarrier
+
 ```{r chnug_ps_gmod_riskps, include = TRUE, echo=FALSE, results='asis'}
 grams_chnug_psxrisk_sum <- summary(grams_chnug_psxrisk_mod)
 
 kable(grams_chnug_psxrisk_sum$coefficients, "latex",  digits = 3, caption = "Chicken Nugget - Risk x Portion Size for Grams", booktabs=TRUE) %>%
   kable_styling(latex_options = c("hold_position", "repeat_header"))
 ```
-
-\FloatBarrier
-
-
-For the control variables, we see that children consumed 2.5 fewer grams for each cm higher their fullness rating was. Also children consumed 21.4 grams more for each unit higher their liking of chicken nuggets was. Unlike the overall gram model, BMI was not associated with intake. 
-
-\FloatBarrier
-
-```{r chnug_ps_gmod_riskps_slopes, include = TRUE, echo=FALSE, results='asis'}
-kable(test(grams_chnug_psxrisk_slopes), "latex",  digits = 3, caption = "Estimated Simple Slopes: Risk Status x Portion Size for Chicken Nuggets grams", booktabs=TRUE) %>%
-  kable_styling(latex_options = c("hold_position", "repeat_header"))
-```
-
-There was trend for the interaction between Risk Status and Portion Size such that children at low risk consumed 36 more grams of chicken nuggets at 100% increase in portion size compared to the standard size (p < 0.001) while children at high risk consumed only 16 grams more (p = 0.071). At portion size 1, the children at high risk consumed 5 fewer grams with the gap increasing to 25 fewer grams at 100% increase in portion size.
 
 \FloatBarrier
 \clearpage
@@ -453,24 +475,22 @@ anova(kcal_chnug_ps_mod, kcal_chnug_ps_psquad_mod)
 
 \FloatBarrier
 
+```{r chnug_ps_kcalmod_ps, include = TRUE, echo=FALSE, results='asis'}
+kcal_chnug_ps_sum <- summary(kcal_chnug_ps_mod)
+
+kable(kcal_chnug_ps_sum$coefficients, "latex",  digits = 3, caption = "Chicken - Nugget Portion Size for kcal", booktabs=TRUE) %>%
+  kable_styling(latex_options = c("hold_position", "repeat_header"))
+```
+
+\FloatBarrier
+
 ```{r chnug_ps_kcalmod_riskxps, include = TRUE, echo=FALSE, results='asis'}
 kcal_chnug_psxrisk_sum <- summary(kcal_chnug_psxrisk_mod)
 
 kable(kcal_chnug_psxrisk_sum$coefficients, "latex",  digits = 3, caption = "Chicken - Nugget Risk x Portion Size for kcal", booktabs=TRUE) %>%
   kable_styling(latex_options = c("hold_position", "repeat_header"))
-summary(grams_psxrisk_psquad_mod)
 ```
 
-For the control variables, we see that children consumed 6.5 fewer kcal for each cm higher their fullness rating was. Also children consumed 53 kcal more for each unit higher their average liking of meal foods was. Unlike the overall gram model, BMI was not associated with intake. 
-
-\FloatBarrier
-
-```{r chnug_ps_kcalmod_riskps_emmeans, include = TRUE, echo=FALSE, results='asis'}
-kable(test(kcal_chnug_psxrisk_slopes), "latex",  digits = 3, caption = "Estimated Simple Slopes: Risk Status x Portion Size for Chicken Nuggets kcal", booktabs=TRUE) %>%
-  kable_styling(latex_options = c("hold_position", "repeat_header"))
-```
-
-There was trend for the interaction between Risk Status and Portion Size such that children at low risk consumed 91 more kcal of chicken nuggets at 100% increase in portion size compared to the standard size (p < 0.001) while children at high risk consumed only 42 grams more (p = 0.071). At portion size 1, the children at high risk consumed 15 fewer kcal with the gap increasing to 50 fewer kcal at 100% increase in portion size.
 
 \FloatBarrier
 \clearpage
@@ -495,12 +515,20 @@ anova(grams_mac_ps_mod, grams_mac_ps_psquad_mod)
 
 \FloatBarrier
 
+```{r mac_ps_gmod_ps, include = TRUE, echo=FALSE, results='asis'}
+grams_mac_ps_sum <- summary(grams_mac_ps_mod)
+
+kable(grams_mac_ps_sum$coefficients, "latex",  digits = 3, caption = "Mac and Cheese - Portion Size for Grams", booktabs=TRUE) %>%
+  kable_styling(latex_options = c("hold_position", "repeat_header"))
+```
+
+\FloatBarrier
+
 ```{r mac_ps_gmod_riskps, include = TRUE, echo=FALSE, results='asis'}
 grams_mac_psxrisk_sum <- summary(grams_mac_psxrisk_mod)
 
 kable(grams_mac_psxrisk_sum$coefficients, "latex",  digits = 3, caption = "Mac and Cheese - Risk x Portion Size for Grams", booktabs=TRUE) %>%
   kable_styling(latex_options = c("hold_position", "repeat_header"))
-summary(grams_psxrisk_psquad_mod)
 ```
 
 \FloatBarrier
@@ -512,7 +540,6 @@ grams_mac_ps_risk_sum <- summary(grams_mac_ps_risk_mod)
 
 kable(grams_mac_ps_risk_sum$coefficients, "latex",  digits = 3, caption = "Mac and Cheese - Risk x Portion Size for Grams", booktabs=TRUE) %>%
   kable_styling(latex_options = c("hold_position", "repeat_header"))
-summary(grams_psxrisk_psquad_mod)
 ```
 
 For the control variables, we see that children consumed 18 grams more of mac and cheese for each unit higher their BMI was at baseline. Also children consumed 21.3 grams more for each unit higher their average liking of meal foods was. Unlike the overall gram model, BMI was not associated with intake. 
@@ -540,12 +567,20 @@ anova(kcal_mac_ps_mod, kcal_mac_ps_psquad_mod)
 
 \FloatBarrier
 
+```{r mac_ps_kcalmod_ps, include = TRUE, echo=FALSE, results='asis'}
+kcal_mac_ps_sum <- summary(kcal_mac_ps_mod)
+
+kable(kcal_mac_ps_sum$coefficients, "latex",  digits = 3, caption = "Mac and Cheese - Portion Size for kcal", booktabs=TRUE) %>%
+  kable_styling(latex_options = c("hold_position", "repeat_header"))
+```
+
+\FloatBarrier
+
 ```{r mac_ps_kcalmod_riskxps, include = TRUE, echo=FALSE, results='asis'}
 kcal_mac_psxrisk_sum <- summary(kcal_mac_psxrisk_mod)
 
 kable(kcal_mac_psxrisk_sum$coefficients, "latex",  digits = 3, caption = "Mac and Cheese - Risk x Portion Size for kcal", booktabs=TRUE) %>%
   kable_styling(latex_options = c("hold_position", "repeat_header"))
-summary(grams_psxrisk_psquad_mod)
 ```
 
 \FloatBarrier
@@ -557,7 +592,6 @@ kcal_mac_ps_risk_sum <- summary(kcal_mac_ps_risk_mod)
 
 kable(kcal_mac_ps_risk_sum$coefficients, "latex",  digits = 3, caption = "Mac and Cheese - Risk x Portion Size for kcal", booktabs=TRUE) %>%
   kable_styling(latex_options = c("hold_position", "repeat_header"))
-summary(grams_psxrisk_psquad_mod)
 ```
 
 For the control variables, we see that children consumed 30.6 more kcal of mac and cheese for unit higher their BMI was. Also children consumed 36.2 kcal more for each unit higher their average liking of meal foods was.
@@ -587,12 +621,20 @@ anova(grams_grape_ps_mod, grams_grape_ps_psquad_mod)
 
 \FloatBarrier
 
+```{r grape_ps_gmod_ps, include = TRUE, echo=FALSE, results='asis'}
+grams_grape_ps_sum <- summary(grams_grape_ps_mod)
+
+kable(grams_grape_ps_sum$coefficients, "latex",  digits = 3, caption = "Grapes - Portion Size for Grams", booktabs=TRUE) %>%
+  kable_styling(latex_options = c("hold_position", "repeat_header"))
+```
+
+\FloatBarrier
+
 ```{r grape_ps_gmod_riskps, include = TRUE, echo=FALSE, results='asis'}
 grams_grape_psxrisk_sum <- summary(grams_grape_psxrisk_mod)
 
 kable(grams_grape_psxrisk_sum$coefficients, "latex",  digits = 3, caption = "Grapes - Risk x Portion Size for Grams", booktabs=TRUE) %>%
   kable_styling(latex_options = c("hold_position", "repeat_header"))
-summary(grams_psxrisk_psquad_mod)
 ```
 
 \FloatBarrier
@@ -604,7 +646,6 @@ grams_grape_ps_risk_sum <- summary(grams_grape_ps_risk_mod)
 
 kable(grams_grape_ps_risk_sum$coefficients, "latex",  digits = 3, caption = "Grapes - Risk x Portion Size for Grams", booktabs=TRUE) %>%
   kable_styling(latex_options = c("hold_position", "repeat_header"))
-summary(grams_psxrisk_psquad_mod)
 ```
 
 For the control variables, we see that children consumed 9.1 grams more for each unit higher their average liking of grapes was. There was also an effect of meal order such that 4.7 fewer grams of grapes were consumed at each subsequent meal, regardless of portion size. Unlike the overall gram model, BMI was not associated with intake. 
@@ -632,12 +673,20 @@ anova(kcal_grape_ps_mod, kcal_grape_ps_psquad_mod)
 
 \FloatBarrier
 
+```{r grape_ps_kcalmod_ps, include = TRUE, echo=FALSE, results='asis'}
+kcal_grape_ps_sum <- summary(kcal_grape_ps_mod)
+
+kable(kcal_grape_ps_sum$coefficients, "latex",  digits = 3, caption = "Grapes - Portion Size for kcal", booktabs=TRUE) %>%
+  kable_styling(latex_options = c("hold_position", "repeat_header"))
+```
+
+\FloatBarrier
+
 ```{r grape_ps_kcalmod_riskxps, include = TRUE, echo=FALSE, results='asis'}
 kcal_grape_psxrisk_sum <- summary(kcal_grape_psxrisk_mod)
 
 kable(kcal_grape_psxrisk_sum$coefficients, "latex",  digits = 3, caption = "Grapes - Risk x Portion Size for kcal", booktabs=TRUE) %>%
   kable_styling(latex_options = c("hold_position", "repeat_header"))
-summary(grams_psxrisk_psquad_mod)
 ```
 
 \FloatBarrier
@@ -649,7 +698,6 @@ kcal_grape_ps_risk_sum <- summary(kcal_grape_ps_risk_mod)
 
 kable(kcal_grape_ps_risk_sum$coefficients, "latex",  digits = 3, caption = "Grapes - Risk x Portion Size for kcal", booktabs=TRUE) %>%
   kable_styling(latex_options = c("hold_position", "repeat_header"))
-summary(grams_psxrisk_psquad_mod)
 ```
 
 For the control variables, we see that children consumed 6.3 kcal more for each unit higher their average liking of meal foods was. The also consumed 3.3 fewer kcal of grapes in each subsequent meal regardless of portion size.
@@ -677,6 +725,17 @@ anova(grams_broc_ps_mod, grams_broc_ps_psquad_mod)
 
 #### Risk x Portion Size
 
+
+\FloatBarrier
+
+```{r broc_ps_gmod_ps, include = TRUE, echo=FALSE, results='asis'}
+grams_broc_ps_sum <- summary(grams_broc_ps_mod)
+
+kable(grams_broc_ps_sum$coefficients, "latex",  digits = 3, caption = "Broccoli - Portion Size for Grams", booktabs=TRUE) %>%
+  kable_styling(latex_options = c("hold_position", "repeat_header"))
+```
+
+
 \FloatBarrier
 
 ```{r broc_ps_gmod_riskps, include = TRUE, echo=FALSE, results='asis'}
@@ -684,7 +743,6 @@ grams_broc_psxrisk_sum <- summary(grams_broc_psxrisk_mod)
 
 kable(grams_broc_psxrisk_sum$coefficients, "latex",  digits = 3, caption = "brocs - Risk x Portion Size for Grams", booktabs=TRUE) %>%
   kable_styling(latex_options = c("hold_position", "repeat_header"))
-summary(grams_psxrisk_psquad_mod)
 ```
 
 \FloatBarrier
@@ -721,12 +779,20 @@ anova(kcal_broc_ps_mod, kcal_broc_ps_psquad_mod)
 
 \FloatBarrier
 
+```{r broc_ps_kcalmod_ps, include = TRUE, echo=FALSE, results='asis'}
+kcal_broc_ps_sum <- summary(kcal_broc_ps_mod)
+
+kable(kcal_broc_ps_sum$coefficients, "latex",  digits = 3, caption = "Broccoli - Portion Size for kcal", booktabs=TRUE) %>%
+  kable_styling(latex_options = c("hold_position", "repeat_header"))
+```
+
+\FloatBarrier
+
 ```{r broc_ps_kcalmod_riskxps, include = TRUE, echo=FALSE, results='asis'}
 kcal_broc_psxrisk_sum <- summary(kcal_broc_psxrisk_mod)
 
 kable(kcal_broc_psxrisk_sum$coefficients, "latex",  digits = 3, caption = "brocs - Risk x Portion Size for kcal", booktabs=TRUE) %>%
   kable_styling(latex_options = c("hold_position", "repeat_header"))
-summary(grams_psxrisk_psquad_mod)
 ```
 
 \FloatBarrier

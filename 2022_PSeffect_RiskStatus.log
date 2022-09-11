@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.24 (TeX Live 2022) (preloaded format=pdflatex 2022.8.30)  3 SEP 2022 12:46
+This is pdfTeX, Version 3.141592653-2.6-1.40.24 (TeX Live 2022) (preloaded format=pdflatex 2022.8.30)  11 SEP 2022 16:27
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -686,11 +686,11 @@ File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 File: mt-msb.cfg 2005/06/01 v1.0 microtype config. file: AMS symbols (b) (RS)
 ) (./2022_PSeffect_RiskStatus.toc
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <10> on input line 3.
+(Font)              <10> on input line 4.
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <7> on input line 3.
+(Font)              <7> on input line 4.
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <5> on input line 3.
+(Font)              <5> on input line 4.
 )
 \tf@toc=\write3
 \openout3 = `2022_PSeffect_RiskStatus.toc'.
@@ -698,293 +698,306 @@ LaTeX Font Info:    External font `lmex10' loaded for size
 [1
 
 {/usr/local/texlive/2022/texmf-var/fonts/map/pdftex/updmap/pdftex.map}]
-Overfull \hbox (119.5992pt too wide) in paragraph at lines 181--204
- [][] 
+LaTeX Font Info:    Trying to load font information for T1+lmtt on input line 1
+57.
+(/usr/local/texlive/2022/texmf-dist/tex/latex/lm/t1lmtt.fd
+File: t1lmtt.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
+)
+Overfull \hbox (102.49332pt too wide) in paragraph at lines 169--169
+[]\T1/lmtt/m/n/10 alternative hypothesis: true difference in means between grou
+p Low Risk and group High Risk is not equal to 0[] 
  []
 
 
-LaTeX Warning: `!h' float specifier changed to `!ht'.
+Overfull \hbox (102.49332pt too wide) in paragraph at lines 183--183
+[]\T1/lmtt/m/n/10 alternative hypothesis: true difference in means between grou
+p Low Risk and group High Risk is not equal to 0[] 
+ []
 
 [2
 
 ]
-LaTeX Font Info:    Trying to load font information for T1+lmtt on input line 2
-26.
-(/usr/local/texlive/2022/texmf-dist/tex/latex/lm/t1lmtt.fd
-File: t1lmtt.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
-)
-Overfull \hbox (49.99347pt too wide) in paragraph at lines 236--236
+LaTeX Font Info:    Trying to load font information for TS1+lmtt on input line 
+196.
+(/usr/local/texlive/2022/texmf-dist/tex/latex/lm/ts1lmtt.fd
+File: ts1lmtt.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
+) [3]
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+[4
+
+]
+Overfull \hbox (49.99347pt too wide) in paragraph at lines 378--378
 []\T1/lmtt/m/n/10 grams_psquad_mod: grams ~ preFF + bmi + sex + avg_vas + meal_
 order + ps_prop + ps_prop2 + (1 | sub)[] 
  []
 
-LaTeX Font Info:    Trying to load font information for TS1+lmtt on input line 
-236.
-(/usr/local/texlive/2022/texmf-dist/tex/latex/lm/ts1lmtt.fd
-File: ts1lmtt.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
-) [3]
-Overfull \hbox (39.4935pt too wide) in paragraph at lines 300--300
+[5]
+Overfull \hbox (39.4935pt too wide) in paragraph at lines 442--442
 []\T1/lmtt/m/n/10 kcal_psquad_mod: kcal ~ preFF + bmi + sex + avg_vas + meal_or
 der + ps_prop + ps_prop2 + (1 | sub)[] 
  []
 
-[4]
-Overfull \hbox (49.99347pt too wide) in paragraph at lines 362--362
+[6]
+Overfull \hbox (49.99347pt too wide) in paragraph at lines 504--504
 []\T1/lmtt/m/n/10 grams_psquad_mod: grams ~ preFF + bmi + sex + avg_vas + meal_
 order + ps_prop + ps_prop2 + (1 | sub)[] 
  []
 
 
-Overfull \hbox (233.74294pt too wide) in paragraph at lines 362--362
+Overfull \hbox (233.74294pt too wide) in paragraph at lines 504--504
 []\T1/lmtt/m/n/10 grams_psxrisk_psquad_mod: grams ~ preFF + bmi + sex + age_yr 
 + avg_vas + meal_order + risk_status_mom * ps_prop + ps_prop2 + (1 | sub)[] 
  []
 
-
-Overfull \hbox (233.74294pt too wide) in paragraph at lines 380--380
-[]\T1/lmtt/m/n/10 grams_psxrisk_psquad_mod: grams ~ preFF + bmi + sex + age_yr 
-+ avg_vas + meal_order + risk_status_mom * ps_prop + ps_prop2 + (1 | sub)[] 
- []
-
-
-Overfull \hbox (317.74269pt too wide) in paragraph at lines 380--380
-[]\T1/lmtt/m/n/10 grams_psxrisk_psquadxrisk_mod: grams ~ preFF + bmi + sex + ag
-e_yr + avg_vas + meal_order + ps_prop * ps_prop2 + risk_status_mom * ps_prop2 +
- (1 | sub)[] 
- []
-
-[5
-
-]
-<figs/intake_fig_grams_psxr-1.pdf, id=78, 417.56pt x 279.0425pt>
+<figs/intake_fig_grams_psxr-1.pdf, id=89, 417.56pt x 279.0425pt>
 File: figs/intake_fig_grams_psxr-1.pdf Graphic file (type pdf)
 <use figs/intake_fig_grams_psxr-1.pdf>
-Package pdftex.def Info: figs/intake_fig_grams_psxr-1.pdf  used on input line 4
-89.
+Package pdftex.def Info: figs/intake_fig_grams_psxr-1.pdf  used on input line 5
+44.
 (pdftex.def)             Requested size: 417.5717pt x 279.05032pt.
-[6]
+[7
+
+]
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-[7 <./figs/intake_fig_grams_psxr-1.pdf>]
-Overfull \hbox (102.49332pt too wide) in paragraph at lines 573--573
+[8 <./figs/intake_fig_grams_psxr-1.pdf>]
+Overfull \hbox (102.49332pt too wide) in paragraph at lines 628--628
 []\T1/lmtt/m/n/10 alternative hypothesis: true difference in means between grou
 p Low Risk and group High Risk is not equal to 0[] 
  []
 
 
-Overfull \hbox (102.49332pt too wide) in paragraph at lines 587--587
+Overfull \hbox (102.49332pt too wide) in paragraph at lines 642--642
 []\T1/lmtt/m/n/10 alternative hypothesis: true difference in means between grou
 p Low Risk and group High Risk is not equal to 0[] 
  []
 
 
-Overfull \hbox (102.49332pt too wide) in paragraph at lines 601--601
+Overfull \hbox (102.49332pt too wide) in paragraph at lines 656--656
 []\T1/lmtt/m/n/10 alternative hypothesis: true difference in means between grou
 p Low Risk and group High Risk is not equal to 0[] 
  []
 
-[8]
-Overfull \hbox (102.49332pt too wide) in paragraph at lines 615--615
+[9]
+Overfull \hbox (102.49332pt too wide) in paragraph at lines 670--670
 []\T1/lmtt/m/n/10 alternative hypothesis: true difference in means between grou
 p Low Risk and group High Risk is not equal to 0[] 
  []
 
 
-Overfull \hbox (128.74324pt too wide) in paragraph at lines 635--635
+Overfull \hbox (128.74324pt too wide) in paragraph at lines 690--690
 []\T1/lmtt/m/n/10 kcal_psxrisk_mod: kcal ~ preFF + bmi + sex + age_yr + avg_vas
  + meal_order + risk_status_mom * ps_prop + (1 | sub)[] 
  []
 
-<figs/intake_fig_kcal_psxrisk-1.pdf, id=109, 417.56pt x 279.0425pt>
+<figs/intake_fig_kcal_psxrisk-1.pdf, id=122, 417.56pt x 279.0425pt>
 File: figs/intake_fig_kcal_psxrisk-1.pdf Graphic file (type pdf)
 <use figs/intake_fig_kcal_psxrisk-1.pdf>
 Package pdftex.def Info: figs/intake_fig_kcal_psxrisk-1.pdf  used on input line
- 673.
+ 728.
 (pdftex.def)             Requested size: 417.5717pt x 279.05032pt.
-[9]
+[10]
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-[10 <./figs/intake_fig_kcal_psxrisk-1.pdf>]
-Overfull \hbox (102.49332pt too wide) in paragraph at lines 754--754
+[11 <./figs/intake_fig_kcal_psxrisk-1.pdf>]
+Overfull \hbox (102.49332pt too wide) in paragraph at lines 809--809
 []\T1/lmtt/m/n/10 alternative hypothesis: true difference in means between grou
 p Low Risk and group High Risk is not equal to 0[] 
  []
 
 
-Overfull \hbox (102.49332pt too wide) in paragraph at lines 768--768
+Overfull \hbox (102.49332pt too wide) in paragraph at lines 823--823
 []\T1/lmtt/m/n/10 alternative hypothesis: true difference in means between grou
 p Low Risk and group High Risk is not equal to 0[] 
  []
 
 
-Overfull \hbox (102.49332pt too wide) in paragraph at lines 782--782
-[]\T1/lmtt/m/n/10 alternative hypothesis: true difference in means between grou
-p Low Risk and group High Risk is not equal to 0[] 
- []
-
-[11]
-Overfull \hbox (102.49332pt too wide) in paragraph at lines 796--796
+Overfull \hbox (102.49332pt too wide) in paragraph at lines 837--837
 []\T1/lmtt/m/n/10 alternative hypothesis: true difference in means between grou
 p Low Risk and group High Risk is not equal to 0[] 
  []
 
 [12]
-Overfull \hbox (233.74294pt too wide) in paragraph at lines 853--853
+Overfull \hbox (102.49332pt too wide) in paragraph at lines 851--851
+[]\T1/lmtt/m/n/10 alternative hypothesis: true difference in means between grou
+p Low Risk and group High Risk is not equal to 0[] 
+ []
+
+[13]
+Overfull \hbox (233.74294pt too wide) in paragraph at lines 908--908
 []\T1/lmtt/m/n/10 grams_psxrisk_psquad_mod: grams ~ preFF + bmi + sex + age_yr 
 + avg_vas + meal_order + risk_status_mom * ps_prop + ps_prop2 + (1 | sub)[] 
  []
 
 
-Overfull \hbox (354.49258pt too wide) in paragraph at lines 853--853
+Overfull \hbox (354.49258pt too wide) in paragraph at lines 908--908
 []\T1/lmtt/m/n/10 grams_psxrisk_psxbmi_psquad_mod: grams ~ preFF + bmi + sex + 
 age_yr + avg_vas + meal_order + risk_status_mom * ps_prop + bmi * ps_prop + ps_
 prop2 + (1 | sub)[] 
  []
 
-[13
+[14
 
 ]
-Overfull \hbox (44.74348pt too wide) in paragraph at lines 910--910
+Overfull \hbox (44.74348pt too wide) in paragraph at lines 965--965
 []\T1/lmtt/m/n/10 grams_chnug_ps_mod: chnug_grams ~ preFF + bmi + sex + chnug_v
 as + meal_order + ps_prop + (1 | sub)[] 
  []
 
 
-Overfull \hbox (139.24321pt too wide) in paragraph at lines 910--910
+Overfull \hbox (139.24321pt too wide) in paragraph at lines 965--965
 []\T1/lmtt/m/n/10 grams_chnug_ps_psquad_mod: chnug_grams ~ preFF + bmi + sex + 
 chnug_vas + meal_order + ps_prop + ps_prop2 + (1 | sub)[] 
  []
 
-[14
+[15
 
-] [15]
-Overfull \hbox (34.24352pt too wide) in paragraph at lines 1007--1007
+]
+Overfull \hbox (34.24352pt too wide) in paragraph at lines 1045--1045
 []\T1/lmtt/m/n/10 kcal_chnug_ps_mod: chnug_kcal ~ preFF + bmi + sex + chnug_vas
  + meal_order + ps_prop + (1 | sub)[] 
  []
 
 
-Overfull \hbox (128.74324pt too wide) in paragraph at lines 1007--1007
+Overfull \hbox (128.74324pt too wide) in paragraph at lines 1045--1045
 []\T1/lmtt/m/n/10 kcal_chnug_ps_psquad_mod: chnug_kcal ~ preFF + bmi + sex + ch
 nug_vas + meal_order + ps_prop + ps_prop2 + (1 | sub)[] 
  []
 
 [16
 
-] [17]
-Overfull \hbox (13.24358pt too wide) in paragraph at lines 1164--1164
+]
+Overfull \hbox (13.24358pt too wide) in paragraph at lines 1128--1128
 []\T1/lmtt/m/n/10 grams_mac_ps_mod: mac_grams ~ preFF + bmi + sex + mac_vas + m
 eal_order + ps_prop + (1 | sub)[] 
  []
 
 
-Overfull \hbox (107.7433pt too wide) in paragraph at lines 1164--1164
+Overfull \hbox (107.7433pt too wide) in paragraph at lines 1128--1128
 []\T1/lmtt/m/n/10 grams_mac_ps_psquad_mod: mac_grams ~ preFF + bmi + sex + mac_
 vas + meal_order + ps_prop + ps_prop2 + (1 | sub)[] 
  []
 
-[18
 
-] [19] [20]
-Overfull \hbox (2.7436pt too wide) in paragraph at lines 1373--1373
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+[17
+
+] [18]
+Overfull \hbox (2.7436pt too wide) in paragraph at lines 1241--1241
 []\T1/lmtt/m/n/10 kcal_mac_ps_mod: mac_kcal ~ preFF + bmi + sex + mac_vas + mea
 l_order + ps_prop + (1 | sub)[] 
  []
 
 
-Overfull \hbox (97.24333pt too wide) in paragraph at lines 1373--1373
+Overfull \hbox (97.24333pt too wide) in paragraph at lines 1241--1241
 []\T1/lmtt/m/n/10 kcal_mac_ps_psquad_mod: mac_kcal ~ preFF + bmi + sex + mac_va
 s + meal_order + ps_prop + ps_prop2 + (1 | sub)[] 
  []
 
-[21
 
-] [22] [23]
-Overfull \hbox (44.74348pt too wide) in paragraph at lines 1587--1587
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+[19
+
+] [20]
+Overfull \hbox (44.74348pt too wide) in paragraph at lines 1359--1359
 []\T1/lmtt/m/n/10 grams_grape_ps_mod: grape_grams ~ preFF + bmi + sex + grape_v
 as + meal_order + ps_prop + (1 | sub)[] 
  []
 
 
-Overfull \hbox (139.24321pt too wide) in paragraph at lines 1587--1587
+Overfull \hbox (139.24321pt too wide) in paragraph at lines 1359--1359
 []\T1/lmtt/m/n/10 grams_grape_ps_psquad_mod: grape_grams ~ preFF + bmi + sex + 
 grape_vas + meal_order + ps_prop + ps_prop2 + (1 | sub)[] 
  []
 
-[24
 
-] [25] [26]
-Overfull \hbox (34.24352pt too wide) in paragraph at lines 1799--1799
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+[21
+
+] [22]
+Overfull \hbox (34.24352pt too wide) in paragraph at lines 1475--1475
 []\T1/lmtt/m/n/10 kcal_grape_ps_mod: grape_kcal ~ preFF + bmi + sex + grape_vas
  + meal_order + ps_prop + (1 | sub)[] 
  []
 
 
-Overfull \hbox (128.74324pt too wide) in paragraph at lines 1799--1799
+Overfull \hbox (128.74324pt too wide) in paragraph at lines 1475--1475
 []\T1/lmtt/m/n/10 kcal_grape_ps_psquad_mod: grape_kcal ~ preFF + bmi + sex + gr
 ape_vas + meal_order + ps_prop + ps_prop2 + (1 | sub)[] 
  []
 
-[27
 
-] [28] [29]
-Overfull \hbox (28.99353pt too wide) in paragraph at lines 2013--2013
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+[23
+
+] [24]
+Overfull \hbox (28.99353pt too wide) in paragraph at lines 1593--1593
 []\T1/lmtt/m/n/10 grams_broc_ps_mod: broc_grams ~ preFF + bmi + sex + broc_vas 
 + meal_order + ps_prop + (1 | sub)[] 
  []
 
 
-Overfull \hbox (123.49326pt too wide) in paragraph at lines 2013--2013
+Overfull \hbox (123.49326pt too wide) in paragraph at lines 1593--1593
 []\T1/lmtt/m/n/10 grams_broc_ps_psquad_mod: broc_grams ~ preFF + bmi + sex + br
 oc_vas + meal_order + ps_prop + ps_prop2 + (1 | sub)[] 
  []
 
-[30
 
-] [31]
-Overfull \hbox (18.49356pt too wide) in paragraph at lines 2170--2170
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+[25
+
+] [26]
+Overfull \hbox (18.49356pt too wide) in paragraph at lines 1713--1713
 []\T1/lmtt/m/n/10 kcal_broc_ps_mod: broc_kcal ~ preFF + bmi + sex + broc_vas + 
 meal_order + ps_prop + (1 | sub)[] 
  []
 
 
-Overfull \hbox (112.99329pt too wide) in paragraph at lines 2170--2170
+Overfull \hbox (112.99329pt too wide) in paragraph at lines 1713--1713
 []\T1/lmtt/m/n/10 kcal_broc_ps_psquad_mod: broc_kcal ~ preFF + bmi + sex + broc
 _vas + meal_order + ps_prop + ps_prop2 + (1 | sub)[] 
  []
 
-[32
 
-] [33] [34
+LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-] [35] [36] (./2022_PSeffect_RiskStatus.aux) ) 
+[27
+
+] [28] [29
+
+] [30] [31] (./2022_PSeffect_RiskStatus.aux) ) 
 Here is how much of TeX's memory you used:
  17363 strings out of 478268
- 284873 string characters out of 5846347
- 627247 words of memory out of 5000000
- 34967 multiletter control sequences out of 15000+600000
- 538639 words of font info for 140 fonts, out of 8000000 for 9000
+ 284965 string characters out of 5846347
+ 624824 words of memory out of 5000000
+ 34976 multiletter control sequences out of 15000+600000
+ 529198 words of font info for 130 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  74i,13n,77p,1021b,494s stack positions out of 10000i,1000n,20000p,200000b,200000s
 {/usr/local/texlive/2022/texmf-di
-st/fonts/enc/dvips/lm/lm-ec.enc}{/usr/local/texlive/2022/texmf-dist/fonts/enc/d
-vips/lm/lm-mathit.enc}{/usr/local/texlive/2022/texmf-dist/fonts/enc/dvips/lm/lm
--ts1.enc}</usr/local/texlive/2022/texmf-dist/fonts/type1/public/lm/lmbx10.pfb><
+st/fonts/enc/dvips/lm/lm-mathit.enc}{/usr/local/texlive/2022/texmf-dist/fonts/e
+nc/dvips/lm/lm-ts1.enc}{/usr/local/texlive/2022/texmf-dist/fonts/enc/dvips/lm/l
+m-ec.enc}</usr/local/texlive/2022/texmf-dist/fonts/type1/public/lm/lmbx10.pfb><
 /usr/local/texlive/2022/texmf-dist/fonts/type1/public/lm/lmbx12.pfb></usr/local
 /texlive/2022/texmf-dist/fonts/type1/public/lm/lmbx8.pfb></usr/local/texlive/20
-22/texmf-dist/fonts/type1/public/lm/lmbxi10.pfb></usr/local/texlive/2022/texmf-
-dist/fonts/type1/public/lm/lmmi10.pfb></usr/local/texlive/2022/texmf-dist/fonts
-/type1/public/lm/lmr10.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/publ
-ic/lm/lmr17.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/lm/lmr6.
-pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/lm/lmr8.pfb></usr/lo
-cal/texlive/2022/texmf-dist/fonts/type1/public/lm/lmri10.pfb></usr/local/texliv
-e/2022/texmf-dist/fonts/type1/public/lm/lmtt10.pfb>
-Output written on 2022_PSeffect_RiskStatus.pdf (36 pages, 354225 bytes).
+22/texmf-dist/fonts/type1/public/lm/lmmi10.pfb></usr/local/texlive/2022/texmf-d
+ist/fonts/type1/public/lm/lmr10.pfb></usr/local/texlive/2022/texmf-dist/fonts/t
+ype1/public/lm/lmr17.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public
+/lm/lmr6.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/lm/lmr8.pfb
+></usr/local/texlive/2022/texmf-dist/fonts/type1/public/lm/lmtt10.pfb>
+Output written on 2022_PSeffect_RiskStatus.pdf (31 pages, 306514 bytes).
 PDF statistics:
- 451 PDF objects out of 1000 (max. 8388607)
- 380 compressed objects within 4 object streams
- 158 named destinations out of 1000 (max. 500000)
- 36979 words of extra memory for PDF output out of 42996 (max. 10000000)
+ 448 PDF objects out of 1000 (max. 8388607)
+ 386 compressed objects within 4 object streams
+ 167 named destinations out of 1000 (max. 500000)
+ 32907 words of extra memory for PDF output out of 35830 (max. 10000000)
 

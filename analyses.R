@@ -31,6 +31,37 @@
 
 #### set up ####
 
+# check plate cleaning
+r01_intake$ps1_main4_total_g <- rowSums(r01_intake[c('ps1_consumed_mac_cheese_g', 'ps1_consumed_grapes_g', 'ps1_consumed_chkn_nug_g', 'ps1_consumed_broccoli_g')])
+r01_intake$ps1_plate_clean <- ifelse(r01_intake$ps1_total_g >= 798, 1, 0)
+
+r01_intake$ps2_main4_total_g <- rowSums(r01_intake[c('ps2_consumed_mac_cheese_g', 'ps2_consumed_grapes_g', 'ps2_consumed_chkn_nug_g', 'ps2_consumed_broccoli_g')])
+r01_intake$ps2_plate_clean <- ifelse(r01_intake$ps2_main4_total_g >= 1037.4, 1, 0)
+
+r01_intake$ps3_main4_total_g <- rowSums(r01_intake[c('ps3_consumed_mac_cheese_g', 'ps3_consumed_grapes_g', 'ps3_consumed_chkn_nug_g', 'ps3_consumed_broccoli_g')])
+r01_intake$ps3_plate_clean <- ifelse(r01_intake$ps3_main4_total_g >= 1276.8, 1, 0)
+
+r01_intake$ps4_main4_total_g <- rowSums(r01_intake[c('ps4_consumed_mac_cheese_g', 'ps4_consumed_grapes_g', 'ps4_consumed_chkn_nug_g', 'ps4_consumed_broccoli_g')])
+r01_intake$ps4_plate_clean <- ifelse(r01_intake$ps4_main4_total_g >= 1516.2, 1, 0)
+
+# demographics check
+
+age_ttest <- t.test(age_yr ~ risk_status_mom, data = r01_intake)
+bmi_ttest <- t.test(bmi_percentile ~ risk_status_mom, data = r01_intake)
+bmi_sd <- sd.function.na(r01_intake, r01_intake$bmi_percentile, r01_intake$risk_status_mom)
+sex_chi <- chisq.test(x = r01_intake$sex, y = r01_intake$risk_status_mom)
+income_chi <- chisq.test(x = r01_intake$income, y = r01_intake$risk_status_mom)
+momed_fisher <- fisher.test(x = r01_intake$mom_ed, y = r01_intake$risk_status_mom)
+
+# liking 
+
+liking_mod <- lmer(avg_vas ~ preFF + bmi + sex + meal_order + risk_status_mom + ps_prop + (1|sub), data = intake_long)
+liking_sum <- summary(liking_mod)
+
+liking_means <- means.function.na(intake_long, intake_long$avg_vas, intake_long$PortionSize)
+
+
+
 ## 1) Base Portion Size ####
 
 grams_ps_mod <- lmer(grams ~ preFF + bmi + sex + avg_vas + meal_order + ps_prop + (1|sub), data = intake_long)
@@ -265,9 +296,9 @@ kcal_broc_psxrisk_mod <- lmer(broc_kcal ~ preFF + bmi + sex + broc_vas + meal_or
 kcal_broc_psxrisk_slopes <- emtrends(kcal_broc_psxrisk_mod, specs=pairwise~risk_status_mom, var="ps_prop")
 
 #merge for plot and make long
-intakefoods_long_model <- merge(intakefoods_long_model, intakefoods_mac_long_model[c(1, 33)], by = 'sub')
+intakefoods_long_model <- merge(intakefoods_long_model, intakefoods_mac_long_model[c(1, 37)], by = 'sub')
 
-intakefoods_long_model <- melt(intakefoods_long_model[c(1, 2, 29, 32:35)], id.vars = c('sub', 'risk_status_mom', 'ps_prop'))
+intakefoods_long_model <- melt(intakefoods_long_model[c(1, 2, 33, 36:39)], id.vars = c('sub', 'risk_status_mom', 'ps_prop'))
 intakefoods_long_model$food <- ifelse(intakefoods_long_model$variable == 'chnug_grams_pred', 'chicken nuggets', ifelse(intakefoods_long_model$variable == 'grape_grams_pred', 'grapes', ifelse(intakefoods_long_model$variable == 'broc_grams_pred', 'broccoli', 'mac and cheese')))
 intakefoods_long_model$grams <- intakefoods_long_model$value
 
