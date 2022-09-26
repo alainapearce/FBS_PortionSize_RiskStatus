@@ -154,8 +154,6 @@ All intake models are currently controlling for: pre-meal Freddy Fullness, child
 
 ### Grams
 
-The difference between models with and without quadratic effect was significant (p=0.022) indicating the added model parameters/complexity resulted in significant more variance explained. Should model gram intake with both linear and quadratic effects.
-
 \FloatBarrier
 
 ```{r intake_ps_gmod_base, include = TRUE}
@@ -174,15 +172,11 @@ kable(round(grams_psquad_sum$coefficients, 3), "latex",  digits = 3, caption = "
 
 \FloatBarrier
 
-The quadratic of portion size was significant after controlling for all other variables. This indicates there is a curvelinear effect of portion size on intake. The increase in amount consumed decreases by 63.9 grams for each increase in meal portions (i.e., 33% increase with each meal). The vertex of the curve is at 77% increase, which indicates that intake increased up to the third largest meal (66% increase) with little change between the third and forth meals (i.e., 99% increase).
-
 \*To calculate effect of portion size by 0.33 proportion increase need to first get total quadratic effect. The $\beta$ coefficient for a quadratic effect is half the change in the linear slope for a unit increase, so total change in linear slope = 2 x ps_prop2. Since a 1 unit increase = 100% increase in portion, can then multiply the total effect by 0.33. Therefore, change in linear slope for each 33% increase in amount served = (ps_prop2 x 2) x 0.33. To calculate where the slope switches from positive to negative, need to find the vertex = -ps_prop/(ps_prop2 x 2)
 
 \FloatBarrier
 
 ### kcal
-
-The difference between models with and without quadratic effect was not significant (p=0.286) indicating the added model parameters/complexity was not needed Should model kcal intake with only the linear effect.
 
 \FloatBarrier
 
@@ -200,12 +194,6 @@ kable(round(kcal_ps_sum$coefficients, 3), "latex",  digits = 3, caption = "Regre
 ```
 
 \FloatBarrier
-
-Control Variables - There was a significant effect of pre Freddy Fullness such that for each 10 mm more full, 9 fewer kcals were consumed. BMI was also associated with intake such each BMI point increase was associated with 39 greater kcal consumed. Similarly, each unit increase in average liking was associated with a 59 kcal increase.
-
-The linear effect of portion size shows that 113 more kcals were consumed in the largest portion (100% increase) compared to the baseline meal.
-
-\FloatBarrier
 \clearpage
 
 ## Risk Status x Portion Size (linear effect)
@@ -218,10 +206,6 @@ Adding an interaction between Risk Status and Portion Size significantly improve
 ```{r intake_ps_gmodfit_riskxps, include = TRUE}
 anova(grams_psquad_mod, grams_psxrisk_psquad_mod)
 ```
-
-\FloatBarrier
-
-For the control variables, we see that children consumed 30.6 grams more for each unit higher their BMI was at baseline. Also children consumed 49.9 grams more for each unit higher their average liking of meal foods was.
 
 \FloatBarrier
 
@@ -259,13 +243,6 @@ kable(test(grams_psxrisk_psquad_slopes$emtrends), "latex",  digits = 3, caption 
   kable_styling(latex_options = c("hold_position", "repeat_header"))
 ```
 
-\FloatBarrier
-
-Estimating the simple slopes (adjusted for all other variables) shows both groups have a significant linear portion size effect, however, the significant interaction in the model indicates that the slopes are significantly different from each other. The interaction between Risk Status and Portion Size can be interpreted in 2 ways depending on how we want to phrase it:
-
-1) the difference in gram intake between Low and High Risk groups gets larger with each increase in Portion Size such that by Portion Size 4, the High Risk group consumes 105 fewer grams (i.e., condition effect of risk_status_mom + interaction), after accounting for all other control variables.
-
-2) The association between proportion increase in amount served and amount consumed (i.e., ps_prop) is less positive for the High Risk than Low Risk group. The Low Risk group increases total gram intake by 110 grams when amount served is doubled (100% increase) while the High Risk Group only increased intake by 14 grams (i.e., condition effect of ps_prop + interaction). 
 
 \FloatBarrier
 
@@ -275,8 +252,6 @@ kable(grams_psxrisk_emmeans_tab, "latex",  digits = 3, caption = "Estimated Marg
 ```
 
 \FloatBarrier
-
-Given the significant interaction between Risk Status and Portion Size, we cannot interpret the effect of Risk Status in the regression model as a main effect. We can, however, estimate the marginal means (group means after adjusting for all other variables) differ. Overall, the High Risk group consumed fewer grams than the Low Risk group with this difference becoming significant at the 3rd protion size.
 
 ```{r intake_ps_gmod_riskxps_ttests, include = TRUE}
 grams_ps1risk_ttest
@@ -295,7 +270,6 @@ Adding an interaction between Risk Status and Portion Size (linear effect) signi
 anova(kcal_ps_mod, kcal_psxrisk_mod)
 ```
 
-Control Variables -  We see that children consumed 47 kcal more for each unit higher their BMI was at baseline. Children consumed 57 kcal more for each unit higher their average liking of meal foods was. Unlike the grams model, pre-meal fullness was associated with total energy intake such that for each centimeter more 'full', the children ate 9 fewer kcal (Freddy is measured in mm so 10 x preFF gives change in cm).
 
 \FloatBarrier
 
@@ -334,13 +308,6 @@ kable(test(kcal_psxrisk_slopes$emtrends), "latex",  digits = 3, caption = "Estim
 
 \FloatBarrier
 
-Estimating the simple slopes (adjusted for all other variables) shows both groups have a significant portion size effect. The  interaction indicates that the slopes are different from each other. The interaction between Risk Status and Portion Size can be interpreted in 2 ways depending on how we want to phrase it:
-
-1) the difference in gram intake between Low and High Risk groups gets larger with each increase in Portion Size such that by Portion Size 4, the High Risk group consumes 109 fewer kcal (i.e., condition effect of risk_status_mom + interaction), after accounting for all other control variables.
-
-2) The association between proportion increase served and kcal consumed (i.e., ps_prop) is less positive for the High Risk than Low Risk group. The Low Risk group increases total gram intake by 149 kcal when amount served is doubled (100% increase) while the High Risk Group only increased intake by 63 kcal (i.e., condition effect of ps_prop + interaction). 
-
-\FloatBarrier
 
 ```{r intake_ps_kcalmod_riskxps_emmeans, include = TRUE, echo=FALSE, results='asis'}
 kable(kcal_psxrisk_emmeans_tab, "latex",  digits = 3, caption = "Estimated Marginal Means: Risk Status x Portion Size for kcal", booktabs=TRUE) %>%

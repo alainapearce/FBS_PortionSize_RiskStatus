@@ -60,6 +60,13 @@ liking_sum <- summary(liking_mod)
 
 liking_means <- means.function.na(intake_long, intake_long$avg_vas, intake_long$PortionSize)
 
+mac_rank <- mean(intake_long$mac_rank, na.rm = TRUE)
+chnug_rank <- mean(intake_long$chnug_rank, na.rm = TRUE)
+broc_rank <- mean(intake_long$broc_rank, na.rm = TRUE)
+grape_rank <- mean(intake_long$grape_rank, na.rm = TRUE)
+
+
+
 
 
 ## 1) Base Portion Size ####
