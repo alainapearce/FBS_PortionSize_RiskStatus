@@ -217,7 +217,6 @@ kable(round(grams_psxrisk_psquad_sum$coefficients, 3), "latex",  digits = 3, cap
 ```
 
 \FloatBarrier
-
 ```{r intake_fig_grams_psxr, echo=FALSE, include = FALSE, fig.height = 4, fig.width = 6}
 ggplot(aes(x = ps_prop, y = grams_pred_rxps, color = risk_status_mom), data = intake_long_model) + 
   labs(y = "Total Intake, Grams - Adjusted", x = "Proportion Increase in Amount Served") +
