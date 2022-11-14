@@ -71,17 +71,17 @@ grape_rank <- mean(intake_long$grape_rank, na.rm = TRUE)
 
 ## 1) Base Portion Size ####
 
-grams_ps_mod <- lmer(grams ~ preFF + bmi + sex + avg_vas + meal_order + ps_prop + (1|sub), data = intake_long)
+grams_ps_mod <- lmer(grams ~ preFF + bmi + sex + age_yr + avg_vas + meal_order + ps_prop + (1|sub), data = intake_long)
 
-kcal_ps_mod <- lmer(kcal ~ preFF + bmi + sex+ avg_vas + meal_order + ps_prop + (1|sub), data = intake_long)
+kcal_ps_mod <- lmer(kcal ~ preFF + bmi + sex + age_yr + avg_vas + meal_order + ps_prop + (1|sub), data = intake_long)
 
 
 ## test quadratic
 intake_long$ps_prop2 <- intake_long$ps_prop*intake_long$ps_prop
 
-grams_psquad_mod <- lmer(grams ~ preFF + bmi + sex + avg_vas + meal_order + ps_prop + ps_prop2 + (1|sub), data = intake_long)
+grams_psquad_mod <- lmer(grams ~ preFF + bmi + sex + age_yr + avg_vas + meal_order + ps_prop + ps_prop2 + (1|sub), data = intake_long)
 
-kcal_psquad_mod <- lmer(kcal ~ preFF + bmi + sex + avg_vas + meal_order + ps_prop + ps_prop2 + (1|sub), data = intake_long)
+kcal_psquad_mod <- lmer(kcal ~ preFF + bmi + sex + age_yr + avg_vas + meal_order + ps_prop + ps_prop2 + (1|sub), data = intake_long)
 
 anova(grams_ps_mod, grams_psquad_mod)
 anova(kcal_ps_mod, kcal_psquad_mod)
@@ -174,142 +174,153 @@ anova(kcal_psxrisk_mod, kcal_psxrisk_psxbmi_mod)
 ## a1 - Check quadratic ####
 #grams
 intake_long$chnug_grams <- as.numeric(intake_long$chnug_grams)
-grams_chnug_ps_mod <- lmer(chnug_grams ~ preFF + bmi + sex + chnug_vas + meal_order + ps_prop + (1 | sub), data = intake_long)
+grams_chnug_ps_mod <- lmer(chnug_grams ~ preFF + bmi + sex + age_yr + chnug_vas + meal_order + ps_prop + (1 | sub), data = intake_long)
 
-grams_chnug_ps_psquad_mod <- lmer(chnug_grams ~ preFF + bmi + sex + chnug_vas + meal_order + ps_prop + ps_prop2 + (1 | sub), data = intake_long)
+grams_chnug_ps_psquad_mod <- lmer(chnug_grams ~ preFF + bmi + sex + age_yr + chnug_vas + meal_order + ps_prop + ps_prop2 + (1 | sub), data = intake_long)
 
 anova(grams_chnug_ps_mod, grams_chnug_ps_psquad_mod)
 
 #kcal
 intake_long$chnug_kcal <- as.numeric(intake_long$chnug_kcal)
-kcal_chnug_ps_mod <- lmer(chnug_kcal ~ preFF + bmi + sex + chnug_vas + meal_order + ps_prop + (1 | sub), data = intake_long)
+kcal_chnug_ps_mod <- lmer(chnug_kcal ~ preFF + bmi + sex + age_yr + chnug_vas + meal_order + ps_prop + (1 | sub), data = intake_long)
 
-kcal_chnug_ps_psquad_mod <- lmer(chnug_kcal ~ preFF + bmi + sex + chnug_vas + meal_order + ps_prop + ps_prop2 + (1 | sub), data = intake_long)
+kcal_chnug_ps_psquad_mod <- lmer(chnug_kcal ~ preFF + bmi + sex + age_yr + chnug_vas + meal_order + ps_prop + ps_prop2 + (1 | sub), data = intake_long)
 
 anova(kcal_chnug_ps_mod, kcal_chnug_ps_psquad_mod)
 
 ## a2 - check interaction ####
 #grams
-grams_chnug_psxrisk_mod <- lmer(chnug_grams ~ preFF + bmi + sex + chnug_vas + meal_order + ps_prop*risk_status_mom + (1 | sub), data = intake_long)
+grams_chnug_psxrisk_mod <- lmer(chnug_grams ~ preFF + bmi + sex + age_yr + chnug_vas + meal_order + ps_prop*risk_status_mom + (1 | sub), data = intake_long)
 
 grams_chnug_psxrisk_slopes <- emtrends(grams_chnug_psxrisk_mod, specs=pairwise~risk_status_mom, var="ps_prop")
 
-grams_chnug_ps_risk_mod <- lmer(chnug_grams ~ preFF + bmi + sex + chnug_vas + meal_order + ps_prop + risk_status_mom + (1 | sub), data = intake_long)
+grams_chnug_ps_risk_mod <- lmer(chnug_grams ~ preFF + bmi + sex + age_yr + chnug_vas + meal_order + ps_prop + risk_status_mom + (1 | sub), data = intake_long)
 
 intakefoods_long_model <- intake_long[!is.na(intake_long$meal_order) & !is.na(intake_long$preFF), ]
 
 intakefoods_long_model$chnug_grams_pred <- predict(grams_chnug_ps_risk_mod, type = 'response')
 
 #kcal
-kcal_chnug_psxrisk_mod <- lmer(chnug_kcal ~ preFF + bmi + sex + chnug_vas + meal_order + ps_prop*risk_status_mom + (1 | sub), data = intake_long)
+kcal_chnug_psxrisk_mod <- lmer(chnug_kcal ~ preFF + bmi + sex + age_yr + chnug_vas + meal_order + ps_prop*risk_status_mom + (1 | sub), data = intake_long)
 
-kcal_chnug_ps_risk_mod <- lmer(chnug_kcal ~ preFF + bmi + sex + chnug_vas + meal_order + ps_prop + risk_status_mom + (1 | sub), data = intake_long)
+kcal_chnug_ps_risk_mod <- lmer(chnug_kcal ~ preFF + bmi + sex + age_yr + chnug_vas + meal_order + ps_prop + risk_status_mom + (1 | sub), data = intake_long)
+
+intakefoods_long_model$chnug_kcal_pred <- predict(kcal_chnug_ps_risk_mod, type = 'response')
 
 ## b) mac and cheese ####
 ## b1 - Check quadratic ####
 #grams
 intake_long$mac_grams <- as.numeric(intake_long$mac_grams)
-grams_mac_ps_mod <- lmer(mac_grams ~ preFF + bmi + sex + mac_vas + meal_order + ps_prop + (1 | sub), data = intake_long)
+grams_mac_ps_mod <- lmer(mac_grams ~ preFF + bmi + sex + age_yr + mac_vas + meal_order + ps_prop + (1 | sub), data = intake_long)
 
-grams_mac_ps_psquad_mod <- lmer(mac_grams ~ preFF + bmi + sex + mac_vas + meal_order + ps_prop + ps_prop2 + (1 | sub), data = intake_long)
+grams_mac_ps_psquad_mod <- lmer(mac_grams ~ preFF + bmi + sex + age_yr + mac_vas + meal_order + ps_prop + ps_prop2 + (1 | sub), data = intake_long)
 
 anova(grams_mac_ps_mod, grams_mac_ps_psquad_mod)
 
 #kcal
 intake_long$mac_kcal <- as.numeric(intake_long$mac_kcal)
-kcal_mac_ps_mod <- lmer(mac_kcal ~ preFF + bmi + sex + mac_vas + meal_order + ps_prop + (1 | sub), data = intake_long)
+kcal_mac_ps_mod <- lmer(mac_kcal ~ preFF + bmi + sex + age_yr + mac_vas + meal_order + ps_prop + (1 | sub), data = intake_long)
 
-kcal_mac_ps_psquad_mod <- lmer(mac_kcal ~ preFF + bmi + sex + mac_vas + meal_order + ps_prop + ps_prop2 + (1 | sub), data = intake_long)
+kcal_mac_ps_psquad_mod <- lmer(mac_kcal ~ preFF + bmi + sex + age_yr + mac_vas + meal_order + ps_prop + ps_prop2 + (1 | sub), data = intake_long)
 
 anova(kcal_mac_ps_mod, kcal_mac_ps_psquad_mod)
 
 ## b2 - check interaction ####
 #grams
-grams_mac_psxrisk_mod <- lmer(mac_grams ~ preFF + bmi + sex + mac_vas + meal_order + ps_prop*risk_status_mom + (1 | sub), data = intake_long)
+grams_mac_psxrisk_mod <- lmer(mac_grams ~ preFF + bmi + sex + age_yr + mac_vas + meal_order + ps_prop*risk_status_mom + (1 | sub), data = intake_long)
 
-grams_mac_ps_risk_mod <- lmer(mac_grams ~ preFF + bmi + sex + mac_vas + meal_order + ps_prop + risk_status_mom + (1 | sub), data = intake_long)
+grams_mac_ps_risk_mod <- lmer(mac_grams ~ preFF + bmi + sex + age_yr + mac_vas + meal_order + ps_prop + risk_status_mom + (1 | sub), data = intake_long)
 
 intakefoods_mac_long_model <- intakefoods_long_model[!is.na(intakefoods_long_model$mac_grams), ]
 
 intakefoods_mac_long_model$mac_grams_pred <- predict(grams_mac_ps_risk_mod, type = 'response')
 
 #kcal
-kcal_mac_psxrisk_mod <- lmer(mac_kcal ~ preFF + bmi + sex + mac_vas + meal_order + ps_prop*risk_status_mom + (1 | sub), data = intake_long)
+kcal_mac_psxrisk_mod <- lmer(mac_kcal ~ preFF + bmi + sex + age_yr + mac_vas + meal_order + ps_prop*risk_status_mom + (1 | sub), data = intake_long)
 
 kcal_chnug_psxrisk_slopes <- emtrends(kcal_chnug_psxrisk_mod, specs=pairwise~risk_status_mom, var="ps_prop")
 
-kcal_mac_ps_risk_mod <- lmer(mac_kcal ~ preFF + bmi + sex + mac_vas + meal_order + ps_prop +risk_status_mom + (1 | sub), data = intake_long)
+kcal_mac_ps_risk_mod <- lmer(mac_kcal ~ preFF + bmi + sex + age_yr + mac_vas + meal_order + ps_prop +risk_status_mom + (1 | sub), data = intake_long)
+
+intakefoods_mac_long_model$mac_kcal_pred <- predict(kcal_mac_ps_risk_mod, type = 'response')
 
 ## c) grapes ####
 ## c1 - Check quadratic ####
 #grams
 intake_long$grape_grams <- as.numeric(intake_long$grape_grams)
-grams_grape_ps_mod <- lmer(grape_grams ~ preFF + bmi + sex + grape_vas + meal_order + ps_prop + (1 | sub), data = intake_long)
+grams_grape_ps_mod <- lmer(grape_grams ~ preFF + bmi + sex + age_yr + grape_vas + meal_order + ps_prop + (1 | sub), data = intake_long)
 
-grams_grape_ps_psquad_mod <- lmer(grape_grams ~ preFF + bmi + sex + grape_vas + meal_order + ps_prop + ps_prop2 + (1 | sub), data = intake_long)
+grams_grape_ps_psquad_mod <- lmer(grape_grams ~ preFF + bmi + sex + age_yr + grape_vas + meal_order + ps_prop + ps_prop2 + (1 | sub), data = intake_long)
 
 anova(grams_grape_ps_mod, grams_grape_ps_psquad_mod)
 
 #kcal
 intake_long$grape_kcal <- as.numeric(intake_long$grape_kcal)
-kcal_grape_ps_mod <- lmer(grape_kcal ~ preFF + bmi + sex + grape_vas + meal_order + ps_prop + (1 | sub), data = intake_long)
+kcal_grape_ps_mod <- lmer(grape_kcal ~ preFF + bmi + sex + age_yr + grape_vas + meal_order + ps_prop + (1 | sub), data = intake_long)
 
-kcal_grape_ps_psquad_mod <- lmer(grape_kcal ~ preFF + bmi + sex + grape_vas + meal_order + ps_prop + ps_prop2 + (1 | sub), data = intake_long)
+kcal_grape_ps_psquad_mod <- lmer(grape_kcal ~ preFF + bmi + sex + age_yr + grape_vas + meal_order + ps_prop + ps_prop2 + (1 | sub), data = intake_long)
 
 anova(kcal_grape_ps_mod, kcal_grape_ps_psquad_mod)
 
 ## c2 - check interaction ####
 #grams
-grams_grape_psxrisk_mod <- lmer(grape_grams ~ preFF + bmi + sex + grape_vas + meal_order + ps_prop*risk_status_mom + (1 | sub), data = intake_long)
+grams_grape_psxrisk_mod <- lmer(grape_grams ~ preFF + bmi + sex + age_yr + grape_vas + meal_order + ps_prop*risk_status_mom + (1 | sub), data = intake_long)
 
-grams_grape_ps_risk_mod <- lmer(grape_grams ~ preFF + bmi + sex + grape_vas + meal_order + ps_prop + risk_status_mom + (1 | sub), data = intake_long)
+grams_grape_ps_risk_mod <- lmer(grape_grams ~ preFF + bmi + sex + age_yr + grape_vas + meal_order + ps_prop + risk_status_mom + (1 | sub), data = intake_long)
 
 intakefoods_long_model$grape_grams_pred <- predict(grams_grape_ps_risk_mod, type = 'response')
 
 #kcal
-kcal_grape_psxrisk_mod <- lmer(grape_kcal ~ preFF + bmi + sex + grape_vas + meal_order + ps_prop*risk_status_mom + (1 | sub), data = intake_long)
+kcal_grape_psxrisk_mod <- lmer(grape_kcal ~ preFF + bmi + sex + age_yr + grape_vas + meal_order + ps_prop*risk_status_mom + (1 | sub), data = intake_long)
 
-kcal_grape_ps_risk_mod <- lmer(grape_kcal ~ preFF + bmi + sex + grape_vas + meal_order + ps_prop + risk_status_mom + (1 | sub), data = intake_long)
+kcal_grape_ps_risk_mod <- lmer(grape_kcal ~ preFF + bmi + sex + age_yr + grape_vas + meal_order + ps_prop + risk_status_mom + (1 | sub), data = intake_long)
+
+intakefoods_long_model$grape_kcal_pred <- predict(kcal_grape_ps_risk_mod, type = 'response')
 
 ## c) brocoli ####
 ## c1 - Check quadratic ####
 #grams
 intake_long$broc_grams <- as.numeric(intake_long$broc_grams)
-grams_broc_ps_mod <- lmer(broc_grams ~ preFF + bmi + sex + broc_vas + meal_order + ps_prop + (1 | sub), data = intake_long)
+grams_broc_ps_mod <- lmer(broc_grams ~ preFF + bmi + sex + age_yr + broc_vas + meal_order + ps_prop + (1 | sub), data = intake_long)
 
-grams_broc_ps_psquad_mod <- lmer(broc_grams ~ preFF + bmi + sex + broc_vas + meal_order + ps_prop + ps_prop2 + (1 | sub), data = intake_long)
+grams_broc_ps_psquad_mod <- lmer(broc_grams ~ preFF + bmi + sex + age_yr + broc_vas + meal_order + ps_prop + ps_prop2 + (1 | sub), data = intake_long)
 
 anova(grams_broc_ps_mod, grams_broc_ps_psquad_mod)
 
 #kcal
 intake_long$broc_kcal <- as.numeric(intake_long$broc_kcal)
-kcal_broc_ps_mod <- lmer(broc_kcal ~ preFF + bmi + sex + broc_vas + meal_order + ps_prop + (1 | sub), data = intake_long)
+kcal_broc_ps_mod <- lmer(broc_kcal ~ preFF + bmi + sex + broc_vas + age_yr + meal_order + ps_prop + (1 | sub), data = intake_long)
 
-kcal_broc_ps_psquad_mod <- lmer(broc_kcal ~ preFF + bmi + sex + broc_vas + meal_order + ps_prop + ps_prop2 + (1 | sub), data = intake_long)
+kcal_broc_ps_psquad_mod <- lmer(broc_kcal ~ preFF + bmi + sex + age_yr + broc_vas + meal_order + ps_prop + ps_prop2 + (1 | sub), data = intake_long)
 
 anova(kcal_broc_ps_mod, kcal_broc_ps_psquad_mod)
 
 ## c2 - check interaction ####
 #grams
-grams_broc_psxrisk_mod <- lmer(broc_grams ~ preFF + bmi + sex + broc_vas + meal_order + ps_prop*risk_status_mom + (1 | sub), data = intake_long)
+grams_broc_psxrisk_mod <- lmer(broc_grams ~ preFF + bmi + sex + age_yr + broc_vas + meal_order + ps_prop*risk_status_mom + (1 | sub), data = intake_long)
 
 grams_broc_psxrisk_slopes <- emtrends(grams_broc_psxrisk_mod, specs=pairwise~risk_status_mom, var="ps_prop")
 
 intakefoods_long_model$broc_grams_pred <- predict(grams_broc_psxrisk_mod, type = 'response')
 
 #kcal
-kcal_broc_psxrisk_mod <- lmer(broc_kcal ~ preFF + bmi + sex + broc_vas + meal_order + ps_prop*risk_status_mom + (1 | sub), data = intake_long)
+kcal_broc_psxrisk_mod <- lmer(broc_kcal ~ preFF + bmi + sex + age_yr + broc_vas + meal_order + ps_prop*risk_status_mom + (1 | sub), data = intake_long)
 
 kcal_broc_psxrisk_slopes <- emtrends(kcal_broc_psxrisk_mod, specs=pairwise~risk_status_mom, var="ps_prop")
 
+intakefoods_long_model$broc_kcal_pred <- predict(kcal_broc_psxrisk_mod, type = 'response')
+
 #merge for plot and make long
-intakefoods_long_model <- merge(intakefoods_long_model, intakefoods_mac_long_model[c(1, 37)], by = 'sub')
+intakefoods_long_model <- merge(intakefoods_long_model, intakefoods_mac_long_model[c(1, 38:39)], by = 'sub')
 
-intakefoods_long_model <- melt(intakefoods_long_model[c(1, 2, 33, 36:39)], id.vars = c('sub', 'risk_status_mom', 'ps_prop'))
-intakefoods_long_model$food <- ifelse(intakefoods_long_model$variable == 'chnug_grams_pred', 'chicken nuggets', ifelse(intakefoods_long_model$variable == 'grape_grams_pred', 'grapes', ifelse(intakefoods_long_model$variable == 'broc_grams_pred', 'broccoli', 'mac and cheese')))
-intakefoods_long_model$grams <- intakefoods_long_model$value
+intakefoods_long_graph <- melt(intakefoods_long_model[c(1, 2, 33, 36, 38, 40, 42)], id.vars = c('sub', 'risk_status_mom', 'ps_prop'))
+intakefoods_long_graph$food <- ifelse(intakefoods_long_graph$variable == 'chnug_grams_pred', 'chicken nuggets', ifelse(intakefoods_long_graph$variable == 'grape_grams_pred', 'grapes', ifelse(intakefoods_long_graph$variable == 'broc_grams_pred', 'broccoli', 'mac and cheese')))
+intakefoods_long_graph$grams <- intakefoods_long_graph$value
 
-intakefoods_long_model <- intakefoods_long_model[c(1:3, 6:7)]
+intakefoods_long_graph_kcal <- melt(intakefoods_long_model[c(1, 37, 39, 41, 43)], id.vars = 'sub')
+names(intakefoods_long_graph_kcal)[3] <- 'kcal'
+
+intakefoods_long_model <- cbind.data.frame(intakefoods_long_graph[c(1:3, 6:7)], intakefoods_long_graph_kcal[3])
 
 ## 5) mediated moderation ####
 intake_long$risk_status_mom_dummy <- ifelse(intake_long$risk_status_mom == 'Low Risk', 0, 1)
@@ -335,7 +346,7 @@ broc_med_mod_psgrams <- '
 '
 
 med_mod_psgrams_fit = sem(broc_med_mod_psgrams, data = intake_long, cluster = 'sub')
-summary(med_mod_psgrams_fit)
+#summary(med_mod_psgrams_fit)
 
 ## kcal
 
@@ -359,4 +370,4 @@ broc_med_mod_pskcal <- '
 '
 
 med_mod_pskcal_fit = sem(broc_med_mod_pskcal, data = intake_long, cluster = 'sub')
-summary(med_mod_pskcal_fit)
+#summary(med_mod_pskcal_fit)

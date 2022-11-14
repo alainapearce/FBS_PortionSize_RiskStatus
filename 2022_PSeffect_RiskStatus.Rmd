@@ -73,7 +73,7 @@ library(lavaan)
 
 ```{r load_scripts, echo=FALSE, results='asis'}
 source('functions.R')
-source('setup_data.R')
+source('setup.R')
 source('analyses.R')
 source('tables.R')
 ```
@@ -87,36 +87,50 @@ as_kable_extra(demo_merge_tab, caption = 'Demographics', format = "latex", bookt
   kableExtra::kable_styling(latex_options = "hold_position",  full_width = FALSE)
 ```
 
+\
+## Age - t-test
+
 ```{r demo_age_ttest, echo=FALSE}
 age_ttest
 ```
 
+\
+## BMI Percentile - t-test
 ```{r demo_bmi_ttest, echo=FALSE}
 bmi_ttest
 bmi_sd
 ```
 
+\
+## Sex - $\chi^2$
 ```{r demo_sex_chi, echo=FALSE}
 sex_chi
 ```
 
+\
+## Income - $\chi^2$
 ```{r demo_income_chi, echo=FALSE}
 income_chi
 ```
 
+\
+## Mom Education - Fisher test
 ```{r demo_momed_fisheri, echo=FALSE}
 momed_fisher
 ```
+\FloatBarrier
+\clearpage
 
 # Meal Liking
 
 ```{r liking_risk_ttest, echo=FALSE}
-kable(round(liking_sum$coefficients, 3), "latex",  digits = 3, caption = "Regression Table: Portion Size for Grams", booktabs=TRUE) %>%
+kable(round(liking_sum$coefficients, 3), "latex",  digits = 3, caption = "Regression Table: Portion Size for Liking", booktabs=TRUE) %>%
   kable_styling(latex_options = c("hold_position", "repeat_header"))
 ```
 
 \FloatBarrier
 \clearpage
+
 # Portion Size Effect
 
 Note - Portion Size was coded in ps_prop as the proportion increase in amount served: Portion Size 1 = 0, Portion Size 2 = 0.33, Portion Size 3 = 0.66, and Portion Size 4 = 0.99. This means that a 1 unit increase is equal to a 100% increase in amount served -- the difference between Portion Size 1 and Portion Size 4.
@@ -315,7 +329,6 @@ kable(kcal_psxrisk_emmeans_tab, "latex",  digits = 3, caption = "Estimated Margi
 
 \FloatBarrier
 
-Given the significant interaction between Risk Status and Portion Size, we cannot interpret the effect of Risk Status in the regression model as a main effect. We can, however, estimate the marginal means (group means after adjusting for all other variables) differ. 
 
 ```{r intake_ps_kcalmod_riskxps_ttests, include = TRUE}
 kcal_ps1risk_ttest
@@ -376,6 +389,21 @@ anova(kcal_psxrisk_mod, kcal_psxrisk_psxbmi_mod)
 ```{r intake_fig_grams_psxrxfood, echo=FALSE, include = FALSE, fig.height = 4, fig.width = 6}
 ggplot(aes(x = ps_prop, y = grams, group = interaction(food, risk_status_mom), color = food, linetype = risk_status_mom), data = intakefoods_long_model) + 
   labs(y = "Total Intake, Grams - Adjusted", x = "Proportion Increase in Amount Served") +
+  stat_smooth(method = "lm", formula = y ~ x, size = 1, se = FALSE) +
+  scale_color_manual(values = c('mediumseagreen', 'orange3', 'purple4', 'goldenrod1')) +
+  scale_x_continuous(breaks=seq(0.0, 1, 0.33), limits=c(0, 1)) + 
+  scale_y_continuous(breaks = scales::pretty_breaks(n = 5)) +
+  theme(panel.border = element_blank(), panel.grid.major = element_blank(),
+    panel.grid.minor = element_blank(), axis.line = element_line(colour = "black"),
+    panel.background = element_blank(), axis.text.x = element_text(angle = 90))
+```
+
+\
+
+
+```{r intake_fig_kcal_psxrxfood, echo=FALSE, include = FALSE, fig.height = 4, fig.width = 6}
+ggplot(aes(x = ps_prop, y = kcal, group = interaction(food, risk_status_mom), color = food, linetype = risk_status_mom), data = intakefoods_long_model) + 
+  labs(y = "Total Intake, kcal - Adjusted", x = "Proportion Increase in Amount Served") +
   stat_smooth(method = "lm", formula = y ~ x, size = 1, se = FALSE) +
   scale_color_manual(values = c('mediumseagreen', 'orange3', 'purple4', 'goldenrod1')) +
   scale_x_continuous(breaks=seq(0.0, 1, 0.33), limits=c(0, 1)) + 
@@ -508,10 +536,6 @@ kable(grams_mac_ps_risk_sum$coefficients, "latex",  digits = 3, caption = "Mac a
   kable_styling(latex_options = c("hold_position", "repeat_header"))
 ```
 
-For the control variables, we see that children consumed 18 grams more of mac and cheese for each unit higher their BMI was at baseline. Also children consumed 21.3 grams more for each unit higher their average liking of meal foods was. Unlike the overall gram model, BMI was not associated with intake. 
-
-There was a significant effect of portion size such that 16.1 more grams of mac and cheese were consumed in meal 4 (100% increase in portion) than in meal 1. however, there was no effect of risk status.
-
 \FloatBarrier
 \clearpage
 
@@ -560,9 +584,6 @@ kable(kcal_mac_ps_risk_sum$coefficients, "latex",  digits = 3, caption = "Mac an
   kable_styling(latex_options = c("hold_position", "repeat_header"))
 ```
 
-For the control variables, we see that children consumed 30.6 more kcal of mac and cheese for unit higher their BMI was. Also children consumed 36.2 kcal more for each unit higher their average liking of meal foods was.
-
-There was a significant effect of portion size such that 27.3 more kcal of mac and cheese were consumed in meal 4 (100% increase in portion) than in meal 1. There was no effect of risk status.
 
 \FloatBarrier
 \clearpage
@@ -614,10 +635,6 @@ kable(grams_grape_ps_risk_sum$coefficients, "latex",  digits = 3, caption = "Gra
   kable_styling(latex_options = c("hold_position", "repeat_header"))
 ```
 
-For the control variables, we see that children consumed 9.1 grams more for each unit higher their average liking of grapes was. There was also an effect of meal order such that 4.7 fewer grams of grapes were consumed at each subsequent meal, regardless of portion size. Unlike the overall gram model, BMI was not associated with intake. 
-
-There was a significant effect of portion size such that 17.5 more grams of grapes were consumed in meal 4 (100% increase in portion) than in meal 1. However, there was no effect of risk status.
-
 \FloatBarrier
 \clearpage
 
@@ -666,9 +683,6 @@ kable(kcal_grape_ps_risk_sum$coefficients, "latex",  digits = 3, caption = "Grap
   kable_styling(latex_options = c("hold_position", "repeat_header"))
 ```
 
-For the control variables, we see that children consumed 6.3 kcal more for each unit higher their average liking of meal foods was. The also consumed 3.3 fewer kcal of grapes in each subsequent meal regardless of portion size.
-
-There was a significant effect of portion size such that 12.1 more kcal of grapes consumed in meal 4 (100% increase in portion) than in meal 1. There was no effect of risk status.
 
 \FloatBarrier
 \clearpage
@@ -722,8 +736,6 @@ kable(test(grams_broc_psxrisk_slopes), "latex",  digits = 3, caption = "Estimate
   kable_styling(latex_options = c("hold_position", "repeat_header"))
 ```
 
-There was trend for the interaction between Risk Status and Portion Size such that children at low risk consumed 7.4 more grams of chicken nuggets at 100% increase in portion size compared to the standard size (p = 0.128) while children at high risk consumed 9.3 grams fewer (p = 0.107) - though neither individual slope was different. Regardless of portion size, children with low risk consumed 16.7 grams more broccoli on average, regardless of portion size (p = 0.027) At portion size 1, the children at high risk consumed 2 grams more broccoli but consumed 14.64 fewer grams by the 4th portion (100% increase in portion size).
-
 \FloatBarrier
 \clearpage
 
@@ -772,14 +784,13 @@ kable(test(kcal_broc_psxrisk_slopes), "latex",  digits = 3, caption = "Estimated
   kable_styling(latex_options = c("hold_position", "repeat_header"))
 ```
 
-There was trend for the interaction between Risk Status and Portion Size such that children at low risk consumed 7.4 more kcal of chicken nuggets at 100% increase in portion size compared to the standard size (p = 0.128) while children at high risk consumed 9.3 kcal fewer (p = 0.107) - though neither individual slope was different. Regardless of portion size, children with low risk consumed 16.8 kcal more broccoli on average, regardless of portion size (p = 0.027) At portion size 1, the children at high risk consumed 2 kcal more broccoli but consumed 14.69 fewer kcal by the 4th portion (100% increase in portion size).
 
 \FloatBarrier
 \clearpage
 
 # Exploratory Analyses: Mediated Moderation
 
-Since broccoli was the only food showing a Risk Status x Portion Size interaction, I tested whether broccoli intake mediates the overall Risk x Porion Size interaction using a mediated moderation model.
+Since broccoli was the only food showing a Risk Status x Portion Size interaction, I tested whether broccoli intake mediates the overall Risk x Potion Size interaction using a mediated moderation model.
 
 ## Grams
 
