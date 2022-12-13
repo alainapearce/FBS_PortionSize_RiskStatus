@@ -66,9 +66,6 @@ broc_rank <- mean(intake_long$broc_rank, na.rm = TRUE)
 grape_rank <- mean(intake_long$grape_rank, na.rm = TRUE)
 
 
-
-
-
 ## 1) Base Portion Size ####
 
 grams_ps_mod <- lmer(grams ~ preFF + bmi + sex + age_yr + avg_vas + meal_order + ps_prop + (1|sub), data = intake_long)
@@ -311,13 +308,13 @@ kcal_broc_psxrisk_slopes <- emtrends(kcal_broc_psxrisk_mod, specs=pairwise~risk_
 intakefoods_long_model$broc_kcal_pred <- predict(kcal_broc_psxrisk_mod, type = 'response')
 
 #merge for plot and make long
-intakefoods_long_model <- merge(intakefoods_long_model, intakefoods_mac_long_model[c(1, 38:39)], by = 'sub')
+intakefoods_long_model <- merge(intakefoods_long_model, intakefoods_mac_long_model[c(1, 39:40)], by = 'sub')
 
-intakefoods_long_graph <- melt(intakefoods_long_model[c(1, 2, 33, 36, 38, 40, 42)], id.vars = c('sub', 'risk_status_mom', 'ps_prop'))
+intakefoods_long_graph <- melt(intakefoods_long_model[c(1, 2, 34, 37, 39, 41, 43)], id.vars = c('sub', 'risk_status_mom', 'ps_prop'))
 intakefoods_long_graph$food <- ifelse(intakefoods_long_graph$variable == 'chnug_grams_pred', 'chicken nuggets', ifelse(intakefoods_long_graph$variable == 'grape_grams_pred', 'grapes', ifelse(intakefoods_long_graph$variable == 'broc_grams_pred', 'broccoli', 'mac and cheese')))
 intakefoods_long_graph$grams <- intakefoods_long_graph$value
 
-intakefoods_long_graph_kcal <- melt(intakefoods_long_model[c(1, 37, 39, 41, 43)], id.vars = 'sub')
+intakefoods_long_graph_kcal <- melt(intakefoods_long_model[c(1, 38, 40, 42, 44)], id.vars = 'sub')
 names(intakefoods_long_graph_kcal)[3] <- 'kcal'
 
 intakefoods_long_model <- cbind.data.frame(intakefoods_long_graph[c(1:3, 6:7)], intakefoods_long_graph_kcal[3])
@@ -371,3 +368,17 @@ broc_med_mod_pskcal <- '
 
 med_mod_pskcal_fit = sem(broc_med_mod_pskcal, data = intake_long, cluster = 'sub')
 #summary(med_mod_pskcal_fit)
+
+#### Remove 95% plate cleaners ####
+intake_long_explateclean <- intake_long[intake_long$plate_cleaner == 0, ]
+
+## Risk Status x Portion Size ####
+
+### a) Intake ####
+
+##grams 
+grams_psxrisk_psquad_mod_noplateclean <- lmer(grams ~ preFF + bmi + sex + age_yr + avg_vas + meal_order + risk_status_mom*ps_prop + ps_prop2 + (1|sub), data = intake_long_explateclean)
+
+## kcal
+kcal_psxrisk_mod_noplateclean <- lmer(kcal ~ preFF + bmi + sex + age_yr + avg_vas + meal_order + risk_status_mom*ps_prop + (1|sub), data = intake_long_explateclean)
+

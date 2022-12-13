@@ -65,6 +65,8 @@ r01_intake$mom_ed <- factor(r01_intake$mom_ed)
 r01_intake$dad_ed <- ifelse(r01_intake$measured_parent == 1, ifelse(r01_intake$parent_ed == 0, 'High School/GED', ifelse(r01_intake$parent_ed < 3, 'AA/Technical Degree', ifelse(r01_intake$parent_ed == 3, 'Bachelor Degree', ifelse(r01_intake$parent_ed < 8, '> Bachelor Degree', 'Other/NA')))), ifelse(r01_intake$partner_ed == 0, 'High School/GED', ifelse(r01_intake$partner_ed < 3, 'AA/Technical Degree', ifelse(r01_intake$partner_ed == 3, 'Bachelor Degree', ifelse(r01_intake$partner_ed < 8, '> Bachelor Degree', 'Other/NA')))))
 r01_intake$dad_ed <- factor(r01_intake$dad_ed)
 
+## reduce to those with complete meal data
+r01_intake <- r01_intake[!is.na(r01_intake$ps1_total_g) & !is.na(r01_intake$ps2_total_g) & !is.na(r01_intake$ps3_total_g) & !is.na(r01_intake$ps4_total_g), ]
 
 ## average VAS
 r01_intake[c("ps1_vas_mac_cheese","ps1_vas_chkn_nug", "ps1_vas_broccoli","ps1_vas_grape", "ps2_vas_mac_cheese","ps2_vas_chkn_nug", "ps2_vas_broccoli","ps2_vas_grape", "ps3_vas_mac_cheese","ps3_vas_chkn_nug", "ps3_vas_broccoli","ps3_vas_grape", "ps4_vas_mac_cheese","ps4_vas_chkn_nug", "ps4_vas_broccoli","ps4_vas_grape")] <- sapply(r01_intake[c("ps1_vas_mac_cheese","ps1_vas_chkn_nug", "ps1_vas_broccoli","ps1_vas_grape", "ps2_vas_mac_cheese","ps2_vas_chkn_nug", "ps2_vas_broccoli","ps2_vas_grape", "ps3_vas_mac_cheese","ps3_vas_chkn_nug", "ps3_vas_broccoli","ps3_vas_grape", "ps4_vas_mac_cheese","ps4_vas_chkn_nug", "ps4_vas_broccoli","ps4_vas_grape")], FUN = as.numeric)
@@ -83,9 +85,18 @@ r01_intake[['ps3_visit']] <- ifelse(is.na(r01_intake[['v2_meal_ps']]), NA, ifels
 
 r01_intake[['ps4_visit']] <- ifelse(is.na(r01_intake[['v2_meal_ps']]), NA, ifelse(r01_intake[['v2_meal_ps']] == 3, 1, ifelse(r01_intake[['v3_meal_ps']] == 3, 2, ifelse(r01_intake[['v4_meal_ps']] == 3, 3, 4))))
 
+## plate cleaners
+r01_intake$ps1_plate_cleaner <- ifelse(r01_intake$ps1_total_g >= 769*.95, 1, 0)
+#number 17 and 110
+r01_intake$ps2_plate_cleaner <- ifelse(r01_intake$ps2_total_g >= 1011*.95, 1, 0)
+r01_intake$ps3_plate_cleaner <- ifelse(r01_intake$ps3_total_g >= 1255*.95, 1, 0)
+r01_intake$ps4_plate_cleaner <- ifelse(r01_intake$ps4_total_g >= 1499*.95, 1, 0)
+
+r01_intake$plate_cleaner <- rowSums(r01_intake[756:759])
+
 ## c) Make Data Long ####
-intake_long <- melt(r01_intake[c(1, 8:12, 21, 606, 652, 698, 744)], id.vars = names(r01_intake)[c(1, 8:12, 21)])
-names(intake_long)[8:9] <- c('PortionSize', 'grams')
+intake_long <- melt(r01_intake[c(1, 8:12, 21, 606, 652, 698, 744, 760)], id.vars = names(r01_intake)[c(1, 8:12, 21, 760)])
+names(intake_long)[9:10] <- c('PortionSize', 'grams')
 intake_long$PortionSize <- ifelse(intake_long$PortionSize == 'ps4_total_g', 'PS-4', ifelse(intake_long$PortionSize == 'ps3_total_g', 'PS-3', ifelse(intake_long$PortionSize == 'ps2_total_g', 'PS-2', 'PS-1')))
 intake_long$grams <- as.numeric(intake_long$grams)
 
@@ -163,6 +174,8 @@ intake_long$grape_rank <- intake_grape_rank_long$value
 
 intake_broc_rank_long <- melt(r01_intake[c(1, 572, 618, 664, 710)], id.vars = 'sub')
 intake_long$broc_rank <- intake_broc_rank_long$value
+
+
 
 #continuous approach:
 intake_long$ps_prop <- ifelse(intake_long[['PortionSize']] == 'PS-1', 0, ifelse(intake_long[['PortionSize']] == 'PS-2', 0.33, ifelse(intake_long[['PortionSize']] == 'PS-3', 0.66, 0.99)))

@@ -90,7 +90,7 @@ intake_merge_tab <-
   )
 
 ## intake tables - by food
-intake_data <- intake_long[c(8, 17:28)]
+intake_data <- intake_long[c(9, 18:29)]
 intake_tab <-
   tbl_summary(
     data = intake_data,
@@ -100,7 +100,7 @@ intake_tab <-
     missing = "no",
     digits = all_continuous() ~ 1)
 
-hr_intake_data <- intake_long[intake_long$risk_status_mom == 'High Risk', c(8, 17:28)]
+hr_intake_data <- intake_long[intake_long$risk_status_mom == 'High Risk', c(9, 18:29)]
 hr_intake_tab <-
   tbl_summary(
     data = hr_intake_data,
@@ -110,7 +110,7 @@ hr_intake_tab <-
     missing = "no",
     digits = all_continuous() ~ 1)
 
-lr_intake_data <- intake_long[intake_long$risk_status_mom == 'Low Risk', c(8, 17:28)]
+lr_intake_data <- intake_long[intake_long$risk_status_mom == 'Low Risk', c(9, 18:29)]
 lr_intake_tab <-
   tbl_summary(
     data = lr_intake_data,
@@ -122,7 +122,7 @@ lr_intake_tab <-
 
 #liking
 
-liking_data <- intake_long[c(8, 11, 25:28)]
+liking_data <- intake_long[c(9, 12, 26:29)]
 liking_tab <-
   tbl_summary(
     data = liking_data,

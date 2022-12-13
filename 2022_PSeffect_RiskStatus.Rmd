@@ -275,6 +275,19 @@ grams_ps4risk_ttest
 
 \FloatBarrier
 
+#### No Plate Cleaners
+
+\FloatBarrier
+
+```{r intake_ps_gmod_riskxps_noplateclean, include = TRUE, echo=FALSE, results='asis'}
+grams_psxrisk_psquad_mod_noplateclean_sum <- summary(grams_psxrisk_psquad_mod_noplateclean)
+
+kable(grams_psxrisk_psquad_mod_noplateclean_sum$coefficients, "latex",  digits = 3, caption = "Regression Table: No Plate Cleaners - Risk x Portion Size for grams", booktabs=TRUE) %>%
+  kable_styling(latex_options = c("hold_position", "repeat_header"))
+```
+
+\FloatBarrier
+
 ### kcal
 
 Adding an interaction between Risk Status and Portion Size (linear effect) significantly improved model fit.
@@ -335,6 +348,18 @@ kcal_ps1risk_ttest
 kcal_ps2risk_ttest
 kcal_ps3risk_ttest
 kcal_ps4risk_ttest
+```
+\FloatBarrier
+
+#### No Plate Cleaners
+
+\FloatBarrier
+
+```{r intake_ps_kcalmod_riskxps_noplateclean, include = TRUE, echo=FALSE, results='asis'}
+kcal_psxrisk_mod_noplateclean_sum <- summary(kcal_psxrisk_mod_noplateclean)
+
+kable(kcal_psxrisk_mod_noplateclean_sum$coefficients, "latex",  digits = 3, caption = "Regression Table: No Plate Cleaners - Risk x Portion Size for kcal", booktabs=TRUE) %>%
+  kable_styling(latex_options = c("hold_position", "repeat_header"))
 ```
 
 \FloatBarrier
