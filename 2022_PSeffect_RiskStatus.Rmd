@@ -177,16 +177,16 @@ anova(grams_ps_mod, grams_psquad_mod)
 \FloatBarrier
 
 ```{r intake_psquad_gmod, include = TRUE, echo=FALSE, results='asis'}
-grams_psquad_sum <- summary(grams_psquad_mod)
+grams_ps_sum <- summary(grams_ps_mod)
 
-kable(round(grams_psquad_sum$coefficients, 3), "latex",  digits = 3, caption = "Regression Table: Portion Size for Grams", booktabs=TRUE) %>%
+kable(round(grams_ps_sum$coefficients, 3), "latex",  digits = 3, caption = "Regression Table: Portion Size for Grams", booktabs=TRUE) %>%
   kable_styling(latex_options = c("hold_position", "repeat_header"))
 
 ```
 
 \FloatBarrier
 
-\*To calculate effect of portion size by 0.33 proportion increase need to first get total quadratic effect. The $\beta$ coefficient for a quadratic effect is half the change in the linear slope for a unit increase, so total change in linear slope = 2 x ps_prop2. Since a 1 unit increase = 100% increase in portion, can then multiply the total effect by 0.33. Therefore, change in linear slope for each 33% increase in amount served = (ps_prop2 x 2) x 0.33. To calculate where the slope switches from positive to negative, need to find the vertex = -ps_prop/(ps_prop2 x 2)
+<!-- \*To calculate effect of portion size by 0.33 proportion increase need to first get total quadratic effect. The $\beta$ coefficient for a quadratic effect is half the change in the linear slope for a unit increase, so total change in linear slope = 2 x ps_prop2. Since a 1 unit increase = 100% increase in portion, can then multiply the total effect by 0.33. Therefore, change in linear slope for each 33% increase in amount served = (ps_prop2 x 2) x 0.33. To calculate where the slope switches from positive to negative, need to find the vertex = -ps_prop/(ps_prop2 x 2) -->
 
 \FloatBarrier
 
@@ -218,15 +218,15 @@ Adding an interaction between Risk Status and Portion Size significantly improve
 \FloatBarrier
 
 ```{r intake_ps_gmodfit_riskxps, include = TRUE}
-anova(grams_psquad_mod, grams_psxrisk_psquad_mod)
+anova(grams_ps_mod, grams_psxrisk_mod)
 ```
 
 \FloatBarrier
 
 ```{r intake_ps_gmod_riskxps, include = TRUE, echo=FALSE, results='asis'}
-grams_psxrisk_psquad_sum <- summary(grams_psxrisk_psquad_mod)
+grams_psxrisk_sum <- summary(grams_psxrisk_mod)
 
-kable(round(grams_psxrisk_psquad_sum$coefficients, 3), "latex",  digits = 3, caption = "Regression Table: Risk x Portion Size for Grams", booktabs=TRUE) %>%
+kable(round(grams_psxrisk_sum$coefficients, 3), "latex",  digits = 3, caption = "Regression Table: Risk x Portion Size for Grams", booktabs=TRUE) %>%
   kable_styling(latex_options = c("hold_position", "repeat_header"))
 ```
 
@@ -252,7 +252,7 @@ ggplot(aes(x = ps_prop, y = grams_pred_rxps, color = risk_status_mom), data = in
 \FloatBarrier
 
 ```{r intake_ps_gmod_riskxps_slopes, include = TRUE, echo=FALSE, results='asis'}
-kable(test(grams_psxrisk_psquad_slopes$emtrends), "latex",  digits = 3, caption = "Estimated Simple Slopes: Risk Status x Linear Portion Size for Grams", booktabs=TRUE) %>%
+kable(test(grams_psxrisk_slopes$emtrends), "latex",  digits = 3, caption = "Estimated Simple Slopes: Risk Status x Linear Portion Size for Grams", booktabs=TRUE) %>%
   kable_styling(latex_options = c("hold_position", "repeat_header"))
 ```
 
@@ -280,9 +280,9 @@ grams_ps4risk_ttest
 \FloatBarrier
 
 ```{r intake_ps_gmod_riskxps_noplateclean, include = TRUE, echo=FALSE, results='asis'}
-grams_psxrisk_psquad_mod_noplateclean_sum <- summary(grams_psxrisk_psquad_mod_noplateclean)
+grams_psxrisk_noplateclean_sum <- summary(grams_psxrisk_mod_noplateclean)
 
-kable(grams_psxrisk_psquad_mod_noplateclean_sum$coefficients, "latex",  digits = 3, caption = "Regression Table: No Plate Cleaners - Risk x Portion Size for grams", booktabs=TRUE) %>%
+kable(grams_psxrisk_noplateclean_sum$coefficients, "latex",  digits = 3, caption = "Regression Table: No Plate Cleaners - Risk x Portion Size for grams", booktabs=TRUE) %>%
   kable_styling(latex_options = c("hold_position", "repeat_header"))
 ```
 
@@ -391,7 +391,7 @@ Adding a BMI x Portion Size interaction did not improve the model for grams
 \FloatBarrier
 
 ```{r bmixps_modgrams_fit_bmi, include = TRUE}
-anova(grams_psxrisk_psquad_mod, grams_psxrisk_psxbmi_psquad_mod)
+anova(grams_psxrisk_mod, grams_psxrisk_psxbmi_mod)
 ```
 
 \FloatBarrier

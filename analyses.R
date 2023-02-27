@@ -88,11 +88,10 @@ anova(kcal_ps_mod, kcal_psquad_mod)
 ### a) Intake ####
 
 ##grams 
-grams_psxrisk_psquad_mod <- lmer(grams ~ preFF + bmi + sex + age_yr + avg_vas + meal_order + risk_status_mom*ps_prop + ps_prop2 + (1|sub), data = intake_long)
+grams_psxrisk_mod <- lmer(grams ~ preFF + bmi + sex + age_yr + avg_vas + meal_order + risk_status_mom*ps_prop + (1|sub), data = intake_long)
 
-anova(grams_psquad_mod, grams_psxrisk_psquad_mod)
+anova(grams_ps_mod, grams_psxrisk_mod)
 
-grams_psxrisk_psquadxrisk_mod <- lmer(grams ~ preFF + bmi + sex + age_yr + avg_vas + meal_order + risk_status_mom*ps_prop + risk_status_mom*ps_prop2 + (1|sub), data = intake_long)
 
 ### adjusted intake
 intake_long_model <- intake_long[!is.na(intake_long$preF) & !is.na(intake_long$avg_vas) & !is.na(intake_long$meal_order), ]
@@ -100,10 +99,10 @@ intake_long_model <- intake_long[!is.na(intake_long$preF) & !is.na(intake_long$a
 #need to remove 128-portion 4 bc mac and cheese was thrown out before measured post meal
 intake_long_model <- intake_long_model[!is.na(intake_long_model$grams), ]
 
-intake_long_model$grams_pred_rxps <- predict(grams_psxrisk_psquad_mod, type = 'response')
+intake_long_model$grams_pred_rxps <- predict(grams_psxrisk_mod, type = 'response')
 
 ### post-hoc tests
-grams_psxrisk_psquad_slopes <- emtrends(grams_psxrisk_psquad_mod, specs=pairwise~risk_status_mom, var="ps_prop")
+grams_psxrisk_slopes <- emtrends(grams_psxrisk_mod, specs=pairwise~risk_status_mom, var="ps_prop")
 
 grams_psxrisk_dat <- data.frame(factor(intake_long_model$ps_prop), intake_long_model$risk_status_mom)
 
@@ -113,11 +112,6 @@ grams_ps1risk_ttest <- t.test(grams_pred_rxps ~ risk_status_mom, data = intake_l
 grams_ps2risk_ttest <- t.test(grams_pred_rxps ~ risk_status_mom, data = intake_long_model[intake_long_model$ps_prop == 0.33, ])
 grams_ps3risk_ttest <- t.test(grams_pred_rxps ~ risk_status_mom, data = intake_long_model[intake_long_model$ps_prop == 0.66, ])
 grams_ps4risk_ttest <- t.test(grams_pred_rxps ~ risk_status_mom, data = intake_long_model[intake_long_model$ps_prop == 0.99, ])
-
-## test interaction with quadratic
-grams_psxrisk_psquadxrisk_mod <- lmer(grams ~ preFF + bmi + sex + age_yr + avg_vas + meal_order + ps_prop*ps_prop2 + risk_status_mom*ps_prop2 + (1|sub), data = intake_long)
-
-anova(grams_psxrisk_psquad_mod, grams_psxrisk_psquadxrisk_mod)
 
 ## kcal
 kcal_psxrisk_mod <- lmer(kcal ~ preFF + bmi + sex + age_yr + avg_vas + meal_order + risk_status_mom*ps_prop + (1|sub), data = intake_long)
@@ -139,7 +133,7 @@ kcal_ps2risk_ttest <- t.test(kcal_pred_rxps ~ risk_status_mom, data = intake_lon
 kcal_ps3risk_ttest <- t.test(kcal_pred_rxps ~ risk_status_mom, data = intake_long_model[intake_long_model$ps_prop == 0.66, ])
 kcal_ps4risk_ttest <- t.test(kcal_pred_rxps ~ risk_status_mom, data = intake_long_model[intake_long_model$ps_prop == 0.99, ])
 
-### g) Energy Denisty ####
+### g) Energy Density ####
 
 intake_long$ED <- intake_long$kcal/intake_long$grams
 
@@ -155,12 +149,12 @@ anova(ed_psxrisk_mod, ed_psxrisk_psquad_mod)
 bmi_mod <- lm(bmi ~ age_yr + sex + risk_status_mom, data = r01_intake)
 
 ## grams
-grams_psxrisk_psxbmi_psquad_mod <- lmer(grams ~ preFF + bmi + sex + age_yr + avg_vas + meal_order + risk_status_mom*ps_prop + bmi*ps_prop + ps_prop2 + (1|sub), data = intake_long)
+grams_psxrisk_psxbmi_mod <- lmer(grams ~ preFF + bmi + sex + age_yr + avg_vas + meal_order + risk_status_mom*ps_prop + bmi*ps_prop + (1|sub), data = intake_long)
 
-anova(grams_psxrisk_psquad_mod, grams_psxrisk_psxbmi_psquad_mod)
+anova(grams_psxrisk_mod, grams_psxrisk_psxbmi_mod)
 
 ## kcal
-kcal_psxrisk_psxbmi_mod <- lmer(kcal ~ preFF + bmi + sex + age_yr + avg_vas + meal_order + risk_status_mom*ps_prop + bmi*ps_prop + ps_prop2 + (1|sub), data = intake_long)
+kcal_psxrisk_psxbmi_mod <- lmer(kcal ~ preFF + bmi + sex + age_yr + avg_vas + meal_order + risk_status_mom*ps_prop + bmi*ps_prop + (1|sub), data = intake_long)
 
 anova(kcal_psxrisk_mod, kcal_psxrisk_psxbmi_mod)
 
@@ -328,7 +322,7 @@ broc_med_mod_psgrams <- '
   grams ~ sub
 
   # direct effect
-  grams ~ preFF + bmi + sex + age_yr + avg_vas + meal_order + risk_status_mom + ps_prop + c*psxrisk_int + ps_prop2
+  grams ~ preFF + bmi + sex + age_yr + avg_vas + meal_order + risk_status_mom + ps_prop + c*psxrisk_int
   
   # mediator
   broc_grams ~ preFF + bmi + sex + age_yr + broc_vas + meal_order + risk_status_mom + ps_prop + a*psxrisk_int
@@ -377,7 +371,7 @@ intake_long_explateclean <- intake_long[intake_long$plate_cleaner == 0, ]
 ### a) Intake ####
 
 ##grams 
-grams_psxrisk_psquad_mod_noplateclean <- lmer(grams ~ preFF + bmi + sex + age_yr + avg_vas + meal_order + risk_status_mom*ps_prop + ps_prop2 + (1|sub), data = intake_long_explateclean)
+grams_psxrisk_mod_noplateclean <- lmer(grams ~ preFF + bmi + sex + age_yr + avg_vas + meal_order + risk_status_mom*ps_prop + (1|sub), data = intake_long_explateclean)
 
 ## kcal
 kcal_psxrisk_mod_noplateclean <- lmer(kcal ~ preFF + bmi + sex + age_yr + avg_vas + meal_order + risk_status_mom*ps_prop + (1|sub), data = intake_long_explateclean)
