@@ -1,5 +1,5 @@
 # This script was written by Alaina Pearce in August 2022
-# to set up data for the a paper examining 
+# to set up data for the paper examining 
 # the portion size effect by risk status
 #
 #     Copyright (C) 2022 Alaina L Pearce

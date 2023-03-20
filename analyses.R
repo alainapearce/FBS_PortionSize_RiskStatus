@@ -53,18 +53,36 @@ sex_chi <- chisq.test(x = r01_intake$sex, y = r01_intake$risk_status_mom)
 income_chi <- chisq.test(x = r01_intake$income, y = r01_intake$risk_status_mom)
 momed_fisher <- fisher.test(x = r01_intake$mom_ed, y = r01_intake$risk_status_mom)
 
-# liking 
+# liking ####
 
 liking_mod <- lmer(avg_vas ~ preFF + bmi + sex + meal_order + risk_status_mom + ps_prop + (1|sub), data = intake_long)
 liking_sum <- summary(liking_mod)
 
 liking_means <- means.function.na(intake_long, intake_long$avg_vas, intake_long$PortionSize)
 
-mac_rank <- mean(intake_long$mac_rank, na.rm = TRUE)
-chnug_rank <- mean(intake_long$chnug_rank, na.rm = TRUE)
-broc_rank <- mean(intake_long$broc_rank, na.rm = TRUE)
-grape_rank <- mean(intake_long$grape_rank, na.rm = TRUE)
+# chicken nuggets
+liking_chnug_mod <- lmer(chnug_vas ~ preFF + bmi + sex + meal_order + risk_status_mom + ps_prop + (1|sub), data = intake_long)
+liking_chnug_sum <- summary(liking_chnug_mod)
 
+liking_chnug_means <- means.function.na(intake_long, intake_long$chnug_vas, intake_long$PortionSize)
+
+# mac and cheese
+liking_mac_mod <- lmer(mac_vas ~ preFF + bmi + sex + meal_order + risk_status_mom + ps_prop + (1|sub), data = intake_long)
+liking_mac_sum <- summary(liking_mac_mod)
+
+liking_mac_means <- means.function.na(intake_long, intake_long$mac_vas, intake_long$PortionSize)
+
+# grapes
+liking_grape_mod <- lmer(grape_vas ~ preFF + bmi + sex + meal_order + risk_status_mom + ps_prop + (1|sub), data = intake_long)
+liking_grape_sum <- summary(liking_grape_mod)
+
+liking_grape_means <- means.function.na(intake_long, intake_long$grape_vas, intake_long$PortionSize)
+
+# grapes
+liking_broc_mod <- lmer(broc_vas ~ preFF + bmi + sex + meal_order + risk_status_mom + ps_prop + (1|sub), data = intake_long)
+liking_broc_sum <- summary(liking_broc_mod)
+
+liking_grape_means <- means.function.na(intake_long, intake_long$broc_vas, intake_long$PortionSize)
 
 ## 1) Base Portion Size ####
 
@@ -302,16 +320,16 @@ kcal_broc_psxrisk_slopes <- emtrends(kcal_broc_psxrisk_mod, specs=pairwise~risk_
 intakefoods_long_model$broc_kcal_pred <- predict(kcal_broc_psxrisk_mod, type = 'response')
 
 #merge for plot and make long
-intakefoods_long_model <- merge(intakefoods_long_model, intakefoods_mac_long_model[c(1, 39:40)], by = 'sub')
+intakefoods_long_model <- merge(intakefoods_long_model, intakefoods_mac_long_model[c(1, 34, 39:40)], by = c('sub', 'ps_prop'))
 
-intakefoods_long_graph <- melt(intakefoods_long_model[c(1, 2, 34, 37, 39, 41, 43)], id.vars = c('sub', 'risk_status_mom', 'ps_prop'))
+intakefoods_long_graph <- melt(intakefoods_long_model[c(1, 2, 3, 37, 39, 41, 43)], id.vars = c('sub', 'risk_status_mom', 'ps_prop'))
 intakefoods_long_graph$food <- ifelse(intakefoods_long_graph$variable == 'chnug_grams_pred', 'chicken nuggets', ifelse(intakefoods_long_graph$variable == 'grape_grams_pred', 'grapes', ifelse(intakefoods_long_graph$variable == 'broc_grams_pred', 'broccoli', 'mac and cheese')))
 intakefoods_long_graph$grams <- intakefoods_long_graph$value
 
 intakefoods_long_graph_kcal <- melt(intakefoods_long_model[c(1, 38, 40, 42, 44)], id.vars = 'sub')
 names(intakefoods_long_graph_kcal)[3] <- 'kcal'
 
-intakefoods_long_model <- cbind.data.frame(intakefoods_long_graph[c(1:3, 6:7)], intakefoods_long_graph_kcal[3])
+intakefoods_long_graph <- cbind.data.frame(intakefoods_long_graph[c(1:3, 6:7)], intakefoods_long_graph_kcal[3])
 
 ## 5) mediated moderation ####
 intake_long$risk_status_mom_dummy <- ifelse(intake_long$risk_status_mom == 'Low Risk', 0, 1)

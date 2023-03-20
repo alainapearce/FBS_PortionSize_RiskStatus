@@ -67,7 +67,6 @@ library(reshape2)
 library(lme4)
 library(lmerTest)
 library(ggplot2)
-library(gtsummary)
 library(lavaan)
 ```
 
@@ -75,6 +74,7 @@ library(lavaan)
 source('functions.R')
 source('setup.R')
 source('analyses.R')
+source('figures.R')
 source('tables.R')
 ```
 
@@ -125,6 +125,46 @@ momed_fisher
 
 ```{r liking_risk_ttest, echo=FALSE}
 kable(round(liking_sum$coefficients, 3), "latex",  digits = 3, caption = "Regression Table: Portion Size for Liking", booktabs=TRUE) %>%
+  kable_styling(latex_options = c("hold_position", "repeat_header"))
+```
+
+\FloatBarrier
+\clearpage
+
+## Chicken Nuggets
+
+```{r liking_chnug_risk_ttest, echo=FALSE}
+kable(round(liking_chnug_sum$coefficients, 3), "latex",  digits = 3, caption = "Regression Table: Portion Size for Liking of Chicken Nuggets", booktabs=TRUE) %>%
+  kable_styling(latex_options = c("hold_position", "repeat_header"))
+```
+
+\FloatBarrier
+\clearpage
+
+## Mac and Cheese
+
+```{r liking_mac_risk_ttest, echo=FALSE}
+kable(round(liking_mac_sum$coefficients, 3), "latex",  digits = 3, caption = "Regression Table: Portion Size for Liking of Mac and Cheese", booktabs=TRUE) %>%
+  kable_styling(latex_options = c("hold_position", "repeat_header"))
+```
+
+\FloatBarrier
+\clearpage
+
+## Grapes
+
+```{r liking_grape_risk_ttest, echo=FALSE}
+kable(round(liking_grape_sum$coefficients, 3), "latex",  digits = 3, caption = "Regression Table: Portion Size for Liking of Grapes", booktabs=TRUE) %>%
+  kable_styling(latex_options = c("hold_position", "repeat_header"))
+```
+
+\FloatBarrier
+\clearpage
+
+## Broccoli
+
+```{r liking_broc_risk_ttest, echo=FALSE}
+kable(round(liking_broc_sum$coefficients, 3), "latex",  digits = 3, caption = "Regression Table: Portion Size for Liking of Broccoli", booktabs=TRUE) %>%
   kable_styling(latex_options = c("hold_position", "repeat_header"))
 ```
 
@@ -232,15 +272,7 @@ kable(round(grams_psxrisk_sum$coefficients, 3), "latex",  digits = 3, caption = 
 
 \FloatBarrier
 ```{r intake_fig_grams_psxr, echo=FALSE, include = FALSE, fig.height = 4, fig.width = 6}
-ggplot(aes(x = ps_prop, y = grams_pred_rxps, color = risk_status_mom), data = intake_long_model) + 
-  labs(y = "Total Intake, Grams - Adjusted", x = "Proportion Increase in Amount Served") +
-  geom_line(aes(group = sub), size = 1, alpha = 0.5, color = 'grey') +
-  stat_smooth(method = "lm", formula = y ~ x + I(x^2), size = 1, se = FALSE) +
-  scale_color_manual(values = c('purple4', 'darkorange1')) +
-  scale_x_continuous(breaks=seq(0.0, 1, 0.33), limits=c(0, 1)) +
-  theme(panel.border = element_blank(), panel.grid.major = element_blank(),
-    panel.grid.minor = element_blank(), axis.line = element_line(colour = "black"),
-    panel.background = element_blank(), axis.text.x = element_text(angle = 90))
+psxr_g
 ```
 
 
@@ -309,15 +341,7 @@ kable(kcal_psxrisk_sum$coefficients, "latex",  digits = 3, caption = "Regression
 \FloatBarrier
 
 ```{r intake_fig_kcal_psxrisk, echo=FALSE, include = FALSE, fig.height = 4, fig.width = 6}
-ggplot(aes(x = ps_prop, y = kcal_pred_rxps, color = risk_status_mom), data = intake_long_model) + 
-  labs(y = "Total Intake, kcal - Adjusted", x = "Proportion Increase in Amount Served") +
-  geom_line(aes(group = sub), size = 1, alpha = 0.5, color = 'grey') +
-  stat_smooth(method = "lm", formula = y ~ x, size = 1, se = FALSE) +
-  scale_color_manual(values = c('purple4', 'darkorange1')) +
-  scale_x_continuous(breaks=seq(0.0, 1, 0.33), limits=c(0, 1)) +
-  theme(panel.border = element_blank(), panel.grid.major = element_blank(),
-    panel.grid.minor = element_blank(), axis.line = element_line(colour = "black"),
-    panel.background = element_blank(), axis.text.x = element_text(angle = 90))
+psxr_kcal
 ```
 
 \begin{figure}
@@ -412,30 +436,18 @@ anova(kcal_psxrisk_mod, kcal_psxrisk_psxbmi_mod)
 # Exploratory Analyses: Individual Foods 
 
 ```{r intake_fig_grams_psxrxfood, echo=FALSE, include = FALSE, fig.height = 4, fig.width = 6}
-ggplot(aes(x = ps_prop, y = grams, group = interaction(food, risk_status_mom), color = food, linetype = risk_status_mom), data = intakefoods_long_model) + 
-  labs(y = "Total Intake, Grams - Adjusted", x = "Proportion Increase in Amount Served") +
-  stat_smooth(method = "lm", formula = y ~ x, size = 1, se = FALSE) +
-  scale_color_manual(values = c('mediumseagreen', 'orange3', 'purple4', 'goldenrod1')) +
-  scale_x_continuous(breaks=seq(0.0, 1, 0.33), limits=c(0, 1)) + 
-  scale_y_continuous(breaks = scales::pretty_breaks(n = 5)) +
-  theme(panel.border = element_blank(), panel.grid.major = element_blank(),
-    panel.grid.minor = element_blank(), axis.line = element_line(colour = "black"),
-    panel.background = element_blank(), axis.text.x = element_text(angle = 90))
+psxr_eachfood_g
 ```
 
 \
 
 
 ```{r intake_fig_kcal_psxrxfood, echo=FALSE, include = FALSE, fig.height = 4, fig.width = 6}
-ggplot(aes(x = ps_prop, y = kcal, group = interaction(food, risk_status_mom), color = food, linetype = risk_status_mom), data = intakefoods_long_model) + 
-  labs(y = "Total Intake, kcal - Adjusted", x = "Proportion Increase in Amount Served") +
-  stat_smooth(method = "lm", formula = y ~ x, size = 1, se = FALSE) +
-  scale_color_manual(values = c('mediumseagreen', 'orange3', 'purple4', 'goldenrod1')) +
-  scale_x_continuous(breaks=seq(0.0, 1, 0.33), limits=c(0, 1)) + 
-  theme(panel.border = element_blank(), panel.grid.major = element_blank(),
-    panel.grid.minor = element_blank(), axis.line = element_line(colour = "black"),
-    panel.background = element_blank(), axis.text.x = element_text(angle = 90))
+psxr_eachfood_kcal
 ```
+
+\
+
 
 ## Chicken Nuggets
 
@@ -474,6 +486,13 @@ kable(grams_chnug_psxrisk_sum$coefficients, "latex",  digits = 3, caption = "Chi
 ```
 
 \FloatBarrier
+
+```{r intake_fig_g_psxr_chnug, echo=FALSE, include = TRUE, fig.height = 4, fig.width = 6}
+psxr_chnug_g
+```
+
+
+\FloatBarrier
 \clearpage
 
 ### kcal
@@ -510,6 +529,11 @@ kable(kcal_chnug_psxrisk_sum$coefficients, "latex",  digits = 3, caption = "Chic
   kable_styling(latex_options = c("hold_position", "repeat_header"))
 ```
 
+\FloatBarrier
+
+```{r intake_fig_kcal_psxr_chnug, echo=FALSE, include = TRUE, fig.height = 4, fig.width = 6}
+psxr_chnug_kcal
+```
 
 \FloatBarrier
 \clearpage
@@ -562,6 +586,12 @@ kable(grams_mac_ps_risk_sum$coefficients, "latex",  digits = 3, caption = "Mac a
 ```
 
 \FloatBarrier
+
+```{r intake_fig_g_psxr_mac, echo=FALSE, include = TRUE, fig.height = 4, fig.width = 6}
+psxr_mac_g
+```
+
+\FloatBarrier
 \clearpage
 
 ### kcal
@@ -609,6 +639,12 @@ kable(kcal_mac_ps_risk_sum$coefficients, "latex",  digits = 3, caption = "Mac an
   kable_styling(latex_options = c("hold_position", "repeat_header"))
 ```
 
+
+\FloatBarrier
+
+```{r intake_fig_kcal_psxr_mac, echo=FALSE, include = TRUE, fig.height = 4, fig.width = 6}
+psxr_mac_kcal
+```
 
 \FloatBarrier
 \clearpage
@@ -660,6 +696,14 @@ kable(grams_grape_ps_risk_sum$coefficients, "latex",  digits = 3, caption = "Gra
   kable_styling(latex_options = c("hold_position", "repeat_header"))
 ```
 
+
+\FloatBarrier
+
+```{r intake_fig_g_psxr_grape, echo=FALSE, include = TRUE, fig.height = 4, fig.width = 6}
+psxr_grape_g
+```
+
+
 \FloatBarrier
 \clearpage
 
@@ -706,6 +750,13 @@ kcal_grape_ps_risk_sum <- summary(kcal_grape_ps_risk_mod)
 
 kable(kcal_grape_ps_risk_sum$coefficients, "latex",  digits = 3, caption = "Grapes - Risk x Portion Size for kcal", booktabs=TRUE) %>%
   kable_styling(latex_options = c("hold_position", "repeat_header"))
+```
+
+
+\FloatBarrier
+
+```{r intake_fig_kcal_psxr_grape, echo=FALSE, include = TRUE, fig.height = 4, fig.width = 6}
+psxr_grape_kcal
 ```
 
 
@@ -761,6 +812,14 @@ kable(test(grams_broc_psxrisk_slopes), "latex",  digits = 3, caption = "Estimate
   kable_styling(latex_options = c("hold_position", "repeat_header"))
 ```
 
+
+\FloatBarrier
+
+```{r intake_fig_g_psxr_broc, echo=FALSE, include = TRUE, fig.height = 4, fig.width = 6}
+psxr_broc_g
+```
+
+
 \FloatBarrier
 \clearpage
 
@@ -809,6 +868,11 @@ kable(test(kcal_broc_psxrisk_slopes), "latex",  digits = 3, caption = "Estimated
   kable_styling(latex_options = c("hold_position", "repeat_header"))
 ```
 
+\FloatBarrier
+
+```{r intake_fig_kcal_psxr_broc, echo=FALSE, include = TRUE, fig.height = 4, fig.width = 6}
+psxr_broc_kcal
+```
 
 \FloatBarrier
 \clearpage

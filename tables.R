@@ -1,5 +1,5 @@
-# This script report was written by Alaina Pearce in January 2022 to 
-# examine intake models by risk status for SSIB 2022 
+# This script report was written by Alaina Pearce in 2022 paper examining 
+# the portion size effect by risk status
 # (data from Food and Brain Study).
 #
 #     Copyright (C) 2022 Alaina L Pearce
