@@ -33,25 +33,26 @@
 # source('setup_data.R')
 
 ## demo table
-intake_demo_data <- r01_intake[c(10, 12, 14:16, 22, 746:747)]
+intake_demo_data <- r01_intake[c(10, 12, 14:16, 22, 765, 746:747)]
 demo_tab <-
   tbl_summary(
     data = intake_demo_data,
-    value = list(age_yr ~ "Age, yr", sex ~ "Sex", ethnicity ~ "Ethnicity", race ~ "Race", income ~ "Income", bmi_percentile ~ "BMI %tile", mom_ed ~ "Mother's Education", dad_ed ~ "Father's Education"),
-    label = list(age_yr ~ "Age, yr", sex ~ "Sex", ethnicity ~ "Ethnicity", race ~ "Race", income ~ "Income", bmi_percentile ~ "BMI %tile", mom_ed ~ "Mother's Education", dad_ed ~ "Father's Education"),
-    type = list(age_yr ~ "continuous", sex ~ "categorical", ethnicity ~ "categorical", race ~ "categorical", income ~ "categorical", bmi_percentile ~ "continuous", mom_ed ~ "categorical", dad_ed ~ "categorical"),
+    value = list(age_yr ~ "Age, yr", sex ~ "Sex", ethnicity ~ "Ethnicity", race ~ "Race", income ~ "Income", bmi_percentile ~ "BMI %tile", cebq_sr ~ 'Satiety Responsiveness', mom_ed ~ "Mother's Education", dad_ed ~ "Father's Education"),
+    label = list(age_yr ~ "Age, yr", sex ~ "Sex", ethnicity ~ "Ethnicity", race ~ "Race", income ~ "Income", bmi_percentile ~ "BMI %tile", cebq_sr ~ 'Satiety Responsiveness', mom_ed ~ "Mother's Education", dad_ed ~ "Father's Education"),
+    type = list(age_yr ~ "continuous", sex ~ "categorical", ethnicity ~ "categorical", race ~ "categorical", income ~ "categorical", bmi_percentile ~ "continuous", cebq_sr ~ 'continuous', mom_ed ~ "categorical", dad_ed ~ "categorical"),
     statistic = all_continuous() ~ c("{mean} ({sd})"),
     missing = "ifany",
     digits = all_continuous() ~ 1)
 
-risk_intake_demo_data <- r01_intake[c(8, 10, 12, 14:16, 22, 746:747)]
+risk_intake_demo_data <- r01_intake[c(8, 10, 12, 14:16, 22, 765, 746:747)]
+
 demo_risk_mom_tab <-
   tbl_summary(
     data = risk_intake_demo_data,
     by = risk_status_mom,
-    value = list(age_yr ~ "Age, yr", sex ~ "Sex", ethnicity ~ "Ethnicity", race ~ "Race", income ~ "Income", bmi_percentile ~ "BMI %tile", mom_ed ~ "Mother's Education", dad_ed ~ "Father's Education"),
-    label = list(age_yr ~ "Age, yr", sex ~ "Sex", ethnicity ~ "Ethnicity", race ~ "Race", income ~ "Income", bmi_percentile ~ "BMI %tile", mom_ed ~ "Mother's Education", dad_ed ~ "Father's Education"),
-    type = list(age_yr ~ "continuous", sex ~ "categorical", ethnicity ~ "categorical", race ~ "categorical", income ~ "categorical", bmi_percentile ~ "continuous", mom_ed ~ "categorical", dad_ed ~ "categorical"),
+    value = list(age_yr ~ "Age, yr", sex ~ "Sex", ethnicity ~ "Ethnicity", race ~ "Race", income ~ "Income", bmi_percentile ~ "BMI %tile", cebq_sr ~ 'Satiety Responsiveness', mom_ed ~ "Mother's Education", dad_ed ~ "Father's Education"),
+    label = list(age_yr ~ "Age, yr", sex ~ "Sex", ethnicity ~ "Ethnicity", race ~ "Race", income ~ "Income", bmi_percentile ~ "BMI %tile", cebq_sr ~ 'Satiety Responsiveness', mom_ed ~ "Mother's Education", dad_ed ~ "Father's Education"),
+    type = list(age_yr ~ "continuous", sex ~ "categorical", ethnicity ~ "categorical", race ~ "categorical", income ~ "categorical", bmi_percentile ~ "continuous",  cebq_sr ~ 'continuous', mom_ed ~ "categorical", dad_ed ~ "categorical"),
     statistic = all_continuous() ~ c("{mean} ({sd})"),
     missing = "ifany",
     digits = all_continuous() ~ 1)

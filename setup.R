@@ -180,3 +180,13 @@ intake_long$broc_rank <- intake_broc_rank_long$value
 #continuous approach:
 intake_long$ps_prop <- ifelse(intake_long[['PortionSize']] == 'PS-1', 0, ifelse(intake_long[['PortionSize']] == 'PS-2', 0.33, ifelse(intake_long[['PortionSize']] == 'PS-3', 0.66, 0.99)))
 
+## Load CEBQ data ####
+
+r01_eat_qs <- as.data.frame(read_spss(("data/qs_eatbeh_bodyimage.sav")))
+names(r01_eat_qs)[1] <- 'sub'
+
+r01_eat_qs_labels <- lapply(r01_eat_qs, function(x) attributes(x)$label)
+
+# merge
+intake_long <- merge(intake_long, r01_eat_qs[c(1, 479:486)], by = 'sub', all.x = TRUE)
+r01_intake <- merge(r01_intake, r01_eat_qs[c(1, 479:486)], by = 'sub', all.x = TRUE)
