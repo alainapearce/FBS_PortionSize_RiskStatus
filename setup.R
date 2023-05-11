@@ -189,4 +189,4 @@ r01_eat_qs_labels <- lapply(r01_eat_qs, function(x) attributes(x)$label)
 
 # merge
 intake_long <- merge(intake_long, r01_eat_qs[c(1, 479:486)], by = 'sub', all.x = TRUE)
-r01_intake <- merge(r01_intake, r01_eat_qs[c(1, 479:486)], by = 'sub', all.x = TRUE)
+r01_intake <- merge(r01_intake, r01_eat_qs[c(1, 479:486, 444:478)], by = 'sub', all.x = TRUE)

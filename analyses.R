@@ -44,6 +44,11 @@ r01_intake$ps3_plate_clean <- ifelse(r01_intake$ps3_main4_total_g >= 1276.8, 1, 
 r01_intake$ps4_main4_total_g <- rowSums(r01_intake[c('ps4_consumed_mac_cheese_g', 'ps4_consumed_grapes_g', 'ps4_consumed_chkn_nug_g', 'ps4_consumed_broccoli_g')])
 r01_intake$ps4_plate_clean <- ifelse(r01_intake$ps4_main4_total_g >= 1516.2, 1, 0)
 
+# sr alpha check
+r01_intake$cebq3_rev <- ifelse(r01_intake$cebq3 == 1, 5, ifelse(r01_intake$cebq3 == 2, 4, ifelse(r01_intake$cebq3 == 4, 2, ifelse(r01_intake$cebq3 == 5, 1, as.numeric(r01_intake$cebq3)))))
+
+sr_alpha <- alpha(r01_intake[c('cebq3_rev', 'cebq17', 'cebq21', 'cebq26', 'cebq30')])
+
 # demographics check
 
 age_ttest <- t.test(age_yr ~ risk_status_mom, data = r01_intake)

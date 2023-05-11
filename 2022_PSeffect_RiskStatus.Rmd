@@ -129,6 +129,12 @@ momed_fisher
 \FloatBarrier
 \clearpage
 
+# CEBQ - SR
+```{r cebq_sr_alpha, echo=FALSE}
+sr_alpha
+```
+\FloatBarrier
+\clearpage
 # Meal Liking
 
 ```{r liking_risk_ttest, echo=FALSE}
