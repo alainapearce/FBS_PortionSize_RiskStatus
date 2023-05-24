@@ -33,26 +33,26 @@
 # source('setup_data.R')
 
 ## demo table
-intake_demo_data <- r01_intake[c(10, 12, 14:16, 22, 765, 746:747)]
+intake_demo_data <- r01_intake[c(10, 12, 14:16, 22, 840:842, 801, 746:747)]
 demo_tab <-
   tbl_summary(
     data = intake_demo_data,
-    value = list(age_yr ~ "Age, yr", sex ~ "Sex", ethnicity ~ "Ethnicity", race ~ "Race", income ~ "Income", bmi_percentile ~ "BMI %tile", cebq_sr ~ 'Satiety Responsiveness', mom_ed ~ "Mother's Education", dad_ed ~ "Father's Education"),
-    label = list(age_yr ~ "Age, yr", sex ~ "Sex", ethnicity ~ "Ethnicity", race ~ "Race", income ~ "Income", bmi_percentile ~ "BMI %tile", cebq_sr ~ 'Satiety Responsiveness', mom_ed ~ "Mother's Education", dad_ed ~ "Father's Education"),
-    type = list(age_yr ~ "continuous", sex ~ "categorical", ethnicity ~ "categorical", race ~ "categorical", income ~ "categorical", bmi_percentile ~ "continuous", cebq_sr ~ 'continuous', mom_ed ~ "categorical", dad_ed ~ "categorical"),
+    value = list(age_yr ~ "Age, yr", sex ~ "Sex", ethnicity ~ "Ethnicity", race ~ "Race", income ~ "Income", bmi_percentile ~ "BMI %tile", dxa_total_fat_mass ~ 'Fat Mass, g', dxa_total_body_perc_fat ~ 'Body Fat, %', fmi ~ 'Fat Mass Index (fat, kg/height, m2)', cebq_sr ~ 'Satiety Responsiveness', mom_ed ~ "Mother's Education", dad_ed ~ "Father's Education"),
+    label = list(age_yr ~ "Age, yr", sex ~ "Sex", ethnicity ~ "Ethnicity", race ~ "Race", income ~ "Income", bmi_percentile ~ "BMI %tile", dxa_total_fat_mass ~ 'Fat Mass, g', dxa_total_body_perc_fat ~ 'Body Fat, %', fmi ~ 'Fat Mass Index (fat, kg/height, m2)', cebq_sr ~ 'Satiety Responsiveness', mom_ed ~ "Mother's Education", dad_ed ~ "Father's Education"),
+    type = list(age_yr ~ "continuous", sex ~ "categorical", ethnicity ~ "categorical", race ~ "categorical", income ~ "categorical", bmi_percentile ~ "continuous", dxa_total_fat_mass ~ 'continuous', dxa_total_body_perc_fat ~ 'continuous', fmi ~ 'continuous', cebq_sr ~ 'continuous', mom_ed ~ "categorical", dad_ed ~ "categorical"),
     statistic = all_continuous() ~ c("{mean} ({sd})"),
     missing = "ifany",
     digits = all_continuous() ~ 1)
 
-risk_intake_demo_data <- r01_intake[c(8, 10, 12, 14:16, 22, 765, 746:747)]
+risk_intake_demo_data <- r01_intake[c(8, 10, 12, 14:16, 22, 840:842, 801, 746:747)]
 
 demo_risk_mom_tab <-
   tbl_summary(
     data = risk_intake_demo_data,
     by = risk_status_mom,
-    value = list(age_yr ~ "Age, yr", sex ~ "Sex", ethnicity ~ "Ethnicity", race ~ "Race", income ~ "Income", bmi_percentile ~ "BMI %tile", cebq_sr ~ 'Satiety Responsiveness', mom_ed ~ "Mother's Education", dad_ed ~ "Father's Education"),
-    label = list(age_yr ~ "Age, yr", sex ~ "Sex", ethnicity ~ "Ethnicity", race ~ "Race", income ~ "Income", bmi_percentile ~ "BMI %tile", cebq_sr ~ 'Satiety Responsiveness', mom_ed ~ "Mother's Education", dad_ed ~ "Father's Education"),
-    type = list(age_yr ~ "continuous", sex ~ "categorical", ethnicity ~ "categorical", race ~ "categorical", income ~ "categorical", bmi_percentile ~ "continuous",  cebq_sr ~ 'continuous', mom_ed ~ "categorical", dad_ed ~ "categorical"),
+    value = list(age_yr ~ "Age, yr", sex ~ "Sex", ethnicity ~ "Ethnicity", race ~ "Race", income ~ "Income", bmi_percentile ~ "BMI %tile", dxa_total_fat_mass ~ 'Fat Mass, g', dxa_total_body_perc_fat ~ 'Body Fat, %', fmi ~ 'Fat Mass Index (fat, kg/height, m2)', cebq_sr ~ 'Satiety Responsiveness', mom_ed ~ "Mother's Education", dad_ed ~ "Father's Education"),
+    label = list(age_yr ~ "Age, yr", sex ~ "Sex", ethnicity ~ "Ethnicity", race ~ "Race", income ~ "Income", bmi_percentile ~ "BMI %tile", dxa_total_fat_mass ~ 'Fat Mass, g', dxa_total_body_perc_fat ~ 'Body Fat, %', fmi ~ 'Fat Mass Index (fat, kg/height, m2)', cebq_sr ~ 'Satiety Responsiveness', mom_ed ~ "Mother's Education", dad_ed ~ "Father's Education"),
+    type = list(age_yr ~ "continuous", sex ~ "categorical", ethnicity ~ "categorical", race ~ "categorical", income ~ "categorical", bmi_percentile ~ "continuous",  dxa_total_fat_mass ~ 'continuous', dxa_total_body_perc_fat ~ 'continuous', fmi ~ 'continuous', cebq_sr ~ 'continuous', mom_ed ~ "categorical", dad_ed ~ "categorical"),
     statistic = all_continuous() ~ c("{mean} ({sd})"),
     missing = "ifany",
     digits = all_continuous() ~ 1)
@@ -123,12 +123,103 @@ lr_intake_tab <-
 
 #liking
 
-liking_data <- intake_long[c(9, 12, 26:29)]
+liking_data <- intake_long[c(9, 12, 26:33)]
 liking_tab <-
   tbl_summary(
     data = liking_data,
     by = PortionSize,
-    type = list(avg_vas ~ "continuous", chnug_vas ~ "continuous",  mac_vas ~ "continuous", grape_vas ~ "continuous", broc_vas ~ "continuous"),
+    type = list(avg_vas ~ "continuous", chnug_vas ~ "continuous",  mac_vas ~ "continuous", grape_vas ~ "continuous", broc_vas ~ "continuous", chnug_rank ~ "continuous",  mac_rank ~ "continuous", grape_rank ~ "continuous", broc_rank ~ "continuous"),
     statistic = all_continuous() ~ c("{mean} ({sd})"),
     missing = "no",
     digits = all_continuous() ~ 1)
+
+high_risk_liking_data <- intake_long[intake_long$risk_status_mom == 'High Risk', c(9, 12, 26:33)]
+
+hr_liking_tab <-
+  tbl_summary(
+    data = high_risk_liking_data,
+    by = PortionSize,
+    type = list(avg_vas ~ "continuous", chnug_vas ~ "continuous",  mac_vas ~ "continuous", grape_vas ~ "continuous", broc_vas ~ "continuous", chnug_rank ~ "continuous",  mac_rank ~ "continuous", grape_rank ~ "continuous", broc_rank ~ "continuous"),
+    statistic = all_continuous() ~ c("{mean} ({sd})"),
+    missing = "no",
+    digits = all_continuous() ~ 1)
+
+low_risk_liking_data <- intake_long[intake_long$risk_status_mom == 'Low Risk', c(9, 12, 26:33)]
+
+lr_liking_tab <-
+  tbl_summary(
+    data = low_risk_liking_data,
+    by = PortionSize,
+    type = list(avg_vas ~ "continuous", chnug_vas ~ "continuous",  mac_vas ~ "continuous", grape_vas ~ "continuous", broc_vas ~ "continuous", chnug_rank ~ "continuous",  mac_rank ~ "continuous", grape_rank ~ "continuous", broc_rank ~ "continuous"),
+    statistic = all_continuous() ~ c("{mean} ({sd})"),
+    missing = "no",
+    digits = all_continuous() ~ 1)
+
+liking_merge_tab <-
+  tbl_stack(
+    tbls = list(liking_tab, hr_liking_tab, lr_liking_tab),
+    group_header = c("**Overall**", "**High-Risk**", "**Low-Risk**")
+  )
+
+#PSS survey
+pss_data <- r01_intake[c(761:772)]
+pss_tab <-
+  tbl_summary(
+    data = pss_data,
+    value = list(pss_broccoli_eat ~ "Broccoli, eat", pss_broccoli_much ~ "Broccoli, amount",  pss_broccoli_like ~ "Broccoli, like", pss_chkn_nug_eat ~ "Chicken Nugget, eat", pss_chkn_nug_much ~ "Chicken Nugget, amount", pss_chkn_nug_like ~ "Chicken Nugget, like", pss_grapes_eat ~ "Grapes, eat", pss_grapes_much ~ "Grapes, amount", pss_grapes_like ~ "Grapes, like", pss_mac_cheese_eat ~ "Mac + Cheese, eat", pss_mac_cheese_much ~ "Mac + Cheese, amount", pss_mac_cheese_like ~ "Mac + Cheese, like"),
+    label = list(pss_broccoli_eat ~ "Broccoli, eat", pss_broccoli_much ~ "Broccoli, amount",  pss_broccoli_like ~ "Broccoli, like", pss_chkn_nug_eat ~ "Chicken Nugget, eat", pss_chkn_nug_much ~ "Chicken Nugget, amount", pss_chkn_nug_like ~ "Chicken Nugget, like", pss_grapes_eat ~ "Grapes, eat", pss_grapes_much ~ "Grapes, amount", pss_grapes_like ~ "Grapes, like", pss_mac_cheese_eat ~ "Mac + Cheese, eat", pss_mac_cheese_much ~ "Mac + Cheese, amount", pss_mac_cheese_like ~ "Mac + Cheese, like")     ,   
+    type = list(pss_broccoli_eat ~ "categorical", pss_broccoli_much ~ "continuous",  pss_broccoli_like ~ "continuous", pss_chkn_nug_eat ~ "categorical", pss_chkn_nug_much ~ "continuous", pss_chkn_nug_like ~ "continuous", pss_grapes_eat ~ "categorical", pss_grapes_much ~ "continuous", pss_grapes_like ~ "continuous", pss_mac_cheese_eat ~ "categorical", pss_mac_cheese_much ~ "continuous", pss_mac_cheese_like ~ "continuous"),
+    statistic = all_continuous() ~ c("{mean} ({sd})"),
+    missing = "no",
+    digits = all_continuous() ~ 1)
+
+risk_pss_data <- r01_intake[c(8, 761:772)]
+
+risk_pss_tab <-
+  tbl_summary(
+    data = risk_pss_data,
+    by = risk_status_mom,
+    value = list(pss_broccoli_eat ~ "Broccoli, eat", pss_broccoli_much ~ "Broccoli, amount",  pss_broccoli_like ~ "Broccoli, like", pss_chkn_nug_eat ~ "Chicken Nugget, eat", pss_chkn_nug_much ~ "Chicken Nugget, amount", pss_chkn_nug_like ~ "Chicken Nugget, like", pss_grapes_eat ~ "Grapes, eat", pss_grapes_much ~ "Grapes, amount", pss_grapes_like ~ "Grapes, like", pss_mac_cheese_eat ~ "Mac + Cheese, eat", pss_mac_cheese_much ~ "Mac + Cheese, amount", pss_mac_cheese_like ~ "Mac + Cheese, like"),
+    label = list(pss_broccoli_eat ~ "Broccoli, eat", pss_broccoli_much ~ "Broccoli, amount",  pss_broccoli_like ~ "Broccoli, like", pss_chkn_nug_eat ~ "Chicken Nugget, eat", pss_chkn_nug_much ~ "Chicken Nugget, amount", pss_chkn_nug_like ~ "Chicken Nugget, like", pss_grapes_eat ~ "Grapes, eat", pss_grapes_much ~ "Grapes, amount", pss_grapes_like ~ "Grapes, like", pss_mac_cheese_eat ~ "Mac + Cheese, eat", pss_mac_cheese_much ~ "Mac + Cheese, amount", pss_mac_cheese_like ~ "Mac + Cheese, like")     ,   
+    type = list(pss_broccoli_eat ~ "categorical", pss_broccoli_much ~ "continuous",  pss_broccoli_like ~ "continuous", pss_chkn_nug_eat ~ "categorical", pss_chkn_nug_much ~ "continuous", pss_chkn_nug_like ~ "continuous", pss_grapes_eat ~ "categorical", pss_grapes_much ~ "continuous", pss_grapes_like ~ "continuous", pss_mac_cheese_eat ~ "categorical", pss_mac_cheese_much ~ "continuous", pss_mac_cheese_like ~ "continuous"),
+    statistic = all_continuous() ~ c("{mean} ({sd})"),
+    missing = "no",
+    digits = all_continuous() ~ 1)
+
+pss_merge_tab <-
+  tbl_merge(
+    tbls = list(risk_pss_tab, pss_tab),
+    tab_spanner = c("**Risk Groups**", "**Overall**")
+  )
+
+#P-PSS survey
+p_pss_data <- r01_intake[c(773:796)]
+p_pss_tab <-
+  tbl_summary(
+    data = p_pss_data,
+    value = list(p_pss_broccoli_eat ~ "Broccoli, eat", p_pss_broccoli_freq ~ "Broccoli, freq", p_pss_broccoli_much ~ "Broccoli, amount",  p_pss_broccoli_like ~ "Broccoli, like", p_pss_broccoli_portion ~ "Broccoli, portion", p_pss_broccoli_nutrition ~ "Broccoli, health", p_pss_chkn_nug_eat ~ "Chicken Nugget, eat", p_pss_chkn_nug_freq ~ "Chicken Nugget, freq", p_pss_chkn_nug_much ~ "Chicken Nugget, amount", p_pss_chkn_nug_like ~ "Chicken Nugget, like", p_pss_chkn_nug_portion ~ "Chicken Nugget, portion", p_pss_chkn_nug_nutrition ~ "Chicken Nugget, health", p_pss_grapes_eat ~ "Grapes, eat", p_pss_grapes_freq ~ "Grapes, freq", p_pss_grapes_much ~ "Grapes, amount", p_pss_grapes_like ~ "Grapes, like", p_pss_grapes_portion ~ "Grapes, poriton", p_pss_grapes_nutrition ~ "Grapes, health", p_pss_mac_cheese_eat ~ "Mac + Cheese, eat", p_pss_mac_cheese_freq ~ "Mac + Cheese, freq", p_pss_mac_cheese_much ~ "Mac + Cheese, amount", p_pss_mac_cheese_like ~ "Mac + Cheese, like", p_pss_mac_cheese_portion ~ "Mac + Cheese, poriton", p_pss_mac_cheese_nutrition ~ "Mac + Cheese, nutrition"),
+    label = list(p_pss_broccoli_eat ~ "Broccoli, eat", p_pss_broccoli_freq ~ "Broccoli, freq", p_pss_broccoli_much ~ "Broccoli, amount",  p_pss_broccoli_like ~ "Broccoli, like", p_pss_broccoli_portion ~ "Broccoli, portion", p_pss_broccoli_nutrition ~ "Broccoli, health", p_pss_chkn_nug_eat ~ "Chicken Nugget, eat", p_pss_chkn_nug_freq ~ "Chicken Nugget, freq", p_pss_chkn_nug_much ~ "Chicken Nugget, amount", p_pss_chkn_nug_like ~ "Chicken Nugget, like", p_pss_chkn_nug_portion ~ "Chicken Nugget, portion", p_pss_chkn_nug_nutrition ~ "Chicken Nugget, health", p_pss_grapes_eat ~ "Grapes, eat", p_pss_grapes_freq ~ "Grapes, freq", p_pss_grapes_much ~ "Grapes, amount", p_pss_grapes_like ~ "Grapes, like", p_pss_grapes_portion ~ "Grapes, poriton", p_pss_grapes_nutrition ~ "Grapes, health", p_pss_mac_cheese_eat ~ "Mac + Cheese, eat", p_pss_mac_cheese_freq ~ "Mac + Cheese, freq", p_pss_mac_cheese_much ~ "Mac + Cheese, amount", p_pss_mac_cheese_like ~ "Mac + Cheese, like", p_pss_mac_cheese_portion ~ "Mac + Cheese, poriton", p_pss_mac_cheese_nutrition ~ "Mac + Cheese, nutrition"),   
+    type = list(p_pss_broccoli_eat ~ "categorical", p_pss_broccoli_freq ~ "categorical", p_pss_broccoli_much ~ "continuous",  p_pss_broccoli_like ~ "continuous", p_pss_broccoli_portion ~ "continuous",  p_pss_broccoli_nutrition ~ "continuous", p_pss_chkn_nug_eat ~ "categorical", p_pss_chkn_nug_freq ~ "categorical", p_pss_chkn_nug_much ~ "continuous", p_pss_chkn_nug_like ~ "continuous", p_pss_chkn_nug_portion ~ "continuous", p_pss_chkn_nug_nutrition ~ "continuous", p_pss_grapes_eat ~ "categorical", p_pss_grapes_freq ~ "categorical", p_pss_grapes_much ~ "continuous", p_pss_grapes_like ~ "continuous", p_pss_grapes_portion ~ "continuous", p_pss_grapes_nutrition ~ "continuous", p_pss_mac_cheese_eat ~ "categorical", p_pss_mac_cheese_freq ~ "categorical", p_pss_mac_cheese_much ~ "continuous", p_pss_mac_cheese_like ~ "continuous", p_pss_mac_cheese_portion ~ "continuous", p_pss_mac_cheese_nutrition ~ "continuous"),
+    statistic = all_continuous() ~ c("{mean} ({sd})"),
+    missing = "no",
+    digits = all_continuous() ~ 1)
+
+risk_p_pss_data <- r01_intake[c(8, 773:796)]
+
+risk_p_pss_tab <-
+  tbl_summary(
+    data = risk_p_pss_data,
+    by = risk_status_mom,
+    value = list(p_pss_broccoli_eat ~ "Broccoli, eat", p_pss_broccoli_freq ~ "Broccoli, freq", p_pss_broccoli_much ~ "Broccoli, amount",  p_pss_broccoli_like ~ "Broccoli, like", p_pss_broccoli_portion ~ "Broccoli, portion", p_pss_broccoli_nutrition ~ "Broccoli, health", p_pss_chkn_nug_eat ~ "Chicken Nugget, eat", p_pss_chkn_nug_freq ~ "Chicken Nugget, freq", p_pss_chkn_nug_much ~ "Chicken Nugget, amount", p_pss_chkn_nug_like ~ "Chicken Nugget, like", p_pss_chkn_nug_portion ~ "Chicken Nugget, portion", p_pss_chkn_nug_nutrition ~ "Chicken Nugget, health", p_pss_grapes_eat ~ "Grapes, eat", p_pss_grapes_freq ~ "Grapes, freq", p_pss_grapes_much ~ "Grapes, amount", p_pss_grapes_like ~ "Grapes, like", p_pss_grapes_portion ~ "Grapes, poriton", p_pss_grapes_nutrition ~ "Grapes, health", p_pss_mac_cheese_eat ~ "Mac + Cheese, eat", p_pss_mac_cheese_freq ~ "Mac + Cheese, freq", p_pss_mac_cheese_much ~ "Mac + Cheese, amount", p_pss_mac_cheese_like ~ "Mac + Cheese, like", p_pss_mac_cheese_portion ~ "Mac + Cheese, poriton", p_pss_mac_cheese_nutrition ~ "Mac + Cheese, nutrition"),
+    label = list(p_pss_broccoli_eat ~ "Broccoli, eat", p_pss_broccoli_freq ~ "Broccoli, freq", p_pss_broccoli_much ~ "Broccoli, amount",  p_pss_broccoli_like ~ "Broccoli, like", p_pss_broccoli_portion ~ "Broccoli, portion", p_pss_broccoli_nutrition ~ "Broccoli, health", p_pss_chkn_nug_eat ~ "Chicken Nugget, eat", p_pss_chkn_nug_freq ~ "Chicken Nugget, freq", p_pss_chkn_nug_much ~ "Chicken Nugget, amount", p_pss_chkn_nug_like ~ "Chicken Nugget, like", p_pss_chkn_nug_portion ~ "Chicken Nugget, portion", p_pss_chkn_nug_nutrition ~ "Chicken Nugget, health", p_pss_grapes_eat ~ "Grapes, eat", p_pss_grapes_freq ~ "Grapes, freq", p_pss_grapes_much ~ "Grapes, amount", p_pss_grapes_like ~ "Grapes, like", p_pss_grapes_portion ~ "Grapes, poriton", p_pss_grapes_nutrition ~ "Grapes, health", p_pss_mac_cheese_eat ~ "Mac + Cheese, eat", p_pss_mac_cheese_freq ~ "Mac + Cheese, freq", p_pss_mac_cheese_much ~ "Mac + Cheese, amount", p_pss_mac_cheese_like ~ "Mac + Cheese, like", p_pss_mac_cheese_portion ~ "Mac + Cheese, poriton", p_pss_mac_cheese_nutrition ~ "Mac + Cheese, nutrition"),   
+    type = list(p_pss_broccoli_eat ~ "categorical", p_pss_broccoli_freq ~ "categorical", p_pss_broccoli_much ~ "continuous",  p_pss_broccoli_like ~ "continuous", p_pss_broccoli_portion ~ "continuous",  p_pss_broccoli_nutrition ~ "continuous", p_pss_chkn_nug_eat ~ "categorical", p_pss_chkn_nug_freq ~ "categorical", p_pss_chkn_nug_much ~ "continuous", p_pss_chkn_nug_like ~ "continuous", p_pss_chkn_nug_portion ~ "continuous", p_pss_chkn_nug_nutrition ~ "continuous", p_pss_grapes_eat ~ "categorical", p_pss_grapes_freq ~ "categorical", p_pss_grapes_much ~ "continuous", p_pss_grapes_like ~ "continuous", p_pss_grapes_portion ~ "continuous", p_pss_grapes_nutrition ~ "continuous", p_pss_mac_cheese_eat ~ "categorical", p_pss_mac_cheese_freq ~ "categorical", p_pss_mac_cheese_much ~ "continuous", p_pss_mac_cheese_like ~ "continuous", p_pss_mac_cheese_portion ~ "continuous", p_pss_mac_cheese_nutrition ~ "continuous"),
+    statistic = all_continuous() ~ c("{mean} ({sd})"),
+    missing = "no",
+    digits = all_continuous() ~ 1)
+
+p_pss_merge_tab <-
+  tbl_merge(
+    tbls = list(risk_p_pss_tab, p_pss_tab),
+    tab_spanner = c("**Risk Groups**", "**Overall**")
+  )
+

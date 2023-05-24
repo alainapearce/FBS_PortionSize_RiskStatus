@@ -68,6 +68,7 @@ library(lme4)
 library(lmerTest)
 library(ggplot2)
 library(lavaan)
+library(psych)
 ```
 
 ```{r load_scripts, echo=FALSE, results='asis'}
@@ -102,9 +103,16 @@ bmi_sd
 ```
 
 \
+## FMI - t-test
+```{r demo_fmi_ttest, echo=FALSE}
+fmi_ttest
+fmi_sd
+```
+
+\
 
 ## CEBQ SR - t-test
-```{r demo_bmi_ttest, echo=FALSE}
+```{r demo_sr_ttest, echo=FALSE}
 cebq_sr_ttest
 cebq_sr_sd
 ```
@@ -135,17 +143,24 @@ sr_alpha
 ```
 \FloatBarrier
 \clearpage
+
 # Meal Liking
 
+```{r liking_tab, echo=FALSE, results='asis'}
+as_kable_extra(liking_merge_tab, caption = 'Demographics', format = "latex", booktabs = TRUE, longtable = FALSE) %>%
+  kableExtra::kable_styling(latex_options = "hold_position",  full_width = FALSE)
+```
+
+\FloatBarrier
+## Overall
 ```{r liking_risk_ttest, echo=FALSE}
 kable(round(liking_sum$coefficients, 3), "latex",  digits = 3, caption = "Regression Table: Portion Size for Liking", booktabs=TRUE) %>%
   kable_styling(latex_options = c("hold_position", "repeat_header"))
 ```
 
 \FloatBarrier
-\clearpage
 
-## Chicken Nuggets
+## Chicken Nuggets - Liking
 
 ```{r liking_chnug_risk_ttest, echo=FALSE}
 kable(round(liking_chnug_sum$coefficients, 3), "latex",  digits = 3, caption = "Regression Table: Portion Size for Liking of Chicken Nuggets", booktabs=TRUE) %>%
@@ -153,9 +168,8 @@ kable(round(liking_chnug_sum$coefficients, 3), "latex",  digits = 3, caption = "
 ```
 
 \FloatBarrier
-\clearpage
 
-## Mac and Cheese
+## Mac and Cheese - Liking
 
 ```{r liking_mac_risk_ttest, echo=FALSE}
 kable(round(liking_mac_sum$coefficients, 3), "latex",  digits = 3, caption = "Regression Table: Portion Size for Liking of Mac and Cheese", booktabs=TRUE) %>%
@@ -163,9 +177,8 @@ kable(round(liking_mac_sum$coefficients, 3), "latex",  digits = 3, caption = "Re
 ```
 
 \FloatBarrier
-\clearpage
 
-## Grapes
+## Grapes - Liking
 
 ```{r liking_grape_risk_ttest, echo=FALSE}
 kable(round(liking_grape_sum$coefficients, 3), "latex",  digits = 3, caption = "Regression Table: Portion Size for Liking of Grapes", booktabs=TRUE) %>%
@@ -173,9 +186,8 @@ kable(round(liking_grape_sum$coefficients, 3), "latex",  digits = 3, caption = "
 ```
 
 \FloatBarrier
-\clearpage
 
-## Broccoli
+## Broccoli - Liking
 
 ```{r liking_broc_risk_ttest, echo=FALSE}
 kable(round(liking_broc_sum$coefficients, 3), "latex",  digits = 3, caption = "Regression Table: Portion Size for Liking of Broccoli", booktabs=TRUE) %>%
@@ -183,6 +195,172 @@ kable(round(liking_broc_sum$coefficients, 3), "latex",  digits = 3, caption = "R
 ```
 
 \FloatBarrier
+\clearpage
+
+## Chicken Nuggets vs Mac and Cheese
+```{r chnug_mac_rank_ttest, echo=FALSE}
+ps1_chnug_mac_rank_ttest
+ps2_chnug_mac_rank_ttest
+ps3_chnug_mac_rank_ttest
+ps4_chnug_mac_rank_ttest
+```
+\
+
+## Chicken Nuggets vs Grapes
+```{r chnug_grape_rank_ttest, echo=FALSE}
+ps1_chnug_grape_rank_ttest
+ps2_chnug_grape_rank_ttest
+ps3_chnug_grape_rank_ttest
+ps4_chnug_grape_rank_ttest
+```
+\
+
+## Chicken Nuggets vs Broccoli
+```{r chnug_broc_rank_ttest, echo=FALSE}
+ps1_chnug_broc_rank_ttest
+ps2_chnug_broc_rank_ttest
+ps3_chnug_broc_rank_ttest
+ps4_chnug_broc_rank_ttest
+```
+\
+
+## Mac and Cheese vs Grapes
+```{r mac_grape_rank_ttest, echo=FALSE}
+ps1_mac_grape_rank_ttest
+ps2_mac_grape_rank_ttest
+ps3_mac_grape_rank_ttest
+ps4_mac_grape_rank_ttest
+```
+\
+
+## Mac and Cheese vs Broccoli
+```{r mac_broc_rank_ttest, echo=FALSE}
+ps1_mac_broc_rank_ttest
+ps2_mac_broc_rank_ttest
+ps3_mac_broc_rank_ttest
+ps4_mac_broc_rank_ttest
+```
+\
+
+## Grapes vs Broccoli
+```{r grape_broc_rank_ttest, echo=FALSE}
+ps1_grape_broc_rank_ttest
+ps2_grape_broc_rank_ttest
+ps3_grape_broc_rank_ttest
+ps4_grape_broc_rank_ttest
+```
+\
+
+## Chicken Nuggets - Rank
+
+```{r rank_chnug_risk_ttest, echo=FALSE}
+kable(round(rank_chnug_sum$coefficients, 3), "latex",  digits = 3, caption = "Regression Table: Portion Size for Rank Preference of Chicken Nuggets", booktabs=TRUE) %>%
+  kable_styling(latex_options = c("hold_position", "repeat_header"))
+```
+
+\FloatBarrier
+
+## Mac and Cheese - Rank
+
+```{r rank_mac_risk_ttest, echo=FALSE}
+kable(round(rank_mac_sum$coefficients, 3), "latex",  digits = 3, caption = "Regression Table: Portion Size for Rank Preference of Mac and Cheese", booktabs=TRUE) %>%
+  kable_styling(latex_options = c("hold_position", "repeat_header"))
+```
+
+\FloatBarrier
+
+## Grapes - Rank
+
+```{r rank_grape_risk_ttest, echo=FALSE}
+kable(round(rank_grape_sum$coefficients, 3), "latex",  digits = 3, caption = "Regression Table: Portion Size for Rank Preference of Grapes", booktabs=TRUE) %>%
+  kable_styling(latex_options = c("hold_position", "repeat_header"))
+```
+
+\FloatBarrier
+
+## Broccoli - Rank
+
+```{r rank_broc_risk_ttest, echo=FALSE}
+kable(round(rank_broc_sum$coefficients, 3), "latex",  digits = 3, caption = "Regression Table: Portion Size for Rank Preference of Broccoli", booktabs=TRUE) %>%
+  kable_styling(latex_options = c("hold_position", "repeat_header"))
+```
+
+\FloatBarrier
+\clearpage
+
+## Frequency of Intake
+
+\FloatBarrier
+
+```{r pss_tab, echo=FALSE, results='asis'}
+as_kable_extra(pss_merge_tab, caption = 'Child Report - Typical Portion Selection and Intake', format = "latex", booktabs = TRUE, longtable = FALSE) %>%
+  kableExtra::kable_styling(latex_options = "hold_position",  full_width = FALSE)
+```
+
+\FloatBarrier
+
+\
+## Broccoli - $\chi^2$
+```{r pss_broc_chi, echo=FALSE}
+broc_eat_chi
+```
+
+\
+## Grapes - Fisher
+```{r pss_grape_chi, echo=FALSE}
+grapes_eat_fisher
+```
+
+\
+## Mac and Cheese - Fisher
+```{r pss_mac_chi, echo=FALSE}
+mac_eat_fisher
+```
+
+\
+## Chicken Nuggets - Fisher
+```{r pss_chknug_chi, echo=FALSE}
+chknug_eat_fisher
+```
+
+
+```{r p_pss_tab, echo=FALSE, results='asis'}
+as_kable_extra(p_pss_merge_tab, caption = 'Parent Report - Typical Portion Selection and Intake', format = "latex", booktabs = TRUE, longtable = FALSE) %>%
+  kableExtra::kable_styling(latex_options = "hold_position",  full_width = FALSE)
+```
+
+\FloatBarrier
+
+\
+## Broccoli - $\chi^2$
+```{r p_pss_broc_chi, echo=FALSE}
+p_broc_eat_chi
+p_broc_freq_fisher
+```
+
+\
+## Grapes - Fisher
+```{r p_pss_grape_chi, echo=FALSE}
+p_grapes_eat_fisher
+p_grapes_freq_fisher
+```
+
+\
+## Mac and Cheese - Fisher
+```{r p_pss_mac_chi, echo=FALSE}
+p_mac_eat_fisher
+p_mac_freq_fisher
+```
+
+\
+## Chicken Nuggets - Fisher
+```{r p_pss_chknug_chi, echo=FALSE}
+p_chknug_eat_fisher
+p_chknug_freq_fisher
+```
+
+
+
 \clearpage
 
 # Portion Size Effect
@@ -398,50 +576,6 @@ kcal_psxrisk_mod_noplateclean_sum <- summary(kcal_psxrisk_mod_noplateclean)
 
 kable(kcal_psxrisk_mod_noplateclean_sum$coefficients, "latex",  digits = 3, caption = "Regression Table: No Plate Cleaners - Risk x Portion Size for kcal", booktabs=TRUE) %>%
   kable_styling(latex_options = c("hold_position", "repeat_header"))
-```
-
-\FloatBarrier
-\clearpage
-
-## Exploratory Analyses: Effect of BMI
-
-After controlling for age and sex, there was a difference in BMI by Risk Status such that the High Risk group had BMI that was 0.73 higher on average.
-
-\FloatBarrier
-
-```{r bmixrisk_mod, include = TRUE, echo=FALSE, results='asis'}
-bmi_sum <- summary(bmi_mod)
-
-kable(bmi_sum$coefficients, "latex",  digits = 3, caption = "Regression Table: BMI and Risk Status", booktabs=TRUE) %>%
-  kable_styling(latex_options = c("hold_position", "repeat_header"))
-```
-
-\FloatBarrier
-
-Since BMI was associated with both total grams and kcal intake, I tested if adding a BMI x Poriton Size interaction improved the model. 
-
-\FloatBarrier
-
-### Grams
-
-Adding a BMI x Portion Size interaction did not improve the model for grams
-
-\FloatBarrier
-
-```{r bmixps_modgrams_fit_bmi, include = TRUE}
-anova(grams_psxrisk_mod, grams_psxrisk_psxbmi_mod)
-```
-
-\FloatBarrier
-
-### kcal
-
-Adding a BMI x Portion Size interaction did not improve the model for kcal.
-
-\FloatBarrier
-
-```{r bmixps_modgrams_fit, include = TRUE, echo=FALSE, results='asis'}
-anova(kcal_psxrisk_mod, kcal_psxrisk_psxbmi_mod)
 ```
 
 \FloatBarrier

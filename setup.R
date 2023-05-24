@@ -178,15 +178,78 @@ intake_long$broc_rank <- intake_broc_rank_long$value
 
 
 #continuous approach:
-intake_long$ps_prop <- ifelse(intake_long[['PortionSize']] == 'PS-1', 0, ifelse(intake_long[['PortionSize']] == 'PS-2', 0.33, ifelse(intake_long[['PortionSize']] == 'PS-3', 0.66, 0.99)))
+#intake_long$ps_prop <- ifelse(intake_long[['PortionSize']] == 'PS-1', 0, ifelse(intake_long[['PortionSize']] == 'PS-2', 0.33, ifelse(intake_long[['PortionSize']] == 'PS-3', 0.66, 0.99)))
 
-## Load CEBQ data ####
+intake_long$g_served <- ifelse(intake_long[['PortionSize']] == 'PS-1', 0, ifelse(intake_long[['PortionSize']] == 'PS-2', 242.4, ifelse(intake_long[['PortionSize']] == 'PS-3', 485.8, 730.2)))
 
+intake_long$kcal_served <- ifelse(intake_long[['PortionSize']] == 'PS-1', 0, ifelse(intake_long[['PortionSize']] == 'PS-2', 328.8, ifelse(intake_long[['PortionSize']] == 'PS-3', 658.6, 989.4)))
+
+## Load CEBQ and PSS data ####
 r01_eat_qs <- as.data.frame(read_spss(("data/qs_eatbeh_bodyimage.sav")))
 names(r01_eat_qs)[1] <- 'sub'
 
 r01_eat_qs_labels <- lapply(r01_eat_qs, function(x) attributes(x)$label)
 
+#fix factors
+r01_eat_qs[c(121:123, 139:141, 151:153, 157:159, 198:203, 234:239, 258:263, 270:275)] <- sapply(r01_eat_qs[c(121:123, 139:141, 151:153, 157:159, 198:203, 234:239, 258:263, 270:275)], as.numeric)
+
+r01_eat_qs$pss_broccoli_eat <- ifelse(r01_eat_qs$pss_broccoli_eat == 1, 'Y', ifelse(r01_eat_qs$pss_broccoli_eat == 0, 'N', as.character(r01_eat_qs$pss_broccoli_eat)))
+r01_eat_qs$pss_broccoli_eat <- factor(r01_eat_qs$pss_broccoli_eat)
+
+r01_eat_qs$pss_grapes_eat <- ifelse(r01_eat_qs$pss_grapes_eat == 1, 'Y', ifelse(r01_eat_qs$pss_grapes_eat == 0, 'N', as.character(r01_eat_qs$pss_grapes_eat)))
+r01_eat_qs$pss_grapes_eat <- factor(r01_eat_qs$pss_grapes_eat)
+
+r01_eat_qs$pss_chkn_nug_eat <- ifelse(r01_eat_qs$pss_chkn_nug_eat == 1, 'Y', ifelse(r01_eat_qs$pss_chkn_nug_eat == 0, 'N', as.character(r01_eat_qs$pss_chkn_nug_eat)))
+r01_eat_qs$pss_chkn_nug_eat <- factor(r01_eat_qs$pss_chkn_nug_eat)
+
+r01_eat_qs$pss_mac_cheese_eat <- ifelse(r01_eat_qs$pss_mac_cheese_eat == 1, 'Y', ifelse(r01_eat_qs$pss_mac_cheese_eat == 0, 'N', as.character(r01_eat_qs$pss_mac_cheese_eat)))
+r01_eat_qs$pss_mac_cheese_eat <- factor(r01_eat_qs$pss_mac_cheese_eat)
+
+r01_eat_qs$p_pss_broccoli_eat <- ifelse(r01_eat_qs$p_pss_broccoli_eat == 1, 'Y', ifelse(r01_eat_qs$p_pss_broccoli_eat == 0, 'N', as.character(r01_eat_qs$p_pss_broccoli_eat)))
+r01_eat_qs$p_pss_broccoli_eat <- factor(r01_eat_qs$p_pss_broccoli_eat)
+
+r01_eat_qs$p_pss_grapes_eat <- ifelse(r01_eat_qs$p_pss_grapes_eat == 1, 'Y', ifelse(r01_eat_qs$p_pss_grapes_eat == 0, 'N', as.character(r01_eat_qs$p_pss_grapes_eat)))
+r01_eat_qs$p_pss_grapes_eat <- factor(r01_eat_qs$p_pss_grapes_eat)
+
+r01_eat_qs$p_pss_chkn_nug_eat <- ifelse(r01_eat_qs$p_pss_chkn_nug_eat == 1, 'Y', ifelse(r01_eat_qs$p_pss_chkn_nug_eat == 0, 'N', as.character(r01_eat_qs$p_pss_chkn_nug_eat)))
+r01_eat_qs$p_pss_chkn_nug_eat <- factor(r01_eat_qs$p_pss_chkn_nug_eat)
+
+r01_eat_qs$p_pss_mac_cheese_eat <- ifelse(r01_eat_qs$p_pss_mac_cheese_eat == 1, 'Y', ifelse(r01_eat_qs$p_pss_mac_cheese_eat == 0, 'N', as.character(r01_eat_qs$p_pss_mac_cheese_eat)))
+r01_eat_qs$p_pss_mac_cheese_eat <- factor(r01_eat_qs$p_pss_mac_cheese_eat)
+
+r01_eat_qs$p_pss_broccoli_freq <- ifelse(r01_eat_qs$p_pss_broccoli_freq == 0, 'Never - 1/month', ifelse(r01_eat_qs$p_pss_broccoli_freq == 1, '2-3/month', ifelse(r01_eat_qs$p_pss_broccoli_freq == 2, '1-2/week', ifelse(r01_eat_qs$p_pss_broccoli_freq == 3, '3-4/week', ifelse(r01_eat_qs$p_pss_broccoli_freq == 4, '5-6/week', ifelse(r01_eat_qs$p_pss_broccoli_freq == 5, '1/day', ifelse(r01_eat_qs$p_pss_broccoli_freq == 6, '2+/day', as.character(r01_eat_qs$p_pss_broccoli_freq))))))))
+r01_eat_qs$p_pss_broccoli_freq <- factor(r01_eat_qs$p_pss_broccoli_freq, levels = c('Never - 1/month', '2-3/month', '1-2/week', '3-4/week', '5-6/week', '1/day', '2+/day'))
+r01_eat_qs$p_pss_broccoli_freq <- droplevels(r01_eat_qs$p_pss_broccoli_freq)
+
+
+r01_eat_qs$p_pss_grapes_freq <- ifelse(r01_eat_qs$p_pss_grapes_freq == 0, 'Never - 1/month', ifelse(r01_eat_qs$p_pss_grapes_freq == 1, '2-3/month', ifelse(r01_eat_qs$p_pss_grapes_freq == 2, '1-2/week', ifelse(r01_eat_qs$p_pss_grapes_freq == 3, '3-4/week', ifelse(r01_eat_qs$p_pss_grapes_freq == 4, '5-6/week', ifelse(r01_eat_qs$p_pss_grapes_freq == 5, '1/day', ifelse(r01_eat_qs$p_pss_grapes_freq == 6, '2+/day', as.character(r01_eat_qs$p_pss_grapes_freq))))))))
+r01_eat_qs$p_pss_grapes_freq <- factor(r01_eat_qs$p_pss_grapes_freq, levels = c('Never - 1/month', '2-3/month', '1-2/week', '3-4/week', '5-6/week', '1/day', '2+/day'))
+r01_eat_qs$p_pss_grapes_freq <- droplevels(r01_eat_qs$p_pss_grapes_freq)
+
+r01_eat_qs$p_pss_chkn_nug_freq <- ifelse(r01_eat_qs$p_pss_chkn_nug_freq == 0, 'Never - 1/month', ifelse(r01_eat_qs$p_pss_chkn_nug_freq == 1, '2-3/month', ifelse(r01_eat_qs$p_pss_chkn_nug_freq == 2, '1-2/week', ifelse(r01_eat_qs$p_pss_chkn_nug_freq == 3, '3-4/week', ifelse(r01_eat_qs$p_pss_chkn_nug_freq == 4, '5-6/week', ifelse(r01_eat_qs$p_pss_chkn_nug_freq == 5, '1/day', ifelse(r01_eat_qs$p_pss_chkn_nug_freq == 6, '2+/day', as.character(r01_eat_qs$p_pss_chkn_nug_freq))))))))
+r01_eat_qs$p_pss_chkn_nug_freq <- factor(r01_eat_qs$p_pss_chkn_nug_freq, levels = c('Never - 1/month', '2-3/month', '1-2/week', '3-4/week', '5-6/week', '1/day', '2+/day'))
+r01_eat_qs$p_pss_chkn_nug_freq <- droplevels(r01_eat_qs$p_pss_chkn_nug_freq)
+
+r01_eat_qs$p_pss_mac_cheese_freq <- ifelse(r01_eat_qs$p_pss_mac_cheese_freq == 0, 'Never - 1/month', ifelse(r01_eat_qs$p_pss_mac_cheese_freq == 1, '2-3/month', ifelse(r01_eat_qs$p_pss_mac_cheese_freq == 2, '1-2/week', ifelse(r01_eat_qs$p_pss_mac_cheese_freq == 3, '3-4/week', ifelse(r01_eat_qs$p_pss_mac_cheese_freq == 4, '5-6/week', ifelse(r01_eat_qs$p_pss_mac_cheese_freq == 5, '1/day', ifelse(r01_eat_qs$p_pss_mac_cheese_freq == 6, '2+/day', as.character(r01_eat_qs$p_pss_mac_cheese_freq))))))))
+r01_eat_qs$p_pss_mac_cheese_freq <- factor(r01_eat_qs$p_pss_mac_cheese_freq, levels = c('Never - 1/month', '2-3/month', '1-2/week', '3-4/week', '5-6/week', '1/day', '2+/day'))
+r01_eat_qs$p_pss_mac_cheese_freq <- droplevels(r01_eat_qs$p_pss_mac_cheese_freq)
+
 # merge
-intake_long <- merge(intake_long, r01_eat_qs[c(1, 479:486)], by = 'sub', all.x = TRUE)
-r01_intake <- merge(r01_intake, r01_eat_qs[c(1, 479:486, 444:478)], by = 'sub', all.x = TRUE)
+intake_long <- merge(intake_long, r01_eat_qs[c(1, 121:123, 139:141, 151:153, 157:159, 198:203, 234:239, 258:263, 270:275, 479:486)], by = 'sub', all.x = TRUE)
+r01_intake <- merge(r01_intake, r01_eat_qs[c(1, 121:123, 139:141, 151:153, 157:159, 198:203, 234:239, 258:263, 270:275, 479:486, 444:478)], by = 'sub', all.x = TRUE)
+
+## Load anthro data ####
+r01_anthro_data <- as.data.frame(read_spss(("data/anthro_data.sav")))
+names(r01_anthro_data)[1] <- 'sub'
+
+r01_anthro_data_labels <- lapply(r01_anthro_data, function(x) attributes(x)$label)
+
+# fat mass index
+r01_anthro_data$dxa_total_fat_mass <- as.numeric(r01_anthro_data$dxa_total_fat_mass)
+r01_anthro_data$dxa_total_body_perc_fat <- as.numeric(r01_anthro_data$dxa_total_body_perc_fat)
+
+r01_anthro_data[['fmi']] <- (r01_anthro_data$dxa_total_fat_mass/1000)/(r01_anthro_data$height_avg/100)^2
+
+# merge
+intake_long <- merge(intake_long, r01_anthro_data[c(1, 106, 119, 570)], by = 'sub', all.x = TRUE)
+r01_intake <- merge(r01_intake, r01_anthro_data[c(1, 106, 119, 570)], by = 'sub', all.x = TRUE)
