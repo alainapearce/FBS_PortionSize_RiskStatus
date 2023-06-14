@@ -123,34 +123,34 @@ lr_intake_tab <-
 
 #liking
 
-liking_data <- intake_long[c(9, 12, 26:33)]
+liking_data <- intake_long[c(9, 12, 26:29)]
 liking_tab <-
   tbl_summary(
     data = liking_data,
     by = PortionSize,
-    type = list(avg_vas ~ "continuous", chnug_vas ~ "continuous",  mac_vas ~ "continuous", grape_vas ~ "continuous", broc_vas ~ "continuous", chnug_rank ~ "continuous",  mac_rank ~ "continuous", grape_rank ~ "continuous", broc_rank ~ "continuous"),
+    type = list(avg_vas ~ "continuous", chnug_vas ~ "continuous",  mac_vas ~ "continuous", grape_vas ~ "continuous", broc_vas ~ "continuous"),
     statistic = all_continuous() ~ c("{mean} ({sd})"),
     missing = "no",
     digits = all_continuous() ~ 1)
 
-high_risk_liking_data <- intake_long[intake_long$risk_status_mom == 'High Risk', c(9, 12, 26:33)]
+high_risk_liking_data <- intake_long[intake_long$risk_status_mom == 'High Risk', c(9, 12, 26:29)]
 
 hr_liking_tab <-
   tbl_summary(
     data = high_risk_liking_data,
     by = PortionSize,
-    type = list(avg_vas ~ "continuous", chnug_vas ~ "continuous",  mac_vas ~ "continuous", grape_vas ~ "continuous", broc_vas ~ "continuous", chnug_rank ~ "continuous",  mac_rank ~ "continuous", grape_rank ~ "continuous", broc_rank ~ "continuous"),
+    type = list(avg_vas ~ "continuous", chnug_vas ~ "continuous",  mac_vas ~ "continuous", grape_vas ~ "continuous", broc_vas ~ "continuous"),
     statistic = all_continuous() ~ c("{mean} ({sd})"),
     missing = "no",
     digits = all_continuous() ~ 1)
 
-low_risk_liking_data <- intake_long[intake_long$risk_status_mom == 'Low Risk', c(9, 12, 26:33)]
+low_risk_liking_data <- intake_long[intake_long$risk_status_mom == 'Low Risk', c(9, 12, 26:29)]
 
 lr_liking_tab <-
   tbl_summary(
     data = low_risk_liking_data,
     by = PortionSize,
-    type = list(avg_vas ~ "continuous", chnug_vas ~ "continuous",  mac_vas ~ "continuous", grape_vas ~ "continuous", broc_vas ~ "continuous", chnug_rank ~ "continuous",  mac_rank ~ "continuous", grape_rank ~ "continuous", broc_rank ~ "continuous"),
+    type = list(avg_vas ~ "continuous", chnug_vas ~ "continuous",  mac_vas ~ "continuous", grape_vas ~ "continuous", broc_vas ~ "continuous"),
     statistic = all_continuous() ~ c("{mean} ({sd})"),
     missing = "no",
     digits = all_continuous() ~ 1)
@@ -221,5 +221,54 @@ p_pss_merge_tab <-
   tbl_merge(
     tbls = list(risk_p_pss_tab, p_pss_tab),
     tab_spanner = c("**Risk Groups**", "**Overall**")
+  )
+
+pss_data <- r01_intake[c(761:772)]
+pss_tab <-
+  tbl_summary(
+    data = pss_data,
+    value = list(pss_broccoli_eat ~ "Broccoli, eat", pss_broccoli_much ~ "Broccoli, amount",  pss_broccoli_like ~ "Broccoli, like", pss_chkn_nug_eat ~ "Chicken Nugget, eat", pss_chkn_nug_much ~ "Chicken Nugget, amount", pss_chkn_nug_like ~ "Chicken Nugget, like", pss_grapes_eat ~ "Grapes, eat", pss_grapes_much ~ "Grapes, amount", pss_grapes_like ~ "Grapes, like", pss_mac_cheese_eat ~ "Mac + Cheese, eat", pss_mac_cheese_much ~ "Mac + Cheese, amount", pss_mac_cheese_like ~ "Mac + Cheese, like"),
+    label = list(pss_broccoli_eat ~ "Broccoli, eat", pss_broccoli_much ~ "Broccoli, amount",  pss_broccoli_like ~ "Broccoli, like", pss_chkn_nug_eat ~ "Chicken Nugget, eat", pss_chkn_nug_much ~ "Chicken Nugget, amount", pss_chkn_nug_like ~ "Chicken Nugget, like", pss_grapes_eat ~ "Grapes, eat", pss_grapes_much ~ "Grapes, amount", pss_grapes_like ~ "Grapes, like", pss_mac_cheese_eat ~ "Mac + Cheese, eat", pss_mac_cheese_much ~ "Mac + Cheese, amount", pss_mac_cheese_like ~ "Mac + Cheese, like")     ,   
+    type = list(pss_broccoli_eat ~ "categorical", pss_broccoli_much ~ "continuous",  pss_broccoli_like ~ "continuous", pss_chkn_nug_eat ~ "categorical", pss_chkn_nug_much ~ "continuous", pss_chkn_nug_like ~ "continuous", pss_grapes_eat ~ "categorical", pss_grapes_much ~ "continuous", pss_grapes_like ~ "continuous", pss_mac_cheese_eat ~ "categorical", pss_mac_cheese_much ~ "continuous", pss_mac_cheese_like ~ "continuous"),
+    statistic = all_continuous() ~ c("{mean} ({sd})"),
+    missing = "no",
+    digits = all_continuous() ~ 1)
+
+## ranked data 
+rank_data <- intake_long[c(9, 30:33)]
+rank_tab <-
+  tbl_summary(
+    data = rank_data,
+    by = PortionSize,
+    type = list(chnug_rank ~ "categorical",  mac_rank ~ "categorical", grape_rank ~ "categorical", broc_rank ~ "categorical"),
+    missing = "no",
+    digits = all_continuous() ~ 1)
+
+high_risk_rank_data <- intake_long[intake_long$risk_status_mom == 'High Risk', c(9, 30:33)]
+
+hr_rank_tab <-
+  tbl_summary(
+    data = high_risk_rank_data,
+    by = PortionSize,
+    type = list(chnug_rank ~ "categorical",  mac_rank ~ "categorical", grape_rank ~ "categorical", broc_rank ~ "categorical"),
+    statistic = all_continuous() ~ c("{mean} ({sd})"),
+    missing = "no",
+    digits = all_continuous() ~ 1)
+
+low_risk_rank_data <- intake_long[intake_long$risk_status_mom == 'Low Risk', c(9, 30:33)]
+
+lr_rank_tab <-
+  tbl_summary(
+    data = low_risk_rank_data,
+    by = PortionSize,
+    type = list(chnug_rank ~ "categorical",  mac_rank ~ "categorical", grape_rank ~ "categorical", broc_rank ~ "categorical"),
+    statistic = all_continuous() ~ c("{mean} ({sd})"),
+    missing = "no",
+    digits = all_continuous() ~ 1)
+
+rank_merge_tab <-
+  tbl_stack(
+    tbls = list(rank_tab, hr_rank_tab, lr_rank_tab),
+    group_header = c("**Overall**", "**High-Risk**", "**Low-Risk**")
   )
 

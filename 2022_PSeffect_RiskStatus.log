@@ -1,90 +1,90 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.24 (TeX Live 2022) (preloaded format=pdflatex 2022.8.30)  23 MAY 2023 21:18
+This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2021) (preloaded format=pdflatex 2021.10.4)  14 JUN 2023 11:44
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
 **2022_PSeffect_RiskStatus.tex
 (./2022_PSeffect_RiskStatus.tex
-LaTeX2e <2021-11-15> patch level 1
-L3 programming layer <2022-02-24> (/usr/local/texlive/2022/texmf-dist/tex/latex
+LaTeX2e <2020-10-01> patch level 4
+L3 programming layer <2021-02-18> (/usr/local/texlive/2021/texmf-dist/tex/latex
 /base/article.cls
-Document Class: article 2021/10/04 v1.4n Standard LaTeX document class
-(/usr/local/texlive/2022/texmf-dist/tex/latex/base/size10.clo
-File: size10.clo 2021/10/04 v1.4n Standard LaTeX file (size option)
+Document Class: article 2020/04/10 v1.4m Standard LaTeX document class
+(/usr/local/texlive/2021/texmf-dist/tex/latex/base/size10.clo
+File: size10.clo 2020/04/10 v1.4m Standard LaTeX file (size option)
 )
-\c@part=\count185
-\c@section=\count186
-\c@subsection=\count187
-\c@subsubsection=\count188
-\c@paragraph=\count189
-\c@subparagraph=\count190
-\c@figure=\count191
-\c@table=\count192
+\c@part=\count179
+\c@section=\count180
+\c@subsection=\count181
+\c@subsubsection=\count182
+\c@paragraph=\count183
+\c@subparagraph=\count184
+\c@figure=\count185
+\c@table=\count186
 \abovecaptionskip=\skip47
 \belowcaptionskip=\skip48
 \bibindent=\dimen138
-) (/usr/local/texlive/2022/texmf-dist/tex/latex/amsmath/amsmath.sty
-Package: amsmath 2021/10/15 v2.17l AMS math features
+) (/usr/local/texlive/2021/texmf-dist/tex/latex/amsmath/amsmath.sty
+Package: amsmath 2020/09/23 v2.17i AMS math features
 \@mathmargin=\skip49
 For additional information on amsmath, use the `?' option.
-(/usr/local/texlive/2022/texmf-dist/tex/latex/amsmath/amstext.sty
-Package: amstext 2021/08/26 v2.01 AMS text
-(/usr/local/texlive/2022/texmf-dist/tex/latex/amsmath/amsgen.sty
+(/usr/local/texlive/2021/texmf-dist/tex/latex/amsmath/amstext.sty
+Package: amstext 2000/06/29 v2.01 AMS text
+(/usr/local/texlive/2021/texmf-dist/tex/latex/amsmath/amsgen.sty
 File: amsgen.sty 1999/11/30 v2.0 generic functions
-\@emptytoks=\toks16
+\@emptytoks=\toks15
 \ex@=\dimen139
-)) (/usr/local/texlive/2022/texmf-dist/tex/latex/amsmath/amsbsy.sty
+)) (/usr/local/texlive/2021/texmf-dist/tex/latex/amsmath/amsbsy.sty
 Package: amsbsy 1999/11/29 v1.2d Bold Symbols
 \pmbraise@=\dimen140
-) (/usr/local/texlive/2022/texmf-dist/tex/latex/amsmath/amsopn.sty
-Package: amsopn 2021/08/26 v2.02 operator names
+) (/usr/local/texlive/2021/texmf-dist/tex/latex/amsmath/amsopn.sty
+Package: amsopn 2016/03/08 v2.02 operator names
 )
-\inf@bad=\count193
+\inf@bad=\count187
 LaTeX Info: Redefining \frac on input line 234.
-\uproot@=\count194
-\leftroot@=\count195
+\uproot@=\count188
+\leftroot@=\count189
 LaTeX Info: Redefining \overline on input line 399.
-\classnum@=\count196
-\DOTSCASE@=\count197
+\classnum@=\count190
+\DOTSCASE@=\count191
 LaTeX Info: Redefining \ldots on input line 496.
 LaTeX Info: Redefining \dots on input line 499.
 LaTeX Info: Redefining \cdots on input line 620.
-\Mathstrutbox@=\box50
-\strutbox@=\box51
+\Mathstrutbox@=\box47
+\strutbox@=\box48
 \big@size=\dimen141
 LaTeX Font Info:    Redeclaring font encoding OML on input line 743.
 LaTeX Font Info:    Redeclaring font encoding OMS on input line 744.
-\macc@depth=\count198
-\c@MaxMatrixCols=\count199
+\macc@depth=\count192
+\c@MaxMatrixCols=\count193
 \dotsspace@=\muskip16
-\c@parentequation=\count266
-\dspbrk@lvl=\count267
-\tag@help=\toks17
-\row@=\count268
-\column@=\count269
-\maxfields@=\count270
-\andhelp@=\toks18
+\c@parentequation=\count194
+\dspbrk@lvl=\count195
+\tag@help=\toks16
+\row@=\count196
+\column@=\count197
+\maxfields@=\count198
+\andhelp@=\toks17
 \eqnshift@=\dimen142
 \alignsep@=\dimen143
 \tagshift@=\dimen144
 \tagwidth@=\dimen145
 \totwidth@=\dimen146
 \lineht@=\dimen147
-\@envbody=\toks19
+\@envbody=\toks18
 \multlinegap=\skip50
 \multlinetaggap=\skip51
-\mathdisplay@stack=\toks20
-LaTeX Info: Redefining \[ on input line 2938.
-LaTeX Info: Redefining \] on input line 2939.
-) (/usr/local/texlive/2022/texmf-dist/tex/latex/amsfonts/amssymb.sty
+\mathdisplay@stack=\toks19
+LaTeX Info: Redefining \[ on input line 2923.
+LaTeX Info: Redefining \] on input line 2924.
+) (/usr/local/texlive/2021/texmf-dist/tex/latex/amsfonts/amssymb.sty
 Package: amssymb 2013/01/14 v3.01 AMS font symbols
-(/usr/local/texlive/2022/texmf-dist/tex/latex/amsfonts/amsfonts.sty
+(/usr/local/texlive/2021/texmf-dist/tex/latex/amsfonts/amsfonts.sty
 Package: amsfonts 2013/01/14 v3.01 Basic AMSFonts support
 \symAMSa=\mathgroup4
 \symAMSb=\mathgroup5
 LaTeX Font Info:    Redeclaring math symbol \hbar on input line 98.
 LaTeX Font Info:    Overwriting math alphabet `\mathfrak' in version `bold'
 (Font)                  U/euf/m/n --> U/euf/b/n on input line 106.
-)) (/usr/local/texlive/2022/texmf-dist/tex/latex/lm/lmodern.sty
+)) (/usr/local/texlive/2021/texmf-dist/tex/latex/lm/lmodern.sty
 Package: lmodern 2015/05/01 v1.6.1 Latin Modern Fonts
 LaTeX Font Info:    Overwriting symbol font `operators' in version `normal'
 (Font)                  OT1/cmr/m/n --> OT1/lmr/m/n on input line 22.
@@ -118,86 +118,82 @@ LaTeX Font Info:    Overwriting math alphabet `\mathit' in version `bold'
 (Font)                  OT1/cmr/bx/it --> OT1/lmr/bx/it on input line 37.
 LaTeX Font Info:    Overwriting math alphabet `\mathtt' in version `bold'
 (Font)                  OT1/cmtt/m/n --> OT1/lmtt/m/n on input line 38.
-) (/usr/local/texlive/2022/texmf-dist/tex/generic/iftex/iftex.sty
-Package: iftex 2022/02/03 v1.0f TeX engine tests
-) (/usr/local/texlive/2022/texmf-dist/tex/latex/base/fontenc.sty
-Package: fontenc 2021/04/29 v2.0v Standard LaTeX package
+) (/usr/local/texlive/2021/texmf-dist/tex/generic/iftex/iftex.sty
+Package: iftex 2020/03/06 v1.0d TeX engine tests
+) (/usr/local/texlive/2021/texmf-dist/tex/latex/base/fontenc.sty
+Package: fontenc 2020/08/10 v2.0s Standard LaTeX package
 LaTeX Font Info:    Trying to load font information for T1+lmr on input line 11
 2.
-(/usr/local/texlive/2022/texmf-dist/tex/latex/lm/t1lmr.fd
+(/usr/local/texlive/2021/texmf-dist/tex/latex/lm/t1lmr.fd
 File: t1lmr.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
-)) (/usr/local/texlive/2022/texmf-dist/tex/latex/base/inputenc.sty
-Package: inputenc 2021/02/14 v1.3d Input encoding file
-\inpenc@prehook=\toks21
-\inpenc@posthook=\toks22
-) (/usr/local/texlive/2022/texmf-dist/tex/latex/base/textcomp.sty
+)) (/usr/local/texlive/2021/texmf-dist/tex/latex/base/inputenc.sty
+Package: inputenc 2020/08/01 v1.3d Input encoding file
+\inpenc@prehook=\toks20
+\inpenc@posthook=\toks21
+) (/usr/local/texlive/2021/texmf-dist/tex/latex/base/textcomp.sty
 Package: textcomp 2020/02/02 v2.0n Standard LaTeX package
-) (/usr/local/texlive/2022/texmf-dist/tex/latex/upquote/upquote.sty
+) (/usr/local/texlive/2021/texmf-dist/tex/latex/upquote/upquote.sty
 Package: upquote 2012/04/19 v1.3 upright-quote and grave-accent glyphs in verba
 tim
-) (/usr/local/texlive/2022/texmf-dist/tex/latex/microtype/microtype.sty
-Package: microtype 2022/03/14 v3.0d Micro-typographical refinements (RS)
-(/usr/local/texlive/2022/texmf-dist/tex/latex/graphics/keyval.sty
+) (/usr/local/texlive/2021/texmf-dist/tex/latex/microtype/microtype.sty
+Package: microtype 2021/03/14 v2.8c Micro-typographical refinements (RS)
+(/usr/local/texlive/2021/texmf-dist/tex/latex/graphics/keyval.sty
 Package: keyval 2014/10/28 v1.15 key=value parser (DPC)
-\KV@toks@=\toks23
-) (/usr/local/texlive/2022/texmf-dist/tex/latex/etoolbox/etoolbox.sty
-Package: etoolbox 2020/10/05 v2.5k e-TeX tools for LaTeX (JAW)
-\etb@tempcnta=\count271
+\KV@toks@=\toks22
 )
-\MT@toks=\toks24
-\MT@tempbox=\box52
-\MT@count=\count272
-LaTeX Info: Redefining \noprotrusionifhmode on input line 1027.
-LaTeX Info: Redefining \leftprotrusion on input line 1028.
-LaTeX Info: Redefining \rightprotrusion on input line 1036.
-LaTeX Info: Redefining \textls on input line 1195.
+\MT@toks=\toks23
+\MT@count=\count199
+LaTeX Info: Redefining \textls on input line 790.
 \MT@outer@kern=\dimen148
-LaTeX Info: Redefining \textmicrotypecontext on input line 1781.
-\MT@listname@count=\count273
-(/usr/local/texlive/2022/texmf-dist/tex/latex/microtype/microtype-pdftex.def
-File: microtype-pdftex.def 2022/03/14 v3.0d Definitions specific to pdftex (RS)
+LaTeX Info: Redefining \textmicrotypecontext on input line 1374.
+\MT@listname@count=\count266
+(/usr/local/texlive/2021/texmf-dist/tex/latex/microtype/microtype-pdftex.def
+File: microtype-pdftex.def 2021/03/14 v2.8c Definitions specific to pdftex (RS)
 
-LaTeX Info: Redefining \lsstyle on input line 900.
-LaTeX Info: Redefining \lslig on input line 900.
+LaTeX Info: Redefining \lsstyle on input line 915.
+LaTeX Info: Redefining \lslig on input line 915.
 \MT@outer@space=\skip52
 )
 Package microtype Info: Loading configuration file microtype.cfg.
-(/usr/local/texlive/2022/texmf-dist/tex/latex/microtype/microtype.cfg
-File: microtype.cfg 2022/03/14 v3.0d microtype main configuration file (RS)
-)) (/usr/local/texlive/2022/texmf-dist/tex/latex/parskip/parskip.sty
+(/usr/local/texlive/2021/texmf-dist/tex/latex/microtype/microtype.cfg
+File: microtype.cfg 2021/03/14 v2.8c microtype main configuration file (RS)
+)) (/usr/local/texlive/2021/texmf-dist/tex/latex/parskip/parskip.sty
 Package: parskip 2021-03-14 v2.0h non-zero parskip adjustments
-(/usr/local/texlive/2022/texmf-dist/tex/latex/kvoptions/kvoptions.sty
+(/usr/local/texlive/2021/texmf-dist/tex/latex/kvoptions/kvoptions.sty
 Package: kvoptions 2020-10-07 v3.14 Key value format for package options (HO)
-(/usr/local/texlive/2022/texmf-dist/tex/generic/ltxcmds/ltxcmds.sty
+(/usr/local/texlive/2021/texmf-dist/tex/generic/ltxcmds/ltxcmds.sty
 Package: ltxcmds 2020-05-10 v1.25 LaTeX kernel commands for general use (HO)
-) (/usr/local/texlive/2022/texmf-dist/tex/generic/kvsetkeys/kvsetkeys.sty
+) (/usr/local/texlive/2021/texmf-dist/tex/generic/kvsetkeys/kvsetkeys.sty
 Package: kvsetkeys 2019/12/15 v1.18 Key value parser (HO)
-))) (/usr/local/texlive/2022/texmf-dist/tex/latex/xcolor/xcolor.sty
-Package: xcolor 2021/10/31 v2.13 LaTeX color extensions (UK)
-(/usr/local/texlive/2022/texmf-dist/tex/latex/graphics-cfg/color.cfg
+)) (/usr/local/texlive/2021/texmf-dist/tex/latex/etoolbox/etoolbox.sty
+Package: etoolbox 2020/10/05 v2.5k e-TeX tools for LaTeX (JAW)
+\etb@tempcnta=\count267
+)) (/usr/local/texlive/2021/texmf-dist/tex/latex/xcolor/xcolor.sty
+Package: xcolor 2016/05/11 v2.12 LaTeX color extensions (UK)
+(/usr/local/texlive/2021/texmf-dist/tex/latex/graphics-cfg/color.cfg
 File: color.cfg 2016/01/02 v1.6 sample color configuration
 )
-Package xcolor Info: Driver file: pdftex.def on input line 227.
-(/usr/local/texlive/2022/texmf-dist/tex/latex/graphics-def/pdftex.def
+Package xcolor Info: Driver file: pdftex.def on input line 225.
+(/usr/local/texlive/2021/texmf-dist/tex/latex/graphics-def/pdftex.def
 File: pdftex.def 2020/10/05 v1.2a Graphics/color driver for pdftex
 )
-Package xcolor Info: Model `cmy' substituted by `cmy0' on input line 1352.
-Package xcolor Info: Model `hsb' substituted by `rgb' on input line 1356.
-Package xcolor Info: Model `RGB' extended on input line 1368.
-Package xcolor Info: Model `HTML' substituted by `rgb' on input line 1370.
-Package xcolor Info: Model `Hsb' substituted by `hsb' on input line 1371.
-Package xcolor Info: Model `tHsb' substituted by `hsb' on input line 1372.
-Package xcolor Info: Model `HSB' substituted by `hsb' on input line 1373.
-Package xcolor Info: Model `Gray' substituted by `gray' on input line 1374.
-Package xcolor Info: Model `wave' substituted by `hsb' on input line 1375.
-) (/usr/local/texlive/2022/texmf-dist/tex/latex/geometry/geometry.sty
+Package xcolor Info: Model `cmy' substituted by `cmy0' on input line 1348.
+Package xcolor Info: Model `hsb' substituted by `rgb' on input line 1352.
+Package xcolor Info: Model `RGB' extended on input line 1364.
+Package xcolor Info: Model `HTML' substituted by `rgb' on input line 1366.
+Package xcolor Info: Model `Hsb' substituted by `hsb' on input line 1367.
+Package xcolor Info: Model `tHsb' substituted by `hsb' on input line 1368.
+Package xcolor Info: Model `HSB' substituted by `hsb' on input line 1369.
+Package xcolor Info: Model `Gray' substituted by `gray' on input line 1370.
+Package xcolor Info: Model `wave' substituted by `hsb' on input line 1371.
+) (/usr/local/texlive/2021/texmf-dist/tex/latex/geometry/geometry.sty
 Package: geometry 2020/01/02 v5.9 Page Geometry
-(/usr/local/texlive/2022/texmf-dist/tex/generic/iftex/ifvtex.sty
+(/usr/local/texlive/2021/texmf-dist/tex/generic/iftex/ifvtex.sty
 Package: ifvtex 2019/10/25 v1.7 ifvtex legacy package. Use iftex instead.
 )
-\Gm@cnth=\count274
-\Gm@cntv=\count275
-\c@Gm@tempcnt=\count276
+\Gm@cnth=\count268
+\Gm@cntv=\count269
+\c@Gm@tempcnt=\count270
 \Gm@bindingoffset=\dimen149
 \Gm@wd@mp=\dimen150
 \Gm@odd@mp=\dimen151
@@ -206,326 +202,333 @@ Package: ifvtex 2019/10/25 v1.7 ifvtex legacy package. Use iftex instead.
 \Gm@layoutheight=\dimen154
 \Gm@layouthoffset=\dimen155
 \Gm@layoutvoffset=\dimen156
-\Gm@dimlist=\toks25
-) (/usr/local/texlive/2022/texmf-dist/tex/latex/graphics/graphicx.sty
-Package: graphicx 2021/09/16 v1.2d Enhanced LaTeX Graphics (DPC,SPQR)
-(/usr/local/texlive/2022/texmf-dist/tex/latex/graphics/graphics.sty
-Package: graphics 2021/03/04 v1.4d Standard LaTeX Graphics (DPC,SPQR)
-(/usr/local/texlive/2022/texmf-dist/tex/latex/graphics/trig.sty
-Package: trig 2021/08/11 v1.11 sin cos tan (DPC)
-) (/usr/local/texlive/2022/texmf-dist/tex/latex/graphics-cfg/graphics.cfg
+\Gm@dimlist=\toks24
+) (/usr/local/texlive/2021/texmf-dist/tex/latex/graphics/graphicx.sty
+Package: graphicx 2020/09/09 v1.2b Enhanced LaTeX Graphics (DPC,SPQR)
+(/usr/local/texlive/2021/texmf-dist/tex/latex/graphics/graphics.sty
+Package: graphics 2020/08/30 v1.4c Standard LaTeX Graphics (DPC,SPQR)
+(/usr/local/texlive/2021/texmf-dist/tex/latex/graphics/trig.sty
+Package: trig 2016/01/03 v1.10 sin cos tan (DPC)
+) (/usr/local/texlive/2021/texmf-dist/tex/latex/graphics-cfg/graphics.cfg
 File: graphics.cfg 2016/06/04 v1.11 sample graphics configuration
 )
-Package graphics Info: Driver file: pdftex.def on input line 107.
+Package graphics Info: Driver file: pdftex.def on input line 105.
 )
 \Gin@req@height=\dimen157
 \Gin@req@width=\dimen158
-) (/usr/local/texlive/2022/texmf-dist/tex/latex/preprint/fullpage.sty
+) (/usr/local/texlive/2021/texmf-dist/tex/latex/preprint/fullpage.sty
 Package: fullpage 1999/02/23 1.1 (PWD)
 \FP@margin=\skip53
-) (/usr/local/texlive/2022/texmf-dist/tex/latex/caption/subcaption.sty
-Package: subcaption 2022/01/07 v1.5 Sub-captions (AR)
-(/usr/local/texlive/2022/texmf-dist/tex/latex/caption/caption.sty
-Package: caption 2022/03/01 v3.6b Customizing captions (AR)
-(/usr/local/texlive/2022/texmf-dist/tex/latex/caption/caption3.sty
-Package: caption3 2022/03/17 v2.3b caption3 kernel (AR)
-\caption@tempdima=\dimen159
-\captionmargin=\dimen160
-\caption@leftmargin=\dimen161
-\caption@rightmargin=\dimen162
-\caption@width=\dimen163
-\caption@indent=\dimen164
-\caption@parindent=\dimen165
-\caption@hangindent=\dimen166
+) (/usr/local/texlive/2021/texmf-dist/tex/latex/caption/subcaption.sty
+Package: subcaption 2020/10/07 v1.3j Sub-captions (AR)
+(/usr/local/texlive/2021/texmf-dist/tex/latex/caption/caption.sty
+Package: caption 2020/10/26 v3.5g Customizing captions (AR)
+(/usr/local/texlive/2021/texmf-dist/tex/latex/caption/caption3.sty
+Package: caption3 2020/10/21 v2.2e caption3 kernel (AR)
+\captionmargin=\dimen159
+\captionmargin@=\dimen160
+\captionwidth=\dimen161
+\caption@tempdima=\dimen162
+\caption@indent=\dimen163
+\caption@parindent=\dimen164
+\caption@hangindent=\dimen165
 Package caption Info: Standard document class detected.
 )
-\c@caption@flags=\count277
-\c@continuedfloat=\count278
+\c@caption@flags=\count271
+\c@continuedfloat=\count272
 )
-\c@subfigure=\count279
-\c@subtable=\count280
-) (/usr/local/texlive/2022/texmf-dist/tex/latex/float/float.sty
+\c@subfigure=\count273
+\c@subtable=\count274
+) (/usr/local/texlive/2021/texmf-dist/tex/latex/float/float.sty
 Package: float 2001/11/08 v1.3d Float enhancements (AL)
-\c@float@type=\count281
-\float@exts=\toks26
-\float@box=\box53
-\@float@everytoks=\toks27
-\@floatcapt=\box54
-) (/usr/local/texlive/2022/texmf-dist/tex/latex/placeins/placeins.sty
+\c@float@type=\count275
+\float@exts=\toks25
+\float@box=\box49
+\@float@everytoks=\toks26
+\@floatcapt=\box50
+) (/usr/local/texlive/2021/texmf-dist/tex/latex/placeins/placeins.sty
 Package: placeins 2005/04/18  v 2.2
-) (/usr/local/texlive/2022/texmf-dist/tex/latex/mathtools/mathtools.sty
-Package: mathtools 2022/02/07 v1.28a mathematical typesetting tools
-(/usr/local/texlive/2022/texmf-dist/tex/latex/tools/calc.sty
+) (/usr/local/texlive/2021/texmf-dist/tex/latex/mathtools/mathtools.sty
+Package: mathtools 2021/03/18 v1.25 mathematical typesetting tools
+(/usr/local/texlive/2021/texmf-dist/tex/latex/tools/calc.sty
 Package: calc 2017/05/25 v4.3 Infix arithmetic (KKT,FJ)
-\calc@Acount=\count282
-\calc@Bcount=\count283
-\calc@Adimen=\dimen167
-\calc@Bdimen=\dimen168
+\calc@Acount=\count276
+\calc@Bcount=\count277
+\calc@Adimen=\dimen166
+\calc@Bdimen=\dimen167
 \calc@Askip=\skip54
 \calc@Bskip=\skip55
 LaTeX Info: Redefining \setlength on input line 80.
 LaTeX Info: Redefining \addtolength on input line 81.
-\calc@Ccount=\count284
+\calc@Ccount=\count278
 \calc@Cskip=\skip56
-) (/usr/local/texlive/2022/texmf-dist/tex/latex/mathtools/mhsetup.sty
+) (/usr/local/texlive/2021/texmf-dist/tex/latex/mathtools/mhsetup.sty
 Package: mhsetup 2021/03/18 v1.4 programming setup (MH)
 )
-\g_MT_multlinerow_int=\count285
-\l_MT_multwidth_dim=\dimen169
+LaTeX Info: Thecontrolsequence`\('isalreadyrobust on input line 130.
+LaTeX Info: Thecontrolsequence`\)'isalreadyrobust on input line 130.
+LaTeX Info: Thecontrolsequence`\['isalreadyrobust on input line 130.
+LaTeX Info: Thecontrolsequence`\]'isalreadyrobust on input line 130.
+\g_MT_multlinerow_int=\count279
+\l_MT_multwidth_dim=\dimen168
 \origjot=\skip57
-\l_MT_shortvdotswithinadjustabove_dim=\dimen170
-\l_MT_shortvdotswithinadjustbelow_dim=\dimen171
-\l_MT_above_intertext_sep=\dimen172
-\l_MT_below_intertext_sep=\dimen173
-\l_MT_above_shortintertext_sep=\dimen174
-\l_MT_below_shortintertext_sep=\dimen175
-\xmathstrut@box=\box55
-\xmathstrut@dim=\dimen176
-) (/usr/local/texlive/2022/texmf-dist/tex/latex/multirow/bigstrut.sty
+\l_MT_shortvdotswithinadjustabove_dim=\dimen169
+\l_MT_shortvdotswithinadjustbelow_dim=\dimen170
+\l_MT_above_intertext_sep=\dimen171
+\l_MT_below_intertext_sep=\dimen172
+\l_MT_above_shortintertext_sep=\dimen173
+\l_MT_below_shortintertext_sep=\dimen174
+\xmathstrut@box=\box51
+\xmathstrut@dim=\dimen175
+) (/usr/local/texlive/2021/texmf-dist/tex/latex/multirow/bigstrut.sty
 Package: bigstrut 2021/03/15 v2.8 Provide larger struts in tabulars
-\bigstrutjot=\dimen177
-) (/usr/local/texlive/2022/texmf-dist/tex/latex/booktabs/booktabs.sty
+\bigstrutjot=\dimen176
+) (/usr/local/texlive/2021/texmf-dist/tex/latex/booktabs/booktabs.sty
 Package: booktabs 2020/01/12 v1.61803398 Publication quality tables
-\heavyrulewidth=\dimen178
-\lightrulewidth=\dimen179
-\cmidrulewidth=\dimen180
-\belowrulesep=\dimen181
-\belowbottomsep=\dimen182
-\aboverulesep=\dimen183
-\abovetopsep=\dimen184
-\cmidrulesep=\dimen185
-\cmidrulekern=\dimen186
-\defaultaddspace=\dimen187
-\@cmidla=\count286
-\@cmidlb=\count287
-\@aboverulesep=\dimen188
-\@belowrulesep=\dimen189
-\@thisruleclass=\count288
-\@lastruleclass=\count289
-\@thisrulewidth=\dimen190
-) (/usr/local/texlive/2022/texmf-dist/tex/latex/tools/longtable.sty
-Package: longtable 2021-09-01 v4.17 Multi-page Table package (DPC)
+\heavyrulewidth=\dimen177
+\lightrulewidth=\dimen178
+\cmidrulewidth=\dimen179
+\belowrulesep=\dimen180
+\belowbottomsep=\dimen181
+\aboverulesep=\dimen182
+\abovetopsep=\dimen183
+\cmidrulesep=\dimen184
+\cmidrulekern=\dimen185
+\defaultaddspace=\dimen186
+\@cmidla=\count280
+\@cmidlb=\count281
+\@aboverulesep=\dimen187
+\@belowrulesep=\dimen188
+\@thisruleclass=\count282
+\@lastruleclass=\count283
+\@thisrulewidth=\dimen189
+) (/usr/local/texlive/2021/texmf-dist/tex/latex/tools/longtable.sty
+Package: longtable 2020/01/07 v4.13 Multi-page Table package (DPC)
 \LTleft=\skip58
 \LTright=\skip59
 \LTpre=\skip60
 \LTpost=\skip61
-\LTchunksize=\count290
-\LTcapwidth=\dimen191
-\LT@head=\box56
-\LT@firsthead=\box57
-\LT@foot=\box58
-\LT@lastfoot=\box59
-\LT@gbox=\box60
-\LT@cols=\count291
-\LT@rows=\count292
-\c@LT@tables=\count293
-\c@LT@chunks=\count294
-\LT@p@ftn=\toks28
-) (/usr/local/texlive/2022/texmf-dist/tex/latex/tools/array.sty
-Package: array 2021/10/04 v2.5f Tabular extension package (FMi)
-\col@sep=\dimen192
-\ar@mcellbox=\box61
-\extrarowheight=\dimen193
-\NC@list=\toks29
+\LTchunksize=\count284
+\LTcapwidth=\dimen190
+\LT@head=\box52
+\LT@firsthead=\box53
+\LT@foot=\box54
+\LT@lastfoot=\box55
+\LT@cols=\count285
+\LT@rows=\count286
+\c@LT@tables=\count287
+\c@LT@chunks=\count288
+\LT@p@ftn=\toks27
+) (/usr/local/texlive/2021/texmf-dist/tex/latex/tools/array.sty
+Package: array 2020/10/01 v2.5c Tabular extension package (FMi)
+\col@sep=\dimen191
+\ar@mcellbox=\box56
+\extrarowheight=\dimen192
+\NC@list=\toks28
 \extratabsurround=\skip62
 \backup@length=\skip63
-\ar@cellbox=\box62
-) (/usr/local/texlive/2022/texmf-dist/tex/latex/multirow/multirow.sty
+\ar@cellbox=\box57
+) (/usr/local/texlive/2021/texmf-dist/tex/latex/multirow/multirow.sty
 Package: multirow 2021/03/15 v2.8 Span multiple rows of a table
 \multirow@colwidth=\skip64
-\multirow@cntb=\count295
+\multirow@cntb=\count289
 \multirow@dima=\skip65
-) (/usr/local/texlive/2022/texmf-dist/tex/latex/wrapfig/wrapfig.sty
-\wrapoverhang=\dimen194
-\WF@size=\dimen195
-\c@WF@wrappedlines=\count296
-\WF@box=\box63
-\WF@everypar=\toks30
+) (/usr/local/texlive/2021/texmf-dist/tex/latex/wrapfig/wrapfig.sty
+\wrapoverhang=\dimen193
+\WF@size=\dimen194
+\c@WF@wrappedlines=\count290
+\WF@box=\box58
+\WF@everypar=\toks29
 Package: wrapfig 2003/01/31  v 3.6
-) (/usr/local/texlive/2022/texmf-dist/tex/latex/colortbl/colortbl.sty
+) (/usr/local/texlive/2021/texmf-dist/tex/latex/colortbl/colortbl.sty
 Package: colortbl 2020/01/04 v1.0e Color table columns (DPC)
-\everycr=\toks31
+\everycr=\toks30
 \minrowclearance=\skip66
-) (/usr/local/texlive/2022/texmf-dist/tex/latex/pdflscape/pdflscape.sty
+) (/usr/local/texlive/2021/texmf-dist/tex/latex/pdflscape/pdflscape.sty
 Package: pdflscape 2019/12/05 v0.12 Display of landscape pages in PDF (HO)
-(/usr/local/texlive/2022/texmf-dist/tex/latex/graphics/lscape.sty
+(/usr/local/texlive/2021/texmf-dist/tex/latex/graphics/lscape.sty
 Package: lscape 2020/05/28 v3.02 Landscape Pages (DPC)
 )
 Package pdflscape Info: Auto-detected driver: pdftex on input line 81.
-) (/usr/local/texlive/2022/texmf-dist/tex/latex/tabu/tabu.sty
+) (/usr/local/texlive/2021/texmf-dist/tex/latex/tabu/tabu.sty
 Package: tabu 2019/01/11 v2.9 - flexible LaTeX tabulars (FC+tabu-fixed)
-(/usr/local/texlive/2022/texmf-dist/tex/latex/varwidth/varwidth.sty
+(/usr/local/texlive/2021/texmf-dist/tex/latex/varwidth/varwidth.sty
 Package: varwidth 2009/03/30 ver 0.92;  Variable-width minipages
-\@vwid@box=\box64
-\sift@deathcycles=\count297
-\@vwid@loff=\dimen196
-\@vwid@roff=\dimen197
+\@vwid@box=\box59
+\sift@deathcycles=\count291
+\@vwid@loff=\dimen195
+\@vwid@roff=\dimen196
 )
-\c@taburow=\count298
-\tabu@nbcols=\count299
-\tabu@cnt=\count300
-\tabu@Xcol=\count301
-\tabu@alloc=\count302
-\tabu@nested=\count303
-\tabu@target=\dimen198
-\tabu@spreadtarget=\dimen199
-\tabu@naturalX=\dimen256
-\tabucolX=\dimen257
-\tabu@Xsum=\dimen258
-\extrarowdepth=\dimen259
-\abovetabulinesep=\dimen260
-\belowtabulinesep=\dimen261
-\tabustrutrule=\dimen262
-\tabu@thebody=\toks32
-\tabu@footnotes=\toks33
-\tabu@box=\box65
-\tabu@arstrutbox=\box66
-\tabu@hleads=\box67
-\tabu@vleads=\box68
+\c@taburow=\count292
+\tabu@nbcols=\count293
+\tabu@cnt=\count294
+\tabu@Xcol=\count295
+\tabu@alloc=\count296
+\tabu@nested=\count297
+\tabu@target=\dimen197
+\tabu@spreadtarget=\dimen198
+\tabu@naturalX=\dimen199
+\tabucolX=\dimen256
+\tabu@Xsum=\dimen257
+\extrarowdepth=\dimen258
+\abovetabulinesep=\dimen259
+\belowtabulinesep=\dimen260
+\tabustrutrule=\dimen261
+\tabu@thebody=\toks31
+\tabu@footnotes=\toks32
+\tabu@box=\box60
+\tabu@arstrutbox=\box61
+\tabu@hleads=\box62
+\tabu@vleads=\box63
 \tabu@cellskip=\skip67
 )
-(/usr/local/texlive/2022/texmf-dist/tex/latex/threeparttable/threeparttable.sty
+(/usr/local/texlive/2021/texmf-dist/tex/latex/threeparttable/threeparttable.sty
 Package: threeparttable 2003/06/13  v 3.0
-\@tempboxb=\box69
+\@tempboxb=\box64
 )
-(/usr/local/texlive/2022/texmf-dist/tex/latex/threeparttablex/threeparttablex.s
+(/usr/local/texlive/2021/texmf-dist/tex/latex/threeparttablex/threeparttablex.s
 ty
 Package: threeparttablex 2013/07/23 v0.3 by daleif
-(/usr/local/texlive/2022/texmf-dist/tex/latex/environ/environ.sty
+(/usr/local/texlive/2021/texmf-dist/tex/latex/environ/environ.sty
 Package: environ 2014/05/04 v0.3 A new way to define environments
-(/usr/local/texlive/2022/texmf-dist/tex/latex/trimspaces/trimspaces.sty
+(/usr/local/texlive/2021/texmf-dist/tex/latex/trimspaces/trimspaces.sty
 Package: trimspaces 2009/09/17 v1.1 Trim spaces around a token list
 ))
 \TPTL@width=\skip68
-) (/usr/local/texlive/2022/texmf-dist/tex/generic/ulem/ulem.sty
-\UL@box=\box70
-\UL@hyphenbox=\box71
+) (/usr/local/texlive/2021/texmf-dist/tex/generic/ulem/ulem.sty
+\UL@box=\box65
+\UL@hyphenbox=\box66
 \UL@skip=\skip69
-\UL@hook=\toks34
-\UL@height=\dimen263
-\UL@pe=\count304
-\UL@pixel=\dimen264
-\ULC@box=\box72
+\UL@hook=\toks33
+\UL@height=\dimen262
+\UL@pe=\count298
+\UL@pixel=\dimen263
+\ULC@box=\box67
 Package: ulem 2019/11/18
-\ULdepth=\dimen265
-) (/usr/local/texlive/2022/texmf-dist/tex/latex/makecell/makecell.sty
+\ULdepth=\dimen264
+) (/usr/local/texlive/2021/texmf-dist/tex/latex/makecell/makecell.sty
 Package: makecell 2009/08/03 V0.1e Managing of Tab Column Heads and Cells
-\rotheadsize=\dimen266
-\c@nlinenum=\count305
-\TeXr@lab=\toks35
-) (/usr/local/texlive/2022/texmf-dist/tex/latex/bookmark/bookmark.sty
+\rotheadsize=\dimen265
+\c@nlinenum=\count299
+\TeXr@lab=\toks34
+) (/usr/local/texlive/2021/texmf-dist/tex/latex/bookmark/bookmark.sty
 Package: bookmark 2020-11-06 v1.29 PDF bookmarks (HO)
-(/usr/local/texlive/2022/texmf-dist/tex/latex/hyperref/hyperref.sty
-Package: hyperref 2022-02-21 v7.00n Hypertext links for LaTeX
-(/usr/local/texlive/2022/texmf-dist/tex/generic/pdftexcmds/pdftexcmds.sty
+(/usr/local/texlive/2021/texmf-dist/tex/latex/hyperref/hyperref.sty
+Package: hyperref 2021-02-27 v7.00k Hypertext links for LaTeX
+(/usr/local/texlive/2021/texmf-dist/tex/generic/pdftexcmds/pdftexcmds.sty
 Package: pdftexcmds 2020-06-27 v0.33 Utility functions of pdfTeX for LuaTeX (HO
 )
-(/usr/local/texlive/2022/texmf-dist/tex/generic/infwarerr/infwarerr.sty
+(/usr/local/texlive/2021/texmf-dist/tex/generic/infwarerr/infwarerr.sty
 Package: infwarerr 2019/12/03 v1.5 Providing info/warning/error messages (HO)
 )
 Package pdftexcmds Info: \pdf@primitive is available.
 Package pdftexcmds Info: \pdf@ifprimitive is available.
 Package pdftexcmds Info: \pdfdraftmode found.
-) (/usr/local/texlive/2022/texmf-dist/tex/generic/kvdefinekeys/kvdefinekeys.sty
+) (/usr/local/texlive/2021/texmf-dist/tex/generic/kvdefinekeys/kvdefinekeys.sty
 Package: kvdefinekeys 2019-12-19 v1.6 Define keys (HO)
-) (/usr/local/texlive/2022/texmf-dist/tex/generic/pdfescape/pdfescape.sty
+) (/usr/local/texlive/2021/texmf-dist/tex/generic/pdfescape/pdfescape.sty
 Package: pdfescape 2019/12/09 v1.15 Implements pdfTeX's escape features (HO)
-) (/usr/local/texlive/2022/texmf-dist/tex/latex/hycolor/hycolor.sty
+) (/usr/local/texlive/2021/texmf-dist/tex/latex/hycolor/hycolor.sty
 Package: hycolor 2020-01-27 v1.10 Color options for hyperref/bookmark (HO)
-) (/usr/local/texlive/2022/texmf-dist/tex/latex/letltxmacro/letltxmacro.sty
+) (/usr/local/texlive/2021/texmf-dist/tex/latex/letltxmacro/letltxmacro.sty
 Package: letltxmacro 2019/12/03 v1.6 Let assignment for LaTeX macros (HO)
-) (/usr/local/texlive/2022/texmf-dist/tex/latex/auxhook/auxhook.sty
+) (/usr/local/texlive/2021/texmf-dist/tex/latex/auxhook/auxhook.sty
 Package: auxhook 2019-12-17 v1.6 Hooks for auxiliary files (HO)
 )
-\@linkdim=\dimen267
-\Hy@linkcounter=\count306
-\Hy@pagecounter=\count307
-(/usr/local/texlive/2022/texmf-dist/tex/latex/hyperref/pd1enc.def
-File: pd1enc.def 2022-02-21 v7.00n Hyperref: PDFDocEncoding definition (HO)
+\@linkdim=\dimen266
+\Hy@linkcounter=\count300
+\Hy@pagecounter=\count301
+(/usr/local/texlive/2021/texmf-dist/tex/latex/hyperref/pd1enc.def
+File: pd1enc.def 2021-02-27 v7.00k Hyperref: PDFDocEncoding definition (HO)
 Now handling font encoding PD1 ...
 ... no UTF-8 mapping file for font encoding PD1
-) (/usr/local/texlive/2022/texmf-dist/tex/generic/intcalc/intcalc.sty
+)
+(/usr/local/texlive/2021/texmf-dist/tex/latex/hyperref/hyperref-langpatches.def
+File: hyperref-langpatches.def 2021-02-27 v7.00k Hyperref: patches for babel la
+nguages
+) (/usr/local/texlive/2021/texmf-dist/tex/generic/intcalc/intcalc.sty
 Package: intcalc 2019/12/15 v1.3 Expandable calculations with integers (HO)
-) (/usr/local/texlive/2022/texmf-dist/tex/generic/etexcmds/etexcmds.sty
+) (/usr/local/texlive/2021/texmf-dist/tex/generic/etexcmds/etexcmds.sty
 Package: etexcmds 2019/12/15 v1.7 Avoid name clashes with e-TeX commands (HO)
 )
-\Hy@SavedSpaceFactor=\count308
-(/usr/local/texlive/2022/texmf-dist/tex/latex/hyperref/puenc.def
-File: puenc.def 2022-02-21 v7.00n Hyperref: PDF Unicode definition (HO)
+\Hy@SavedSpaceFactor=\count302
+(/usr/local/texlive/2021/texmf-dist/tex/latex/hyperref/puenc.def
+File: puenc.def 2021-02-27 v7.00k Hyperref: PDF Unicode definition (HO)
 Now handling font encoding PU ...
 ... no UTF-8 mapping file for font encoding PU
 )
-Package hyperref Info: Option `unicode' set `true' on input line 4018.
-Package hyperref Info: Hyper figures OFF on input line 4137.
-Package hyperref Info: Link nesting OFF on input line 4142.
-Package hyperref Info: Hyper index ON on input line 4145.
-Package hyperref Info: Plain pages OFF on input line 4152.
-Package hyperref Info: Backreferencing OFF on input line 4157.
+Package hyperref Info: Option `unicode' set `true' on input line 4073.
+Package hyperref Info: Hyper figures OFF on input line 4192.
+Package hyperref Info: Link nesting OFF on input line 4197.
+Package hyperref Info: Hyper index ON on input line 4200.
+Package hyperref Info: Plain pages OFF on input line 4207.
+Package hyperref Info: Backreferencing OFF on input line 4212.
 Package hyperref Info: Implicit mode ON; LaTeX internals redefined.
-Package hyperref Info: Bookmarks ON on input line 4390.
-\c@Hy@tempcnt=\count309
-(/usr/local/texlive/2022/texmf-dist/tex/latex/url/url.sty
+Package hyperref Info: Bookmarks ON on input line 4445.
+\c@Hy@tempcnt=\count303
+(/usr/local/texlive/2021/texmf-dist/tex/latex/url/url.sty
 \Urlmuskip=\muskip17
 Package: url 2013/09/16  ver 3.4  Verb mode for urls, etc.
 )
-LaTeX Info: Redefining \url on input line 4749.
-\XeTeXLinkMargin=\dimen268
-(/usr/local/texlive/2022/texmf-dist/tex/generic/bitset/bitset.sty
+LaTeX Info: Redefining \url on input line 4804.
+\XeTeXLinkMargin=\dimen267
+(/usr/local/texlive/2021/texmf-dist/tex/generic/bitset/bitset.sty
 Package: bitset 2019/12/09 v1.3 Handle bit-vector datatype (HO)
-(/usr/local/texlive/2022/texmf-dist/tex/generic/bigintcalc/bigintcalc.sty
+(/usr/local/texlive/2021/texmf-dist/tex/generic/bigintcalc/bigintcalc.sty
 Package: bigintcalc 2019/12/15 v1.5 Expandable calculations on big integers (HO
 )
 ))
-\Fld@menulength=\count310
-\Field@Width=\dimen269
-\Fld@charsize=\dimen270
-Package hyperref Info: Hyper figures OFF on input line 6027.
-Package hyperref Info: Link nesting OFF on input line 6032.
-Package hyperref Info: Hyper index ON on input line 6035.
-Package hyperref Info: backreferencing OFF on input line 6042.
-Package hyperref Info: Link coloring OFF on input line 6047.
-Package hyperref Info: Link coloring with OCG OFF on input line 6052.
-Package hyperref Info: PDF/A mode OFF on input line 6057.
-LaTeX Info: Redefining \ref on input line 6097.
-LaTeX Info: Redefining \pageref on input line 6101.
-(/usr/local/texlive/2022/texmf-dist/tex/latex/base/atbegshi-ltx.sty
-Package: atbegshi-ltx 2021/01/10 v1.0c Emulation of the original atbegshi
-package with kernel methods
-)
-\Hy@abspage=\count311
-\c@Item=\count312
-\c@Hfootnote=\count313
-)
-Package hyperref Info: Driver (autodetected): hpdftex.
-(/usr/local/texlive/2022/texmf-dist/tex/latex/hyperref/hpdftex.def
-File: hpdftex.def 2022-02-21 v7.00n Hyperref driver for pdfTeX
-(/usr/local/texlive/2022/texmf-dist/tex/latex/base/atveryend-ltx.sty
-Package: atveryend-ltx 2020/08/19 v1.0a Emulation of the original atveryend pac
-kage
+\Fld@menulength=\count304
+\Field@Width=\dimen268
+\Fld@charsize=\dimen269
+Package hyperref Info: Hyper figures OFF on input line 6075.
+Package hyperref Info: Link nesting OFF on input line 6080.
+Package hyperref Info: Hyper index ON on input line 6083.
+Package hyperref Info: backreferencing OFF on input line 6090.
+Package hyperref Info: Link coloring OFF on input line 6095.
+Package hyperref Info: Link coloring with OCG OFF on input line 6100.
+Package hyperref Info: PDF/A mode OFF on input line 6105.
+LaTeX Info: Redefining \ref on input line 6145.
+LaTeX Info: Redefining \pageref on input line 6149.
+(/usr/local/texlive/2021/texmf-dist/tex/latex/base/atbegshi-ltx.sty
+Package: atbegshi-ltx 2020/08/17 v1.0a Emulation of the original atbegshi packa
+ge
 with kernel methods
 )
-\Fld@listcount=\count314
-\c@bookmark@seq@number=\count315
+\Hy@abspage=\count305
+\c@Item=\count306
+\c@Hfootnote=\count307
+)
+Package hyperref Info: Driver (autodetected): hpdftex.
+(/usr/local/texlive/2021/texmf-dist/tex/latex/hyperref/hpdftex.def
+File: hpdftex.def 2021-02-27 v7.00k Hyperref driver for pdfTeX
+(/usr/local/texlive/2021/texmf-dist/tex/latex/base/atveryend-ltx.sty
+Package: atveryend-ltx 2020/08/19 v1.0a Emulation of the original atvery packag
+e
+with kernel methods
+)
+\Fld@listcount=\count308
+\c@bookmark@seq@number=\count309
 
-(/usr/local/texlive/2022/texmf-dist/tex/latex/rerunfilecheck/rerunfilecheck.sty
+(/usr/local/texlive/2021/texmf-dist/tex/latex/rerunfilecheck/rerunfilecheck.sty
 Package: rerunfilecheck 2019/12/05 v1.9 Rerun checks for auxiliary files (HO)
 
-(/usr/local/texlive/2022/texmf-dist/tex/generic/uniquecounter/uniquecounter.sty
+(/usr/local/texlive/2021/texmf-dist/tex/generic/uniquecounter/uniquecounter.sty
 Package: uniquecounter 2019/12/15 v1.4 Provide unlimited unique counter (HO)
 )
 Package uniquecounter Info: New unique counter `rerunfilecheck' on input line 2
 86.
 )
 \Hy@SectionHShift=\skip70
-) (/usr/local/texlive/2022/texmf-dist/tex/latex/bookmark/bkm-pdftex.def
+) (/usr/local/texlive/2021/texmf-dist/tex/latex/bookmark/bkm-pdftex.def
 File: bkm-pdftex.def 2020-11-06 v1.29 bookmark driver for pdfTeX (HO)
-\BKM@id=\count316
-)) (/usr/local/texlive/2022/texmf-dist/tex/latex/xurl/xurl.sty
-Package: xurl 2022/01/09 v 0.10 modify URL breaks
-) (/usr/local/texlive/2022/texmf-dist/tex/latex/l3backend/l3backend-pdftex.def
-File: l3backend-pdftex.def 2022-02-07 L3 backend support: PDF output (pdfTeX)
-\l__color_backend_stack_int=\count317
-\l__pdf_internal_box=\box73
+\BKM@id=\count310
+)) (/usr/local/texlive/2021/texmf-dist/tex/latex/xurl/xurl.sty
+Package: xurl 2020/12/30 v 0.09a modify URL breaks
+) (/usr/local/texlive/2021/texmf-dist/tex/latex/l3backend/l3backend-pdftex.def
+File: l3backend-pdftex.def 2021-03-18 L3 backend support: PDF output (pdfTeX)
+\l__color_backend_stack_int=\count311
+\l__pdf_internal_box=\box68
 ) (./2022_PSeffect_RiskStatus.aux)
 \openout1 = `2022_PSeffect_RiskStatus.aux'.
 
@@ -548,10 +551,6 @@ LaTeX Font Info:    ... okay on input line 96.
 LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 96.
 LaTeX Font Info:    ... okay on input line 96.
 LaTeX Info: Redefining \microtypecontext on input line 96.
-Package microtype Info: Applying patch `item' on input line 96.
-Package microtype Info: Applying patch `toc' on input line 96.
-Package microtype Info: Applying patch `eqnum' on input line 96.
-Package microtype Info: Applying patch `footnote' on input line 96.
 Package microtype Info: Generating PDF output.
 Package microtype Info: Character protrusion enabled (level 2).
 Package microtype Info: Using protrusion set `basicmath'.
@@ -562,27 +561,27 @@ LaTeX Info: Redefining \showhyphens on input line 96.
 Package microtype Info: No adjustment of tracking.
 Package microtype Info: No adjustment of interword spacing.
 Package microtype Info: No adjustment of character kerning.
-(/usr/local/texlive/2022/texmf-dist/tex/latex/microtype/mt-cmr.cfg
+(/usr/local/texlive/2021/texmf-dist/tex/latex/microtype/mt-cmr.cfg
 File: mt-cmr.cfg 2013/05/19 v2.2 microtype config. file: Computer Modern Roman 
 (RS)
-) (/usr/local/texlive/2022/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
+) (/usr/local/texlive/2021/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count318
-\scratchdimen=\dimen271
-\scratchbox=\box74
-\nofMPsegments=\count319
-\nofMParguments=\count320
-\everyMPshowfont=\toks36
-\MPscratchCnt=\count321
-\MPscratchDim=\dimen272
-\MPnumerator=\count322
-\makeMPintoPDFobject=\count323
-\everyMPtoPDFconversion=\toks37
-) (/usr/local/texlive/2022/texmf-dist/tex/latex/epstopdf-pkg/epstopdf-base.sty
+\scratchcounter=\count312
+\scratchdimen=\dimen270
+\scratchbox=\box69
+\nofMPsegments=\count313
+\nofMParguments=\count314
+\everyMPshowfont=\toks35
+\MPscratchCnt=\count315
+\MPscratchDim=\dimen271
+\MPnumerator=\count316
+\makeMPintoPDFobject=\count317
+\everyMPtoPDFconversion=\toks36
+) (/usr/local/texlive/2021/texmf-dist/tex/latex/epstopdf-pkg/epstopdf-base.sty
 Package: epstopdf-base 2020-01-24 v2.11 Base part for package epstopdf
 Package epstopdf-base Info: Redefining graphics rule for `.eps' on input line 4
 85.
-(/usr/local/texlive/2022/texmf-dist/tex/latex/latexconfig/epstopdf-sys.cfg
+(/usr/local/texlive/2021/texmf-dist/tex/latex/latexconfig/epstopdf-sys.cfg
 File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Liv
 e
 ))
@@ -624,45 +623,45 @@ Package caption Info: Begin \AtBeginDocument code.
 Package caption Info: float package is loaded.
 Package caption Info: hyperref package is loaded.
 Package caption Info: longtable package is loaded.
-(/usr/local/texlive/2022/texmf-dist/tex/latex/caption/ltcaption.sty
-Package: ltcaption 2021/01/08 v1.4c longtable captions (AR)
+(/usr/local/texlive/2021/texmf-dist/tex/latex/caption/ltcaption.sty
+Package: ltcaption 2020/05/30 v1.4b longtable captions (AR)
 )
 Package caption Info: threeparttable package is loaded.
 Package caption Info: wrapfig package is loaded.
 Package caption Info: End \AtBeginDocument code.
 Package hyperref Info: Link coloring OFF on input line 96.
-(/usr/local/texlive/2022/texmf-dist/tex/latex/hyperref/nameref.sty
+(/usr/local/texlive/2021/texmf-dist/tex/latex/hyperref/nameref.sty
 Package: nameref 2021-04-02 v2.47 Cross-referencing by name of section
-(/usr/local/texlive/2022/texmf-dist/tex/latex/refcount/refcount.sty
+(/usr/local/texlive/2021/texmf-dist/tex/latex/refcount/refcount.sty
 Package: refcount 2019/12/15 v3.6 Data extraction from label references (HO)
 )
-(/usr/local/texlive/2022/texmf-dist/tex/generic/gettitlestring/gettitlestring.s
+(/usr/local/texlive/2021/texmf-dist/tex/generic/gettitlestring/gettitlestring.s
 ty
 Package: gettitlestring 2019/12/15 v1.6 Cleanup title references (HO)
 )
-\c@section@level=\count324
+\c@section@level=\count318
 )
 LaTeX Info: Redefining \ref on input line 96.
 LaTeX Info: Redefining \pageref on input line 96.
 LaTeX Info: Redefining \nameref on input line 96.
 LaTeX Font Info:    Trying to load font information for OT1+lmr on input line 9
 8.
-(/usr/local/texlive/2022/texmf-dist/tex/latex/lm/ot1lmr.fd
+(/usr/local/texlive/2021/texmf-dist/tex/latex/lm/ot1lmr.fd
 File: ot1lmr.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
 )
 LaTeX Font Info:    Trying to load font information for OML+lmm on input line 9
 8.
-(/usr/local/texlive/2022/texmf-dist/tex/latex/lm/omllmm.fd
+(/usr/local/texlive/2021/texmf-dist/tex/latex/lm/omllmm.fd
 File: omllmm.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
 )
 LaTeX Font Info:    Trying to load font information for OMS+lmsy on input line 
 98.
-(/usr/local/texlive/2022/texmf-dist/tex/latex/lm/omslmsy.fd
+(/usr/local/texlive/2021/texmf-dist/tex/latex/lm/omslmsy.fd
 File: omslmsy.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
 )
 LaTeX Font Info:    Trying to load font information for OMX+lmex on input line 
 98.
-(/usr/local/texlive/2022/texmf-dist/tex/latex/lm/omxlmex.fd
+(/usr/local/texlive/2021/texmf-dist/tex/latex/lm/omxlmex.fd
 File: omxlmex.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
 )
 LaTeX Font Info:    External font `lmex10' loaded for size
@@ -673,16 +672,16 @@ LaTeX Font Info:    External font `lmex10' loaded for size
 (Font)              <6> on input line 98.
 LaTeX Font Info:    Trying to load font information for U+msa on input line 98.
 
-(/usr/local/texlive/2022/texmf-dist/tex/latex/amsfonts/umsa.fd
+(/usr/local/texlive/2021/texmf-dist/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
-) (/usr/local/texlive/2022/texmf-dist/tex/latex/microtype/mt-msa.cfg
+) (/usr/local/texlive/2021/texmf-dist/tex/latex/microtype/mt-msa.cfg
 File: mt-msa.cfg 2006/02/04 v1.1 microtype config. file: AMS symbols (a) (RS)
 )
 LaTeX Font Info:    Trying to load font information for U+msb on input line 98.
 
-(/usr/local/texlive/2022/texmf-dist/tex/latex/amsfonts/umsb.fd
+(/usr/local/texlive/2021/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
-) (/usr/local/texlive/2022/texmf-dist/tex/latex/microtype/mt-msb.cfg
+) (/usr/local/texlive/2021/texmf-dist/tex/latex/microtype/mt-msb.cfg
 File: mt-msb.cfg 2005/06/01 v1.0 microtype config. file: AMS symbols (b) (RS)
 ) (./2022_PSeffect_RiskStatus.toc
 LaTeX Font Info:    External font `lmex10' loaded for size
@@ -697,10 +696,10 @@ LaTeX Font Info:    External font `lmex10' loaded for size
 
 [1
 
-{/usr/local/texlive/2022/texmf-var/fonts/map/pdftex/updmap/pdftex.map}]
+{/usr/local/texlive/2021/texmf-var/fonts/map/pdftex/updmap/pdftex.map}]
 LaTeX Font Info:    Trying to load font information for T1+lmtt on input line 1
 65.
-(/usr/local/texlive/2022/texmf-dist/tex/latex/lm/t1lmtt.fd
+(/usr/local/texlive/2021/texmf-dist/tex/latex/lm/t1lmtt.fd
 File: t1lmtt.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
 )
 Overfull \hbox (102.49332pt too wide) in paragraph at lines 177--177
@@ -736,7 +735,7 @@ p Low Risk and group High Risk is not equal to 0[]
 [3]
 LaTeX Font Info:    Trying to load font information for TS1+lmtt on input line 
 256.
-(/usr/local/texlive/2022/texmf-dist/tex/latex/lm/ts1lmtt.fd
+(/usr/local/texlive/2021/texmf-dist/tex/latex/lm/ts1lmtt.fd
 File: ts1lmtt.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
 ) [4] [5
 
@@ -746,124 +745,134 @@ LaTeX Warning: `!h' float specifier changed to `!ht'.
 
 [6
 
-]
+] [7]
+
+LaTeX Warning: Float too large for page by 89.2115pt on input line 580.
+
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-[7] [8]
-Underfull \hbox (badness 10000) in paragraph at lines 571--572
+
+Underfull \hbox (badness 10000) in paragraph at lines 600--601
 
  []
 
-[9
+
+Underfull \hbox (badness 10000) in paragraph at lines 638--639
+
+ []
+
+[8
 
 ]
-Underfull \hbox (badness 10000) in paragraph at lines 632--633
+Underfull \hbox (badness 10000) in paragraph at lines 658--659
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 696--697
+
+ []
+
+[9]
+Underfull \hbox (badness 10000) in paragraph at lines 716--717
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 754--755
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 774--775
 
  []
 
 [10]
-Underfull \hbox (badness 10000) in paragraph at lines 694--695
+Underfull \hbox (badness 10000) in paragraph at lines 812--813
 
  []
 
-[11]
-Underfull \hbox (badness 10000) in paragraph at lines 755--756
+[11] [12] [13
 
- []
-
-[12]
-Underfull \hbox (badness 10000) in paragraph at lines 817--818
-
- []
-
-[13]
-Underfull \hbox (badness 10000) in paragraph at lines 878--879
-
- []
-
-[14]
-
-LaTeX Warning: `!h' float specifier changed to `!ht'.
-
-[15] [16] [17
 
 ]
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-[18] [19] [20
+[14] [15] [16
 
-] [21]
+] [17]
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-[22
+[18
 
 ]
-Overfull \hbox (76.2434pt too wide) in paragraph at lines 1402--1402
+Overfull \hbox (76.2434pt too wide) in paragraph at lines 1234--1234
 []\T1/lmtt/m/n/10 grams_ps_mod: grams ~ preFF + fmi + sex + age_yr + cebq_sr + 
 avg_vas + meal_order + g_served + (1 | sub)[] 
  []
 
 
-Overfull \hbox (160.24315pt too wide) in paragraph at lines 1402--1402
+Overfull \hbox (160.24315pt too wide) in paragraph at lines 1234--1234
 []\T1/lmtt/m/n/10 grams_psquad_mod: grams ~ preFF + fmi + sex + age_yr + cebq_s
 r + avg_vas + meal_order + g_served + g_served2 + (1 | sub)[] 
  []
 
 
-Overfull \hbox (81.49338pt too wide) in paragraph at lines 1445--1445
+Overfull \hbox (81.49338pt too wide) in paragraph at lines 1277--1277
 []\T1/lmtt/m/n/10 kcal_ps_mod: kcal ~ preFF + fmi + sex + age_yr + cebq_sr + av
 g_vas + meal_order + kcal_served + (1 | sub)[] 
  []
 
 
-Overfull \hbox (181.24309pt too wide) in paragraph at lines 1445--1445
+Overfull \hbox (181.24309pt too wide) in paragraph at lines 1277--1277
 []\T1/lmtt/m/n/10 kcal_psquad_mod: kcal ~ preFF + fmi + sex + age_yr + cebq_sr 
 + avg_vas + meal_order + kcal_served + kcal_served2 + (1 | sub)[] 
  []
 
-[23] [24]
-Overfull \hbox (76.2434pt too wide) in paragraph at lines 1494--1494
+[19] [20]
+Overfull \hbox (76.2434pt too wide) in paragraph at lines 1326--1326
 []\T1/lmtt/m/n/10 grams_ps_mod: grams ~ preFF + fmi + sex + age_yr + cebq_sr + 
 avg_vas + meal_order + g_served + (1 | sub)[] 
  []
 
 
-Overfull \hbox (196.99304pt too wide) in paragraph at lines 1494--1494
+Overfull \hbox (196.99304pt too wide) in paragraph at lines 1326--1326
 []\T1/lmtt/m/n/10 grams_psxrisk_mod: grams ~ preFF + fmi + sex + age_yr + cebq_
 sr + avg_vas + meal_order + risk_status_mom * g_served + (1 | sub)[] 
  []
 
-<figs/intake_fig_grams_psxr-1.pdf, id=229, 417.56pt x 279.0425pt>
+<figs/intake_fig_grams_psxr-1.pdf, id=194, 421.575pt x 280.04625pt>
 File: figs/intake_fig_grams_psxr-1.pdf Graphic file (type pdf)
 <use figs/intake_fig_grams_psxr-1.pdf>
 Package pdftex.def Info: figs/intake_fig_grams_psxr-1.pdf  used on input line 1
-527.
-(pdftex.def)             Requested size: 417.5717pt x 279.05032pt.
-[25
+359.
+(pdftex.def)             Requested size: 421.58038pt x 280.04982pt.
+[21
 
 ]
-Overfull \hbox (102.49332pt too wide) in paragraph at lines 1578--1578
+Overfull \hbox (102.49332pt too wide) in paragraph at lines 1410--1410
 []\T1/lmtt/m/n/10 alternative hypothesis: true difference in means between grou
 p Low Risk and group High Risk is not equal to 0[] 
  []
 
-[26 <./figs/intake_fig_grams_psxr-1.pdf>]
-Overfull \hbox (102.49332pt too wide) in paragraph at lines 1592--1592
-[]\T1/lmtt/m/n/10 alternative hypothesis: true difference in means between grou
-p Low Risk and group High Risk is not equal to 0[] 
- []
-
-
-Overfull \hbox (102.49332pt too wide) in paragraph at lines 1606--1606
+[22 <./figs/intake_fig_grams_psxr-1.pdf>]
+Overfull \hbox (102.49332pt too wide) in paragraph at lines 1424--1424
 []\T1/lmtt/m/n/10 alternative hypothesis: true difference in means between grou
 p Low Risk and group High Risk is not equal to 0[] 
  []
 
 
-Overfull \hbox (102.49332pt too wide) in paragraph at lines 1620--1620
+Overfull \hbox (102.49332pt too wide) in paragraph at lines 1438--1438
+[]\T1/lmtt/m/n/10 alternative hypothesis: true difference in means between grou
+p Low Risk and group High Risk is not equal to 0[] 
+ []
+
+
+Overfull \hbox (102.49332pt too wide) in paragraph at lines 1452--1452
 []\T1/lmtt/m/n/10 alternative hypothesis: true difference in means between grou
 p Low Risk and group High Risk is not equal to 0[] 
  []
@@ -871,44 +880,44 @@ p Low Risk and group High Risk is not equal to 0[]
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-[27]
-Overfull \hbox (81.49338pt too wide) in paragraph at lines 1672--1672
+[23]
+Overfull \hbox (81.49338pt too wide) in paragraph at lines 1504--1504
 []\T1/lmtt/m/n/10 kcal_ps_mod: kcal ~ preFF + fmi + sex + age_yr + cebq_sr + av
 g_vas + meal_order + kcal_served + (1 | sub)[] 
  []
 
 
-Overfull \hbox (202.24303pt too wide) in paragraph at lines 1672--1672
+Overfull \hbox (202.24303pt too wide) in paragraph at lines 1504--1504
 []\T1/lmtt/m/n/10 kcal_psxrisk_mod: kcal ~ preFF + fmi + sex + age_yr + cebq_sr
  + avg_vas + meal_order + risk_status_mom * kcal_served + (1 | sub)[] 
  []
 
-<figs/intake_fig_kcal_psxrisk-1.pdf, id=263, 417.56pt x 279.0425pt>
+<figs/intake_fig_kcal_psxrisk-1.pdf, id=226, 421.575pt x 280.04625pt>
 File: figs/intake_fig_kcal_psxrisk-1.pdf Graphic file (type pdf)
 <use figs/intake_fig_kcal_psxrisk-1.pdf>
 Package pdftex.def Info: figs/intake_fig_kcal_psxrisk-1.pdf  used on input line
- 1705.
-(pdftex.def)             Requested size: 417.5717pt x 279.05032pt.
-[28]
-Overfull \hbox (102.49332pt too wide) in paragraph at lines 1756--1756
+ 1537.
+(pdftex.def)             Requested size: 421.58038pt x 280.04982pt.
+[24]
+Overfull \hbox (102.49332pt too wide) in paragraph at lines 1588--1588
 []\T1/lmtt/m/n/10 alternative hypothesis: true difference in means between grou
 p Low Risk and group High Risk is not equal to 0[] 
  []
 
-[29 <./figs/intake_fig_kcal_psxrisk-1.pdf>]
-Overfull \hbox (102.49332pt too wide) in paragraph at lines 1770--1770
-[]\T1/lmtt/m/n/10 alternative hypothesis: true difference in means between grou
-p Low Risk and group High Risk is not equal to 0[] 
- []
-
-
-Overfull \hbox (102.49332pt too wide) in paragraph at lines 1784--1784
+[25 <./figs/intake_fig_kcal_psxrisk-1.pdf>]
+Overfull \hbox (102.49332pt too wide) in paragraph at lines 1602--1602
 []\T1/lmtt/m/n/10 alternative hypothesis: true difference in means between grou
 p Low Risk and group High Risk is not equal to 0[] 
  []
 
 
-Overfull \hbox (102.49332pt too wide) in paragraph at lines 1798--1798
+Overfull \hbox (102.49332pt too wide) in paragraph at lines 1616--1616
+[]\T1/lmtt/m/n/10 alternative hypothesis: true difference in means between grou
+p Low Risk and group High Risk is not equal to 0[] 
+ []
+
+
+Overfull \hbox (102.49332pt too wide) in paragraph at lines 1630--1630
 []\T1/lmtt/m/n/10 alternative hypothesis: true difference in means between grou
 p Low Risk and group High Risk is not equal to 0[] 
  []
@@ -916,24 +925,24 @@ p Low Risk and group High Risk is not equal to 0[]
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-[30] [31]
-Underfull \hbox (badness 10000) in paragraph at lines 1839--1840
+[26] [27]
+Underfull \hbox (badness 10000) in paragraph at lines 1671--1672
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1841--1842
+Underfull \hbox (badness 10000) in paragraph at lines 1673--1674
 
  []
 
 
-Overfull \hbox (149.74318pt too wide) in paragraph at lines 1870--1870
+Overfull \hbox (149.74318pt too wide) in paragraph at lines 1702--1702
 []\T1/lmtt/m/n/10 grams_chnug_ps_mod: chnug_grams ~ preFF + fmi + sex + age_yr 
 + cebq_sr + chnug_vas + meal_order + g_served + (1 | sub)[] 
  []
 
 
-Overfull \hbox (249.49289pt too wide) in paragraph at lines 1870--1870
+Overfull \hbox (249.49289pt too wide) in paragraph at lines 1702--1702
 []\T1/lmtt/m/n/10 grams_chnug_ps_psquad_mod: chnug_grams ~ preFF + fmi + sex + 
 age_yr + cebq_sr + chnug_vas + meal_order + g_served + g_served2 + (1 | sub)[] 
 
@@ -942,49 +951,49 @@ age_yr + cebq_sr + chnug_vas + meal_order + g_served + g_served2 + (1 | sub)[]
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-[32
+[28
 
 ]
-<figs/intake_fig_g_psxr_chnug-1.pdf, id=314, 417.56pt x 279.0425pt>
+<figs/intake_fig_g_psxr_chnug-1.pdf, id=278, 421.575pt x 280.04625pt>
 File: figs/intake_fig_g_psxr_chnug-1.pdf Graphic file (type pdf)
 <use figs/intake_fig_g_psxr_chnug-1.pdf>
 Package pdftex.def Info: figs/intake_fig_g_psxr_chnug-1.pdf  used on input line
- 1930.
-(pdftex.def)             Requested size: 417.5717pt x 279.05032pt.
-[33 <./figs/intake_fig_g_psxr_chnug-1.pdf>]
-Overfull \hbox (154.99316pt too wide) in paragraph at lines 1959--1959
+ 1762.
+(pdftex.def)             Requested size: 421.58038pt x 280.04982pt.
+[29 <./figs/intake_fig_g_psxr_chnug-1.pdf>]
+Overfull \hbox (154.99316pt too wide) in paragraph at lines 1791--1791
 []\T1/lmtt/m/n/10 kcal_chnug_ps_mod: chnug_kcal ~ preFF + fmi + sex + age_yr + 
 cebq_sr + chnug_vas + meal_order + kcal_served + (1 | sub)[] 
  []
 
 
-Overfull \hbox (270.49283pt too wide) in paragraph at lines 1959--1959
+Overfull \hbox (270.49283pt too wide) in paragraph at lines 1791--1791
 []\T1/lmtt/m/n/10 kcal_chnug_ps_psquad_mod: chnug_kcal ~ preFF + fmi + sex + ag
 e_yr + cebq_sr + chnug_vas + meal_order + kcal_served + kcal_served2 + (1 | sub
 )[] 
  []
 
-<figs/intake_fig_kcal_psxr_chnug-1.pdf, id=330, 417.56pt x 279.0425pt>
+<figs/intake_fig_kcal_psxr_chnug-1.pdf, id=294, 421.575pt x 280.04625pt>
 File: figs/intake_fig_kcal_psxr_chnug-1.pdf Graphic file (type pdf)
 <use figs/intake_fig_kcal_psxr_chnug-1.pdf>
 Package pdftex.def Info: figs/intake_fig_kcal_psxr_chnug-1.pdf  used on input l
-ine 2019.
-(pdftex.def)             Requested size: 417.5717pt x 279.05032pt.
+ine 1851.
+(pdftex.def)             Requested size: 421.58038pt x 280.04982pt.
 
-Overfull \hbox (93.47585pt too wide) in paragraph at lines 2019--2020
- \T1/lmr/bx/n/10 (-20) 5.1.2.2 Risk x Por-tion Size[] [] 
+Overfull \hbox (97.48453pt too wide) in paragraph at lines 1851--1852
+ \T1/lmr/bx/n/10 (-20) 6.1.2.2 Risk x Por-tion Size[] [] 
  []
 
-[34
+[30
 
-] [35 <./figs/intake_fig_kcal_psxr_chnug-1.pdf>]
-Overfull \hbox (118.24327pt too wide) in paragraph at lines 2048--2048
+] [31 <./figs/intake_fig_kcal_psxr_chnug-1.pdf>]
+Overfull \hbox (118.24327pt too wide) in paragraph at lines 1880--1880
 []\T1/lmtt/m/n/10 grams_mac_ps_mod: mac_grams ~ preFF + fmi + sex + age_yr + ce
 bq_sr + mac_vas + meal_order + g_served + (1 | sub)[] 
  []
 
 
-Overfull \hbox (217.99298pt too wide) in paragraph at lines 2048--2048
+Overfull \hbox (217.99298pt too wide) in paragraph at lines 1880--1880
 []\T1/lmtt/m/n/10 grams_mac_ps_psquad_mod: mac_grams ~ preFF + fmi + sex + age_
 yr + cebq_sr + mac_vas + meal_order + g_served + g_served2 + (1 | sub)[] 
  []
@@ -992,23 +1001,23 @@ yr + cebq_sr + mac_vas + meal_order + g_served + g_served2 + (1 | sub)[]
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-[36
+[32
 
 ]
-<figs/intake_fig_g_psxr_mac-1.pdf, id=370, 417.56pt x 279.0425pt>
+<figs/intake_fig_g_psxr_mac-1.pdf, id=335, 421.575pt x 280.04625pt>
 File: figs/intake_fig_g_psxr_mac-1.pdf Graphic file (type pdf)
 <use figs/intake_fig_g_psxr_mac-1.pdf>
-Package pdftex.def Info: figs/intake_fig_g_psxr_mac-1.pdf  used on input line 2
-136.
-(pdftex.def)             Requested size: 417.5717pt x 279.05032pt.
-[37 <./figs/intake_fig_g_psxr_mac-1.pdf>]
-Overfull \hbox (123.49326pt too wide) in paragraph at lines 2162--2162
+Package pdftex.def Info: figs/intake_fig_g_psxr_mac-1.pdf  used on input line 1
+968.
+(pdftex.def)             Requested size: 421.58038pt x 280.04982pt.
+[33 <./figs/intake_fig_g_psxr_mac-1.pdf>]
+Overfull \hbox (123.49326pt too wide) in paragraph at lines 1994--1994
 []\T1/lmtt/m/n/10 kcal_mac_ps_mod: mac_kcal ~ preFF + fmi + sex + age_yr + mac_
 vas + cebq_sr + meal_order + kcal_served + (1 | sub)[] 
  []
 
 
-Overfull \hbox (238.99292pt too wide) in paragraph at lines 2162--2162
+Overfull \hbox (238.99292pt too wide) in paragraph at lines 1994--1994
 []\T1/lmtt/m/n/10 kcal_mac_ps_psquad_mod: mac_kcal ~ preFF + fmi + sex + age_yr
  + cebq_sr + mac_vas + meal_order + kcal_served + kcal_served2 + (1 | sub)[] 
  []
@@ -1016,23 +1025,23 @@ Overfull \hbox (238.99292pt too wide) in paragraph at lines 2162--2162
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-[38
+[34
 
 ]
-<figs/intake_fig_kcal_psxr_mac-1.pdf, id=400, 417.56pt x 279.0425pt>
+<figs/intake_fig_kcal_psxr_mac-1.pdf, id=363, 421.575pt x 280.04625pt>
 File: figs/intake_fig_kcal_psxr_mac-1.pdf Graphic file (type pdf)
 <use figs/intake_fig_kcal_psxr_mac-1.pdf>
 Package pdftex.def Info: figs/intake_fig_kcal_psxr_mac-1.pdf  used on input lin
-e 2250.
-(pdftex.def)             Requested size: 417.5717pt x 279.05032pt.
-[39 <./figs/intake_fig_kcal_psxr_mac-1.pdf>]
-Overfull \hbox (149.74318pt too wide) in paragraph at lines 2282--2282
+e 2082.
+(pdftex.def)             Requested size: 421.58038pt x 280.04982pt.
+[35 <./figs/intake_fig_kcal_psxr_mac-1.pdf>]
+Overfull \hbox (149.74318pt too wide) in paragraph at lines 2114--2114
 []\T1/lmtt/m/n/10 grams_grape_ps_mod: grape_grams ~ preFF + fmi + sex + age_yr 
 + cebq_sr + grape_vas + meal_order + g_served + (1 | sub)[] 
  []
 
 
-Overfull \hbox (249.49289pt too wide) in paragraph at lines 2282--2282
+Overfull \hbox (249.49289pt too wide) in paragraph at lines 2114--2114
 []\T1/lmtt/m/n/10 grams_grape_ps_psquad_mod: grape_grams ~ preFF + fmi + sex + 
 age_yr + cebq_sr + grape_vas + meal_order + g_served + g_served2 + (1 | sub)[] 
 
@@ -1041,23 +1050,23 @@ age_yr + cebq_sr + grape_vas + meal_order + g_served + g_served2 + (1 | sub)[]
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-[40
+[36
 
 ]
-<figs/intake_fig_g_psxr_grape-1.pdf, id=429, 417.56pt x 279.0425pt>
+<figs/intake_fig_g_psxr_grape-1.pdf, id=393, 421.575pt x 280.04625pt>
 File: figs/intake_fig_g_psxr_grape-1.pdf Graphic file (type pdf)
 <use figs/intake_fig_g_psxr_grape-1.pdf>
 Package pdftex.def Info: figs/intake_fig_g_psxr_grape-1.pdf  used on input line
- 2370.
-(pdftex.def)             Requested size: 417.5717pt x 279.05032pt.
-[41 <./figs/intake_fig_g_psxr_grape-1.pdf>]
-Overfull \hbox (154.99316pt too wide) in paragraph at lines 2399--2399
+ 2202.
+(pdftex.def)             Requested size: 421.58038pt x 280.04982pt.
+[37 <./figs/intake_fig_g_psxr_grape-1.pdf>]
+Overfull \hbox (154.99316pt too wide) in paragraph at lines 2231--2231
 []\T1/lmtt/m/n/10 kcal_grape_ps_mod: grape_kcal ~ preFF + fmi + sex + age_yr + 
 cebq_sr + grape_vas + meal_order + kcal_served + (1 | sub)[] 
  []
 
 
-Overfull \hbox (270.49283pt too wide) in paragraph at lines 2399--2399
+Overfull \hbox (270.49283pt too wide) in paragraph at lines 2231--2231
 []\T1/lmtt/m/n/10 kcal_grape_ps_psquad_mod: grape_kcal ~ preFF + fmi + sex + ag
 e_yr + cebq_sr + grape_vas + meal_order + kcal_served + kcal_served2 + (1 | sub
 )[] 
@@ -1066,44 +1075,44 @@ e_yr + cebq_sr + grape_vas + meal_order + kcal_served + kcal_served2 + (1 | sub
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-[42
+[38
 
 ]
-<figs/intake_fig_kcal_psxr_grape-1.pdf, id=457, 417.56pt x 279.0425pt>
+<figs/intake_fig_kcal_psxr_grape-1.pdf, id=422, 421.575pt x 280.04625pt>
 File: figs/intake_fig_kcal_psxr_grape-1.pdf Graphic file (type pdf)
 <use figs/intake_fig_kcal_psxr_grape-1.pdf>
 Package pdftex.def Info: figs/intake_fig_kcal_psxr_grape-1.pdf  used on input l
-ine 2487.
-(pdftex.def)             Requested size: 417.5717pt x 279.05032pt.
-[43 <./figs/intake_fig_kcal_psxr_grape-1.pdf>]
-Overfull \hbox (133.99323pt too wide) in paragraph at lines 2519--2519
+ine 2319.
+(pdftex.def)             Requested size: 421.58038pt x 280.04982pt.
+[39 <./figs/intake_fig_kcal_psxr_grape-1.pdf>]
+Overfull \hbox (133.99323pt too wide) in paragraph at lines 2351--2351
 []\T1/lmtt/m/n/10 grams_broc_ps_mod: broc_grams ~ preFF + fmi + sex + age_yr + 
 cebq_sr + broc_vas + meal_order + g_served + (1 | sub)[] 
  []
 
 
-Overfull \hbox (233.74294pt too wide) in paragraph at lines 2519--2519
+Overfull \hbox (233.74294pt too wide) in paragraph at lines 2351--2351
 []\T1/lmtt/m/n/10 grams_broc_ps_psquad_mod: broc_grams ~ preFF + fmi + sex + ag
 e_yr + cebq_sr + broc_vas + meal_order + g_served + g_served2 + (1 | sub)[] 
  []
 
-[44
+[40
 
 ]
-<figs/intake_fig_g_psxr_broc-1.pdf, id=487, 417.56pt x 279.0425pt>
+<figs/intake_fig_g_psxr_broc-1.pdf, id=451, 421.575pt x 280.04625pt>
 File: figs/intake_fig_g_psxr_broc-1.pdf Graphic file (type pdf)
 <use figs/intake_fig_g_psxr_broc-1.pdf>
 Package pdftex.def Info: figs/intake_fig_g_psxr_broc-1.pdf  used on input line 
-2609.
-(pdftex.def)             Requested size: 417.5717pt x 279.05032pt.
-[45 <./figs/intake_fig_g_psxr_broc-1.pdf>]
-Overfull \hbox (139.24321pt too wide) in paragraph at lines 2638--2638
+2441.
+(pdftex.def)             Requested size: 421.58038pt x 280.04982pt.
+[41 <./figs/intake_fig_g_psxr_broc-1.pdf>]
+Overfull \hbox (139.24321pt too wide) in paragraph at lines 2470--2470
 []\T1/lmtt/m/n/10 kcal_broc_ps_mod: broc_kcal ~ preFF + fmi + sex + cebq_sr + b
 roc_vas + age_yr + meal_order + kcal_served + (1 | sub)[] 
  []
 
 
-Overfull \hbox (254.74287pt too wide) in paragraph at lines 2638--2638
+Overfull \hbox (254.74287pt too wide) in paragraph at lines 2470--2470
 []\T1/lmtt/m/n/10 kcal_broc_ps_psquad_mod: broc_kcal ~ preFF + fmi + sex + age_
 yr + cebq_sr + broc_vas + meal_order + kcal_served + kcal_served2 + (1 | sub)[]
  
@@ -1112,43 +1121,42 @@ yr + cebq_sr + broc_vas + meal_order + kcal_served + kcal_served2 + (1 | sub)[]
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-[46
+[42
 
 ]
-<figs/intake_fig_kcal_psxr_broc-1.pdf, id=516, 417.56pt x 279.0425pt>
+<figs/intake_fig_kcal_psxr_broc-1.pdf, id=479, 421.575pt x 280.04625pt>
 File: figs/intake_fig_kcal_psxr_broc-1.pdf Graphic file (type pdf)
 <use figs/intake_fig_kcal_psxr_broc-1.pdf>
 Package pdftex.def Info: figs/intake_fig_kcal_psxr_broc-1.pdf  used on input li
-ne 2728.
-(pdftex.def)             Requested size: 417.5717pt x 279.05032pt.
-[47 <./figs/intake_fig_kcal_psxr_broc-1.pdf>] [48
+ne 2560.
+(pdftex.def)             Requested size: 421.58038pt x 280.04982pt.
+[43 <./figs/intake_fig_kcal_psxr_broc-1.pdf>] [44
 
-] [49] [50] (./2022_PSeffect_RiskStatus.aux) ) 
+] [45] [46] (./2022_PSeffect_RiskStatus.aux) ) 
 Here is how much of TeX's memory you used:
- 17490 strings out of 478268
- 288619 string characters out of 5846347
- 632795 words of memory out of 5000000
- 35070 multiletter control sequences out of 15000+600000
- 527704 words of font info for 112 fonts, out of 8000000 for 9000
+ 16301 strings out of 478994
+ 251223 string characters out of 5858184
+ 621662 words of memory out of 5000000
+ 33177 multiletter control sequences out of 15000+600000
+ 458696 words of font info for 108 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 74i,13n,77p,1021b,500s stack positions out of 10000i,1000n,20000p,200000b,200000s
-{/usr/local/texlive/2022/texmf-di
-st/fonts/enc/dvips/lm/lm-ts1.enc}{/usr/local/texlive/2022/texmf-dist/fonts/enc/
-dvips/lm/lm-rm.enc}{/usr/local/texlive/2022/texmf-dist/fonts/enc/dvips/lm/lm-ma
-thit.enc}{/usr/local/texlive/2022/texmf-dist/fonts/enc/dvips/lm/lm-ec.enc}</usr
-/local/texlive/2022/texmf-dist/fonts/type1/public/lm/lmbx10.pfb></usr/local/tex
-live/2022/texmf-dist/fonts/type1/public/lm/lmbx12.pfb></usr/local/texlive/2022/
-texmf-dist/fonts/type1/public/lm/lmbx8.pfb></usr/local/texlive/2022/texmf-dist/
-fonts/type1/public/lm/lmmi10.pfb></usr/local/texlive/2022/texmf-dist/fonts/type
-1/public/lm/lmr10.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/lm
-/lmr17.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/lm/lmr6.pfb><
-/usr/local/texlive/2022/texmf-dist/fonts/type1/public/lm/lmr7.pfb></usr/local/t
-exlive/2022/texmf-dist/fonts/type1/public/lm/lmr8.pfb></usr/local/texlive/2022/
-texmf-dist/fonts/type1/public/lm/lmtt10.pfb>
-Output written on 2022_PSeffect_RiskStatus.pdf (50 pages, 396653 bytes).
+ 85i,13n,88p,618b,483s stack positions out of 5000i,500n,10000p,200000b,80000s
+{/usr/local/texlive/2021/texmf-di
+st/fonts/enc/dvips/lm/lm-ts1.enc}{/usr/local/texlive/2021/texmf-dist/fonts/enc/
+dvips/lm/lm-rm.enc}{/usr/local/texlive/2021/texmf-dist/fonts/enc/dvips/lm/lm-ma
+thit.enc}{/usr/local/texlive/2021/texmf-dist/fonts/enc/dvips/lm/lm-ec.enc}</usr
+/local/texlive/2021/texmf-dist/fonts/type1/public/lm/lmbx10.pfb></usr/local/tex
+live/2021/texmf-dist/fonts/type1/public/lm/lmbx12.pfb></usr/local/texlive/2021/
+texmf-dist/fonts/type1/public/lm/lmmi10.pfb></usr/local/texlive/2021/texmf-dist
+/fonts/type1/public/lm/lmr10.pfb></usr/local/texlive/2021/texmf-dist/fonts/type
+1/public/lm/lmr17.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/lm
+/lmr6.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/lm/lmr7.pfb></
+usr/local/texlive/2021/texmf-dist/fonts/type1/public/lm/lmr8.pfb></usr/local/te
+xlive/2021/texmf-dist/fonts/type1/public/lm/lmtt10.pfb>
+Output written on 2022_PSeffect_RiskStatus.pdf (46 pages, 355156 bytes).
 PDF statistics:
- 750 PDF objects out of 1000 (max. 8388607)
- 640 compressed objects within 7 object streams
- 228 named destinations out of 1000 (max. 500000)
- 33083 words of extra memory for PDF output out of 35830 (max. 10000000)
+ 679 PDF objects out of 1000 (max. 8388607)
+ 586 compressed objects within 6 object streams
+ 211 named destinations out of 1000 (max. 500000)
+ 30995 words of extra memory for PDF output out of 35830 (max. 10000000)
 

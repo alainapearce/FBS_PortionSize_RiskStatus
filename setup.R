@@ -175,7 +175,34 @@ intake_long$grape_rank <- intake_grape_rank_long$value
 intake_broc_rank_long <- melt(r01_intake[c(1, 572, 618, 664, 710)], id.vars = 'sub')
 intake_long$broc_rank <- intake_broc_rank_long$value
 
+## long by food, for each portion - for rank data only
+ps1_rank <- intake_long[intake_long$PortionSize == 'PS-1', ]
+ps1_rank <- ps1_rank[!is.na(ps1_rank$mac_rank) & !is.na(ps1_rank$chnug_rank) & !is.na(ps1_rank$grape_rank) & !is.na(ps1_rank$broc_rank), ]
+ps1_rank_long <- melt(ps1_rank[c(1:2, 4, 6, 9, 16, 30:33)], id.vars = names(ps1_rank[c(1:2, 4, 6, 9, 16)]))
+names(ps1_rank_long)[7] <- 'food'
+names(ps1_rank_long)[8] <- 'rank'
+ps1_rank_long <- ps1_rank_long[order(ps1_rank_long$sub), ]
 
+ps2_rank <- intake_long[intake_long$PortionSize == 'PS-2', ]
+ps2_rank <- ps2_rank[!is.na(ps2_rank$mac_rank) & !is.na(ps2_rank$chnug_rank) & !is.na(ps2_rank$grape_rank) & !is.na(ps2_rank$broc_rank), ]
+ps2_rank_long <- melt(ps2_rank[c(1:2, 4, 6, 9, 16, 30:33)], id.vars = names(ps2_rank[c(1:2, 4, 6, 9, 16)]))
+names(ps2_rank_long)[7] <- 'food'
+names(ps2_rank_long)[8] <- 'rank'
+ps2_rank_long <- ps2_rank_long[order(ps2_rank_long$sub), ]
+
+ps3_rank <- intake_long[intake_long$PortionSize == 'PS-3', ]
+ps3_rank <- ps3_rank[!is.na(ps3_rank$mac_rank) & !is.na(ps3_rank$chnug_rank) & !is.na(ps3_rank$grape_rank) & !is.na(ps3_rank$broc_rank), ]
+ps3_rank_long <- melt(ps3_rank[c(1:2, 4, 6, 9, 16, 30:33)], id.vars = names(ps3_rank[c(1:2, 4, 6, 9, 16)]))
+names(ps3_rank_long)[7] <- 'food'
+names(ps3_rank_long)[8] <- 'rank'
+ps3_rank_long <- ps3_rank_long[order(ps3_rank_long$sub), ]
+
+ps4_rank <- intake_long[intake_long$PortionSize == 'PS-4', ]
+ps4_rank <- ps4_rank[!is.na(ps4_rank$mac_rank) & !is.na(ps4_rank$chnug_rank) & !is.na(ps4_rank$grape_rank) & !is.na(ps4_rank$broc_rank), ]
+ps4_rank_long <- melt(ps4_rank[c(1:2, 4, 6, 9, 16, 30:33)], id.vars = names(ps4_rank[c(1:2, 4, 6, 9, 16)]))
+names(ps4_rank_long)[7] <- 'food'
+names(ps4_rank_long)[8] <- 'rank'
+ps4_rank_long <- ps4_rank_long[order(ps4_rank_long$sub), ]
 
 #continuous approach:
 #intake_long$ps_prop <- ifelse(intake_long[['PortionSize']] == 'PS-1', 0, ifelse(intake_long[['PortionSize']] == 'PS-2', 0.33, ifelse(intake_long[['PortionSize']] == 'PS-3', 0.66, 0.99)))

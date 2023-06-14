@@ -94,57 +94,41 @@ liking_broc_sum <- summary(liking_broc_mod)
 liking_grape_means <- means.function.na(intake_long, intake_long$broc_vas, intake_long$PortionSize)
 
 # ranking ####
-ps1_chnug_mac_rank_ttest <- t.test(r01_intake$ps1_rank_chkn_nug, r01_intake$ps1_rank_mac_cheese, paired = TRUE)
-ps1_chnug_grape_rank_ttest <- t.test(r01_intake$ps1_rank_chkn_nug, r01_intake$ps1_rank_grape, paired = TRUE)
-ps1_chnug_broc_rank_ttest <- t.test(r01_intake$ps1_rank_chkn_nug, r01_intake$ps1_rank_broccoli, paired = TRUE)
-ps1_mac_grape_rank_ttest <- t.test(r01_intake$ps1_rank_mac_cheese, r01_intake$ps1_rank_grape, paired = TRUE)
-ps1_mac_broc_rank_ttest <- t.test(r01_intake$ps1_rank_mac_cheese, r01_intake$ps1_rank_broccoli, paired = TRUE)
-ps1_grape_broc_rank_ttest <- t.test(r01_intake$ps1_rank_grape, r01_intake$ps1_rank_broccoli, paired = TRUE)
 
-ps2_chnug_mac_rank_ttest <- t.test(r01_intake$ps2_rank_chkn_nug, r01_intake$ps2_rank_mac_cheese, paired = TRUE)
-ps2_chnug_grape_rank_ttest <- t.test(r01_intake$ps2_rank_chkn_nug, r01_intake$ps2_rank_grape, paired = TRUE)
-ps2_chnug_broc_rank_ttest <- t.test(r01_intake$ps2_rank_chkn_nug, r01_intake$ps2_rank_broccoli, paired = TRUE)
-ps2_mac_grape_rank_ttest <- t.test(r01_intake$ps2_rank_mac_cheese, r01_intake$ps2_rank_grape, paired = TRUE)
-ps2_mac_broc_rank_ttest <- t.test(r01_intake$ps2_rank_mac_cheese, r01_intake$ps2_rank_broccoli, paired = TRUE)
-ps2_grape_broc_rank_ttest <- t.test(r01_intake$ps2_rank_grape, r01_intake$ps2_rank_broccoli, paired = TRUE)
+## by portion size
+ps1_friedman <- friedman.test(rank ~ food | sub, data = ps1_rank_long)
+ps1_nemenyi <- frdAllPairsNemenyiTest(rank ~ food | sub, data = ps1_rank_long)
 
-ps3_chnug_mac_rank_ttest <- t.test(r01_intake$ps3_rank_chkn_nug, r01_intake$ps3_rank_mac_cheese, paired = TRUE)
-ps3_chnug_grape_rank_ttest <- t.test(r01_intake$ps3_rank_chkn_nug, r01_intake$ps3_rank_grape, paired = TRUE)
-ps3_chnug_broc_rank_ttest <- t.test(r01_intake$ps3_rank_chkn_nug, r01_intake$ps3_rank_broccoli, paired = TRUE)
-ps3_mac_grape_rank_ttest <- t.test(r01_intake$ps3_rank_mac_cheese, r01_intake$ps3_rank_grape, paired = TRUE)
-ps3_mac_broc_rank_ttest <- t.test(r01_intake$ps3_rank_mac_cheese, r01_intake$ps3_rank_broccoli, paired = TRUE)
-ps3_grape_broc_rank_ttest <- t.test(r01_intake$ps3_rank_grape, r01_intake$ps3_rank_broccoli, paired = TRUE)
+ps2_friedman <- friedman.test(rank ~ food | sub, data = ps2_rank_long)
+ps2_nemenyi <- frdAllPairsNemenyiTest(rank ~ food | sub, data = ps2_rank_long)
 
-ps4_chnug_mac_rank_ttest <- t.test(r01_intake$ps4_rank_chkn_nug, r01_intake$ps4_rank_mac_cheese, paired = TRUE)
-ps4_chnug_grape_rank_ttest <- t.test(r01_intake$ps4_rank_chkn_nug, r01_intake$ps4_rank_grape, paired = TRUE)
-ps4_chnug_broc_rank_ttest <- t.test(r01_intake$ps4_rank_chkn_nug, r01_intake$ps4_rank_broccoli, paired = TRUE)
-ps4_mac_grape_rank_ttest <- t.test(r01_intake$ps4_rank_mac_cheese, r01_intake$ps4_rank_grape, paired = TRUE)
-ps4_mac_broc_rank_ttest <- t.test(r01_intake$ps4_rank_mac_cheese, r01_intake$ps4_rank_broccoli, paired = TRUE)
-ps4_grape_broc_rank_ttest <- t.test(r01_intake$ps4_rank_grape, r01_intake$ps4_rank_broccoli, paired = TRUE)
+ps3_friedman <- friedman.test(rank ~ food | sub, data = ps3_rank_long)
+ps3_nemenyi <- frdAllPairsNemenyiTest(rank ~ food | sub, data = ps3_rank_long)
 
-# chicken nuggets
-rank_chnug_mod <- lmer(chnug_rank ~ preFF + fmi + sex + cebq_sr + meal_order + risk_status_mom + g_served + (1|sub), data = intake_long)
-rank_chnug_sum <- summary(rank_chnug_mod)
+ps4_friedman <- friedman.test(rank ~ food | sub, data = ps4_rank_long)
+ps4_nemenyi <- frdAllPairsNemenyiTest(rank ~ food | sub, data = ps4_rank_long)
 
-rank_chnug_means <- means.function.na(intake_long, intake_long$chnug_rank, intake_long$PortionSize)
+## by risk status
+mac_risk_rank_ps1 <- wilcox.test(mac_rank ~ risk_status_mom, data = intake_long[intake_long$PortionSize == 'PS-1', ])
+chnug_risk_rank_ps1 <- wilcox.test(chnug_rank ~ risk_status_mom, data = intake_long[intake_long$PortionSize == 'PS-1', ])
+grape_risk_rank_ps1 <- wilcox.test(grape_rank ~ risk_status_mom, data = intake_long[intake_long$PortionSize == 'PS-1', ])
+broc_risk_rank_ps1 <- wilcox.test(broc_rank ~ risk_status_mom, data = intake_long[intake_long$PortionSize == 'PS-1', ])
 
-# mac and cheese
-rank_mac_mod <- lmer(mac_rank ~ preFF + fmi + sex + cebq_sr + meal_order + risk_status_mom + g_served + (1|sub), data = intake_long)
-rank_mac_sum <- summary(rank_mac_mod)
+mac_risk_rank_ps2 <- wilcox.test(mac_rank ~ risk_status_mom, data = intake_long[intake_long$PortionSize == 'PS-2', ])
+chnug_risk_rank_ps2 <- wilcox.test(chnug_rank ~ risk_status_mom, data = intake_long[intake_long$PortionSize == 'PS-2', ])
+grape_risk_rank_ps2 <- wilcox.test(grape_rank ~ risk_status_mom, data = intake_long[intake_long$PortionSize == 'PS-2', ])
+broc_risk_rank_ps2 <- wilcox.test(broc_rank ~ risk_status_mom, data = intake_long[intake_long$PortionSize == 'PS-2', ])
 
-rank_mac_means <- means.function.na(intake_long, intake_long$mac_rank, intake_long$PortionSize)
+mac_risk_rank_ps3 <- wilcox.test(mac_rank ~ risk_status_mom, data = intake_long[intake_long$PortionSize == 'PS-3', ])
+chnug_risk_rank_ps3 <- wilcox.test(chnug_rank ~ risk_status_mom, data = intake_long[intake_long$PortionSize == 'PS-3', ])
+grape_risk_rank_ps3 <- wilcox.test(grape_rank ~ risk_status_mom, data = intake_long[intake_long$PortionSize == 'PS-3', ])
+broc_risk_rank_ps3 <- wilcox.test(broc_rank ~ risk_status_mom, data = intake_long[intake_long$PortionSize == 'PS-3', ])
 
-# grapes
-rank_grape_mod <- lmer(grape_rank ~ preFF + fmi + sex + cebq_sr + meal_order + risk_status_mom + g_served + (1|sub), data = intake_long)
-rank_grape_sum <- summary(rank_grape_mod)
+mac_risk_rank_ps4 <- wilcox.test(mac_rank ~ risk_status_mom, data = intake_long[intake_long$PortionSize == 'PS-4', ])
+chnug_risk_rank_ps4 <- wilcox.test(chnug_rank ~ risk_status_mom, data = intake_long[intake_long$PortionSize == 'PS-4', ])
+grape_risk_rank_ps4 <- wilcox.test(grape_rank ~ risk_status_mom, data = intake_long[intake_long$PortionSize == 'PS-4', ])
+broc_risk_rank_ps4 <- wilcox.test(broc_rank ~ risk_status_mom, data = intake_long[intake_long$PortionSize == 'PS-4', ])
 
-rank_grape_means <- means.function.na(intake_long, intake_long$grape_rank, intake_long$PortionSize)
-
-# broc
-rank_broc_mod <- lmer(broc_rank ~ preFF + fmi + sex + cebq_sr + meal_order + risk_status_mom + g_served + (1|sub), data = intake_long)
-rank_broc_sum <- summary(rank_broc_mod)
-
-rank_broc_means <- means.function.na(intake_long, intake_long$broc_rank, intake_long$PortionSize)
 
 
 ## Portion Selection/Typical Intake ####

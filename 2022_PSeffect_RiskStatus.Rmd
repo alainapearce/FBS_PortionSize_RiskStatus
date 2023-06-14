@@ -69,6 +69,7 @@ library(lmerTest)
 library(ggplot2)
 library(lavaan)
 library(psych)
+library(PMCMRplus)
 ```
 
 ```{r load_scripts, echo=FALSE, results='asis'}
@@ -147,7 +148,7 @@ sr_alpha
 # Meal Liking
 
 ```{r liking_tab, echo=FALSE, results='asis'}
-as_kable_extra(liking_merge_tab, caption = 'Demographics', format = "latex", booktabs = TRUE, longtable = FALSE) %>%
+as_kable_extra(liking_merge_tab, caption = 'Meal Liking', format = "latex", booktabs = TRUE, longtable = FALSE) %>%
   kableExtra::kable_styling(latex_options = "hold_position",  full_width = FALSE)
 ```
 
@@ -197,93 +198,72 @@ kable(round(liking_broc_sum$coefficients, 3), "latex",  digits = 3, caption = "R
 \FloatBarrier
 \clearpage
 
-## Chicken Nuggets vs Mac and Cheese
-```{r chnug_mac_rank_ttest, echo=FALSE}
-ps1_chnug_mac_rank_ttest
-ps2_chnug_mac_rank_ttest
-ps3_chnug_mac_rank_ttest
-ps4_chnug_mac_rank_ttest
+# Meal Ranking
+
+```{r ranking_tab, echo=FALSE, results='asis'}
+as_kable_extra(rank_merge_tab, caption = 'Meal Ranking', format = "latex", booktabs = TRUE, longtable = FALSE) %>%
+  kableExtra::kable_styling(latex_options = "hold_position",  full_width = FALSE)
+```
+
+## Rank - Portion Size 1
+```{r rank_friedman_ps1, echo=FALSE}
+ps1_friedman
+ps1_nemenyi
 ```
 \
 
-## Chicken Nuggets vs Grapes
-```{r chnug_grape_rank_ttest, echo=FALSE}
-ps1_chnug_grape_rank_ttest
-ps2_chnug_grape_rank_ttest
-ps3_chnug_grape_rank_ttest
-ps4_chnug_grape_rank_ttest
+```{r rank_risk_ps1, echo=FALSE}
+mac_risk_rank_ps1
+chnug_risk_rank_ps1
+grape_risk_rank_ps1
+broc_risk_rank_ps1
 ```
 \
 
-## Chicken Nuggets vs Broccoli
-```{r chnug_broc_rank_ttest, echo=FALSE}
-ps1_chnug_broc_rank_ttest
-ps2_chnug_broc_rank_ttest
-ps3_chnug_broc_rank_ttest
-ps4_chnug_broc_rank_ttest
+## Rank - Portion Size 2
+```{r rank_friedman_ps2, echo=FALSE}
+ps2_friedman
+ps2_nemenyi
 ```
 \
 
-## Mac and Cheese vs Grapes
-```{r mac_grape_rank_ttest, echo=FALSE}
-ps1_mac_grape_rank_ttest
-ps2_mac_grape_rank_ttest
-ps3_mac_grape_rank_ttest
-ps4_mac_grape_rank_ttest
+```{r rank_risk_ps2, echo=FALSE}
+mac_risk_rank_ps2
+chnug_risk_rank_ps2
+grape_risk_rank_ps2
+broc_risk_rank_ps2
 ```
 \
 
-## Mac and Cheese vs Broccoli
-```{r mac_broc_rank_ttest, echo=FALSE}
-ps1_mac_broc_rank_ttest
-ps2_mac_broc_rank_ttest
-ps3_mac_broc_rank_ttest
-ps4_mac_broc_rank_ttest
+## Rank - Portion Size 3
+```{r rank_friedman_ps3, echo=FALSE}
+ps3_friedman
+ps3_nemenyi
 ```
 \
 
-## Grapes vs Broccoli
-```{r grape_broc_rank_ttest, echo=FALSE}
-ps1_grape_broc_rank_ttest
-ps2_grape_broc_rank_ttest
-ps3_grape_broc_rank_ttest
-ps4_grape_broc_rank_ttest
+```{r rank_risk_ps3, echo=FALSE}
+mac_risk_rank_ps3
+chnug_risk_rank_ps3
+grape_risk_rank_ps3
+broc_risk_rank_ps3
 ```
 \
 
-## Chicken Nuggets - Rank
-
-```{r rank_chnug_risk_ttest, echo=FALSE}
-kable(round(rank_chnug_sum$coefficients, 3), "latex",  digits = 3, caption = "Regression Table: Portion Size for Rank Preference of Chicken Nuggets", booktabs=TRUE) %>%
-  kable_styling(latex_options = c("hold_position", "repeat_header"))
+## Rank - Portion Size 4
+```{r rank_friedman_ps4, echo=FALSE}
+ps4_friedman
+ps4_nemenyi
 ```
+\
 
-\FloatBarrier
-
-## Mac and Cheese - Rank
-
-```{r rank_mac_risk_ttest, echo=FALSE}
-kable(round(rank_mac_sum$coefficients, 3), "latex",  digits = 3, caption = "Regression Table: Portion Size for Rank Preference of Mac and Cheese", booktabs=TRUE) %>%
-  kable_styling(latex_options = c("hold_position", "repeat_header"))
+```{r rank_risk_ps4, echo=FALSE}
+mac_risk_rank_ps4
+chnug_risk_rank_ps4
+grape_risk_rank_ps4
+broc_risk_rank_ps4
 ```
-
-\FloatBarrier
-
-## Grapes - Rank
-
-```{r rank_grape_risk_ttest, echo=FALSE}
-kable(round(rank_grape_sum$coefficients, 3), "latex",  digits = 3, caption = "Regression Table: Portion Size for Rank Preference of Grapes", booktabs=TRUE) %>%
-  kable_styling(latex_options = c("hold_position", "repeat_header"))
-```
-
-\FloatBarrier
-
-## Broccoli - Rank
-
-```{r rank_broc_risk_ttest, echo=FALSE}
-kable(round(rank_broc_sum$coefficients, 3), "latex",  digits = 3, caption = "Regression Table: Portion Size for Rank Preference of Broccoli", booktabs=TRUE) %>%
-  kable_styling(latex_options = c("hold_position", "repeat_header"))
-```
+\
 
 \FloatBarrier
 \clearpage
