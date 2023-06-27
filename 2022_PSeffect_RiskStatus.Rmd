@@ -447,6 +447,10 @@ kable(round(grams_psxrisk_sum$coefficients, 3), "latex",  digits = 3, caption = 
 psxr_g
 ```
 
+\FloatBarrier
+```{r intake_fig_grams_psxr_noline, echo=FALSE, include = FALSE, fig.height = 4, fig.width = 6}
+psxr_g_noline
+```
 
 \begin{figure}
   \caption{Grams Consumed: Risk Status x Portion Size}
@@ -514,6 +518,10 @@ kable(kcal_psxrisk_sum$coefficients, "latex",  digits = 3, caption = "Regression
 
 ```{r intake_fig_kcal_psxrisk, echo=FALSE, include = FALSE, fig.height = 4, fig.width = 6}
 psxr_kcal
+```
+
+```{r intake_fig_kcal_psxrisk_noline, echo=FALSE, include = FALSE, fig.height = 4, fig.width = 6}
+psxr_kcal_noline
 ```
 
 \begin{figure}

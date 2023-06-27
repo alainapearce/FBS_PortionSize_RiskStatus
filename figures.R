@@ -40,6 +40,16 @@ psxr_g <- ggplot(aes(x = g_served, y = grams, color = risk_status_mom), data = i
         panel.grid.minor = element_blank(), axis.line = element_line(colour = "black"),
         panel.background = element_blank(), axis.text.x = element_text(angle = 90))
 
+psxr_g_noline <- ggplot(aes(x = g_served, y = grams, color = risk_status_mom), data = intake_long) + 
+  labs(y = "Total Intake, Grams - Adjusted", x = "Weight Served (centered at reference portion)") +
+  geom_line(aes(group = sub), size = 1, alpha = 0.5, color = 'grey') +
+  stat_smooth(method = "lm", formula = y ~ x + I(x^2), size = 1, se = FALSE) +
+  scale_color_manual(values = c('purple4', 'darkorange1')) +
+  scale_x_continuous(breaks=c(0.0, 242.4, 485.8, 730.2)) +
+  theme(panel.border = element_blank(), panel.grid.major = element_blank(),
+        panel.grid.minor = element_blank(), axis.line = element_line(colour = "black"),
+        panel.background = element_blank(), axis.text.x = element_text(angle = 90))
+
 psxr_kcal <- ggplot(aes(x = kcal_served, y = kcal, color = risk_status_mom), data = intake_long) + 
   labs(y = "Total Intake, kcal - Adjusted", x = "Energy Served (centered at reference portion)") +
   geom_line(aes(group = sub), size = 1, alpha = 0.5, color = 'grey') +
@@ -47,6 +57,16 @@ psxr_kcal <- ggplot(aes(x = kcal_served, y = kcal, color = risk_status_mom), dat
   geom_segment(aes(y=1029, yend=1408.8, x=0, xend=328.8), colour = "black", size=1, show.legend=F) +
   geom_segment(aes(y=1408.8, yend=1680.6, x=328.8, xend=658.6), colour = "black", size=1, show.legend=F) +
   geom_segment(aes(y=1680.6, yend=2006.4, x=658.6, xend=989.4), colour = "black", size=1, show.legend=F) +
+  scale_color_manual(values = c('purple4', 'darkorange1')) +
+  scale_x_continuous(breaks=c(0.0, 328.8, 658.6, 989.4)) +
+  theme(panel.border = element_blank(), panel.grid.major = element_blank(),
+        panel.grid.minor = element_blank(), axis.line = element_line(colour = "black"),
+        panel.background = element_blank(), axis.text.x = element_text(angle = 90))
+
+psxr_kcal_noline <- ggplot(aes(x = kcal_served, y = kcal, color = risk_status_mom), data = intake_long) + 
+  labs(y = "Total Intake, kcal - Adjusted", x = "Energy Served (centered at reference portion)") +
+  geom_line(aes(group = sub), size = 1, alpha = 0.5, color = 'grey') +
+  stat_smooth(method = "lm", formula = y ~ x, size = 1, se = FALSE) +
   scale_color_manual(values = c('purple4', 'darkorange1')) +
   scale_x_continuous(breaks=c(0.0, 328.8, 658.6, 989.4)) +
   theme(panel.border = element_blank(), panel.grid.major = element_blank(),

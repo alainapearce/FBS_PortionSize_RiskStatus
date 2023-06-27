@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2021) (preloaded format=pdflatex 2021.10.4)  14 JUN 2023 11:44
+This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2021) (preloaded format=pdflatex 2021.10.4)  27 JUN 2023 09:24
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -849,30 +849,30 @@ sr + avg_vas + meal_order + risk_status_mom * g_served + (1 | sub)[]
 File: figs/intake_fig_grams_psxr-1.pdf Graphic file (type pdf)
 <use figs/intake_fig_grams_psxr-1.pdf>
 Package pdftex.def Info: figs/intake_fig_grams_psxr-1.pdf  used on input line 1
-359.
+361.
 (pdftex.def)             Requested size: 421.58038pt x 280.04982pt.
 [21
 
 ]
-Overfull \hbox (102.49332pt too wide) in paragraph at lines 1410--1410
+Overfull \hbox (102.49332pt too wide) in paragraph at lines 1412--1412
 []\T1/lmtt/m/n/10 alternative hypothesis: true difference in means between grou
 p Low Risk and group High Risk is not equal to 0[] 
  []
 
 [22 <./figs/intake_fig_grams_psxr-1.pdf>]
-Overfull \hbox (102.49332pt too wide) in paragraph at lines 1424--1424
+Overfull \hbox (102.49332pt too wide) in paragraph at lines 1426--1426
 []\T1/lmtt/m/n/10 alternative hypothesis: true difference in means between grou
 p Low Risk and group High Risk is not equal to 0[] 
  []
 
 
-Overfull \hbox (102.49332pt too wide) in paragraph at lines 1438--1438
+Overfull \hbox (102.49332pt too wide) in paragraph at lines 1440--1440
 []\T1/lmtt/m/n/10 alternative hypothesis: true difference in means between grou
 p Low Risk and group High Risk is not equal to 0[] 
  []
 
 
-Overfull \hbox (102.49332pt too wide) in paragraph at lines 1452--1452
+Overfull \hbox (102.49332pt too wide) in paragraph at lines 1454--1454
 []\T1/lmtt/m/n/10 alternative hypothesis: true difference in means between grou
 p Low Risk and group High Risk is not equal to 0[] 
  []
@@ -881,13 +881,13 @@ p Low Risk and group High Risk is not equal to 0[]
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
 [23]
-Overfull \hbox (81.49338pt too wide) in paragraph at lines 1504--1504
+Overfull \hbox (81.49338pt too wide) in paragraph at lines 1506--1506
 []\T1/lmtt/m/n/10 kcal_ps_mod: kcal ~ preFF + fmi + sex + age_yr + cebq_sr + av
 g_vas + meal_order + kcal_served + (1 | sub)[] 
  []
 
 
-Overfull \hbox (202.24303pt too wide) in paragraph at lines 1504--1504
+Overfull \hbox (202.24303pt too wide) in paragraph at lines 1506--1506
 []\T1/lmtt/m/n/10 kcal_psxrisk_mod: kcal ~ preFF + fmi + sex + age_yr + cebq_sr
  + avg_vas + meal_order + risk_status_mom * kcal_served + (1 | sub)[] 
  []
@@ -896,28 +896,28 @@ Overfull \hbox (202.24303pt too wide) in paragraph at lines 1504--1504
 File: figs/intake_fig_kcal_psxrisk-1.pdf Graphic file (type pdf)
 <use figs/intake_fig_kcal_psxrisk-1.pdf>
 Package pdftex.def Info: figs/intake_fig_kcal_psxrisk-1.pdf  used on input line
- 1537.
+ 1539.
 (pdftex.def)             Requested size: 421.58038pt x 280.04982pt.
 [24]
-Overfull \hbox (102.49332pt too wide) in paragraph at lines 1588--1588
+Overfull \hbox (102.49332pt too wide) in paragraph at lines 1590--1590
 []\T1/lmtt/m/n/10 alternative hypothesis: true difference in means between grou
 p Low Risk and group High Risk is not equal to 0[] 
  []
 
 [25 <./figs/intake_fig_kcal_psxrisk-1.pdf>]
-Overfull \hbox (102.49332pt too wide) in paragraph at lines 1602--1602
+Overfull \hbox (102.49332pt too wide) in paragraph at lines 1604--1604
 []\T1/lmtt/m/n/10 alternative hypothesis: true difference in means between grou
 p Low Risk and group High Risk is not equal to 0[] 
  []
 
 
-Overfull \hbox (102.49332pt too wide) in paragraph at lines 1616--1616
+Overfull \hbox (102.49332pt too wide) in paragraph at lines 1618--1618
 []\T1/lmtt/m/n/10 alternative hypothesis: true difference in means between grou
 p Low Risk and group High Risk is not equal to 0[] 
  []
 
 
-Overfull \hbox (102.49332pt too wide) in paragraph at lines 1630--1630
+Overfull \hbox (102.49332pt too wide) in paragraph at lines 1632--1632
 []\T1/lmtt/m/n/10 alternative hypothesis: true difference in means between grou
 p Low Risk and group High Risk is not equal to 0[] 
  []
@@ -926,23 +926,23 @@ p Low Risk and group High Risk is not equal to 0[]
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
 [26] [27]
-Underfull \hbox (badness 10000) in paragraph at lines 1671--1672
-
- []
-
-
 Underfull \hbox (badness 10000) in paragraph at lines 1673--1674
 
  []
 
 
-Overfull \hbox (149.74318pt too wide) in paragraph at lines 1702--1702
+Underfull \hbox (badness 10000) in paragraph at lines 1675--1676
+
+ []
+
+
+Overfull \hbox (149.74318pt too wide) in paragraph at lines 1704--1704
 []\T1/lmtt/m/n/10 grams_chnug_ps_mod: chnug_grams ~ preFF + fmi + sex + age_yr 
 + cebq_sr + chnug_vas + meal_order + g_served + (1 | sub)[] 
  []
 
 
-Overfull \hbox (249.49289pt too wide) in paragraph at lines 1702--1702
+Overfull \hbox (249.49289pt too wide) in paragraph at lines 1704--1704
 []\T1/lmtt/m/n/10 grams_chnug_ps_psquad_mod: chnug_grams ~ preFF + fmi + sex + 
 age_yr + cebq_sr + chnug_vas + meal_order + g_served + g_served2 + (1 | sub)[] 
 
@@ -958,16 +958,16 @@ LaTeX Warning: `!h' float specifier changed to `!ht'.
 File: figs/intake_fig_g_psxr_chnug-1.pdf Graphic file (type pdf)
 <use figs/intake_fig_g_psxr_chnug-1.pdf>
 Package pdftex.def Info: figs/intake_fig_g_psxr_chnug-1.pdf  used on input line
- 1762.
+ 1764.
 (pdftex.def)             Requested size: 421.58038pt x 280.04982pt.
 [29 <./figs/intake_fig_g_psxr_chnug-1.pdf>]
-Overfull \hbox (154.99316pt too wide) in paragraph at lines 1791--1791
+Overfull \hbox (154.99316pt too wide) in paragraph at lines 1793--1793
 []\T1/lmtt/m/n/10 kcal_chnug_ps_mod: chnug_kcal ~ preFF + fmi + sex + age_yr + 
 cebq_sr + chnug_vas + meal_order + kcal_served + (1 | sub)[] 
  []
 
 
-Overfull \hbox (270.49283pt too wide) in paragraph at lines 1791--1791
+Overfull \hbox (270.49283pt too wide) in paragraph at lines 1793--1793
 []\T1/lmtt/m/n/10 kcal_chnug_ps_psquad_mod: chnug_kcal ~ preFF + fmi + sex + ag
 e_yr + cebq_sr + chnug_vas + meal_order + kcal_served + kcal_served2 + (1 | sub
 )[] 
@@ -977,23 +977,23 @@ e_yr + cebq_sr + chnug_vas + meal_order + kcal_served + kcal_served2 + (1 | sub
 File: figs/intake_fig_kcal_psxr_chnug-1.pdf Graphic file (type pdf)
 <use figs/intake_fig_kcal_psxr_chnug-1.pdf>
 Package pdftex.def Info: figs/intake_fig_kcal_psxr_chnug-1.pdf  used on input l
-ine 1851.
+ine 1853.
 (pdftex.def)             Requested size: 421.58038pt x 280.04982pt.
 
-Overfull \hbox (97.48453pt too wide) in paragraph at lines 1851--1852
+Overfull \hbox (97.48453pt too wide) in paragraph at lines 1853--1854
  \T1/lmr/bx/n/10 (-20) 6.1.2.2 Risk x Por-tion Size[] [] 
  []
 
 [30
 
 ] [31 <./figs/intake_fig_kcal_psxr_chnug-1.pdf>]
-Overfull \hbox (118.24327pt too wide) in paragraph at lines 1880--1880
+Overfull \hbox (118.24327pt too wide) in paragraph at lines 1882--1882
 []\T1/lmtt/m/n/10 grams_mac_ps_mod: mac_grams ~ preFF + fmi + sex + age_yr + ce
 bq_sr + mac_vas + meal_order + g_served + (1 | sub)[] 
  []
 
 
-Overfull \hbox (217.99298pt too wide) in paragraph at lines 1880--1880
+Overfull \hbox (217.99298pt too wide) in paragraph at lines 1882--1882
 []\T1/lmtt/m/n/10 grams_mac_ps_psquad_mod: mac_grams ~ preFF + fmi + sex + age_
 yr + cebq_sr + mac_vas + meal_order + g_served + g_served2 + (1 | sub)[] 
  []
@@ -1008,16 +1008,16 @@ LaTeX Warning: `!h' float specifier changed to `!ht'.
 File: figs/intake_fig_g_psxr_mac-1.pdf Graphic file (type pdf)
 <use figs/intake_fig_g_psxr_mac-1.pdf>
 Package pdftex.def Info: figs/intake_fig_g_psxr_mac-1.pdf  used on input line 1
-968.
+970.
 (pdftex.def)             Requested size: 421.58038pt x 280.04982pt.
 [33 <./figs/intake_fig_g_psxr_mac-1.pdf>]
-Overfull \hbox (123.49326pt too wide) in paragraph at lines 1994--1994
+Overfull \hbox (123.49326pt too wide) in paragraph at lines 1996--1996
 []\T1/lmtt/m/n/10 kcal_mac_ps_mod: mac_kcal ~ preFF + fmi + sex + age_yr + mac_
 vas + cebq_sr + meal_order + kcal_served + (1 | sub)[] 
  []
 
 
-Overfull \hbox (238.99292pt too wide) in paragraph at lines 1994--1994
+Overfull \hbox (238.99292pt too wide) in paragraph at lines 1996--1996
 []\T1/lmtt/m/n/10 kcal_mac_ps_psquad_mod: mac_kcal ~ preFF + fmi + sex + age_yr
  + cebq_sr + mac_vas + meal_order + kcal_served + kcal_served2 + (1 | sub)[] 
  []
@@ -1032,16 +1032,16 @@ LaTeX Warning: `!h' float specifier changed to `!ht'.
 File: figs/intake_fig_kcal_psxr_mac-1.pdf Graphic file (type pdf)
 <use figs/intake_fig_kcal_psxr_mac-1.pdf>
 Package pdftex.def Info: figs/intake_fig_kcal_psxr_mac-1.pdf  used on input lin
-e 2082.
+e 2084.
 (pdftex.def)             Requested size: 421.58038pt x 280.04982pt.
 [35 <./figs/intake_fig_kcal_psxr_mac-1.pdf>]
-Overfull \hbox (149.74318pt too wide) in paragraph at lines 2114--2114
+Overfull \hbox (149.74318pt too wide) in paragraph at lines 2116--2116
 []\T1/lmtt/m/n/10 grams_grape_ps_mod: grape_grams ~ preFF + fmi + sex + age_yr 
 + cebq_sr + grape_vas + meal_order + g_served + (1 | sub)[] 
  []
 
 
-Overfull \hbox (249.49289pt too wide) in paragraph at lines 2114--2114
+Overfull \hbox (249.49289pt too wide) in paragraph at lines 2116--2116
 []\T1/lmtt/m/n/10 grams_grape_ps_psquad_mod: grape_grams ~ preFF + fmi + sex + 
 age_yr + cebq_sr + grape_vas + meal_order + g_served + g_served2 + (1 | sub)[] 
 
@@ -1057,16 +1057,16 @@ LaTeX Warning: `!h' float specifier changed to `!ht'.
 File: figs/intake_fig_g_psxr_grape-1.pdf Graphic file (type pdf)
 <use figs/intake_fig_g_psxr_grape-1.pdf>
 Package pdftex.def Info: figs/intake_fig_g_psxr_grape-1.pdf  used on input line
- 2202.
+ 2204.
 (pdftex.def)             Requested size: 421.58038pt x 280.04982pt.
 [37 <./figs/intake_fig_g_psxr_grape-1.pdf>]
-Overfull \hbox (154.99316pt too wide) in paragraph at lines 2231--2231
+Overfull \hbox (154.99316pt too wide) in paragraph at lines 2233--2233
 []\T1/lmtt/m/n/10 kcal_grape_ps_mod: grape_kcal ~ preFF + fmi + sex + age_yr + 
 cebq_sr + grape_vas + meal_order + kcal_served + (1 | sub)[] 
  []
 
 
-Overfull \hbox (270.49283pt too wide) in paragraph at lines 2231--2231
+Overfull \hbox (270.49283pt too wide) in paragraph at lines 2233--2233
 []\T1/lmtt/m/n/10 kcal_grape_ps_psquad_mod: grape_kcal ~ preFF + fmi + sex + ag
 e_yr + cebq_sr + grape_vas + meal_order + kcal_served + kcal_served2 + (1 | sub
 )[] 
@@ -1082,16 +1082,16 @@ LaTeX Warning: `!h' float specifier changed to `!ht'.
 File: figs/intake_fig_kcal_psxr_grape-1.pdf Graphic file (type pdf)
 <use figs/intake_fig_kcal_psxr_grape-1.pdf>
 Package pdftex.def Info: figs/intake_fig_kcal_psxr_grape-1.pdf  used on input l
-ine 2319.
+ine 2321.
 (pdftex.def)             Requested size: 421.58038pt x 280.04982pt.
 [39 <./figs/intake_fig_kcal_psxr_grape-1.pdf>]
-Overfull \hbox (133.99323pt too wide) in paragraph at lines 2351--2351
+Overfull \hbox (133.99323pt too wide) in paragraph at lines 2353--2353
 []\T1/lmtt/m/n/10 grams_broc_ps_mod: broc_grams ~ preFF + fmi + sex + age_yr + 
 cebq_sr + broc_vas + meal_order + g_served + (1 | sub)[] 
  []
 
 
-Overfull \hbox (233.74294pt too wide) in paragraph at lines 2351--2351
+Overfull \hbox (233.74294pt too wide) in paragraph at lines 2353--2353
 []\T1/lmtt/m/n/10 grams_broc_ps_psquad_mod: broc_grams ~ preFF + fmi + sex + ag
 e_yr + cebq_sr + broc_vas + meal_order + g_served + g_served2 + (1 | sub)[] 
  []
@@ -1103,16 +1103,16 @@ e_yr + cebq_sr + broc_vas + meal_order + g_served + g_served2 + (1 | sub)[]
 File: figs/intake_fig_g_psxr_broc-1.pdf Graphic file (type pdf)
 <use figs/intake_fig_g_psxr_broc-1.pdf>
 Package pdftex.def Info: figs/intake_fig_g_psxr_broc-1.pdf  used on input line 
-2441.
+2443.
 (pdftex.def)             Requested size: 421.58038pt x 280.04982pt.
 [41 <./figs/intake_fig_g_psxr_broc-1.pdf>]
-Overfull \hbox (139.24321pt too wide) in paragraph at lines 2470--2470
+Overfull \hbox (139.24321pt too wide) in paragraph at lines 2472--2472
 []\T1/lmtt/m/n/10 kcal_broc_ps_mod: broc_kcal ~ preFF + fmi + sex + cebq_sr + b
 roc_vas + age_yr + meal_order + kcal_served + (1 | sub)[] 
  []
 
 
-Overfull \hbox (254.74287pt too wide) in paragraph at lines 2470--2470
+Overfull \hbox (254.74287pt too wide) in paragraph at lines 2472--2472
 []\T1/lmtt/m/n/10 kcal_broc_ps_psquad_mod: broc_kcal ~ preFF + fmi + sex + age_
 yr + cebq_sr + broc_vas + meal_order + kcal_served + kcal_served2 + (1 | sub)[]
  
@@ -1128,7 +1128,7 @@ LaTeX Warning: `!h' float specifier changed to `!ht'.
 File: figs/intake_fig_kcal_psxr_broc-1.pdf Graphic file (type pdf)
 <use figs/intake_fig_kcal_psxr_broc-1.pdf>
 Package pdftex.def Info: figs/intake_fig_kcal_psxr_broc-1.pdf  used on input li
-ne 2560.
+ne 2562.
 (pdftex.def)             Requested size: 421.58038pt x 280.04982pt.
 [43 <./figs/intake_fig_kcal_psxr_broc-1.pdf>] [44
 
@@ -1153,7 +1153,7 @@ texmf-dist/fonts/type1/public/lm/lmmi10.pfb></usr/local/texlive/2021/texmf-dist
 /lmr6.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/lm/lmr7.pfb></
 usr/local/texlive/2021/texmf-dist/fonts/type1/public/lm/lmr8.pfb></usr/local/te
 xlive/2021/texmf-dist/fonts/type1/public/lm/lmtt10.pfb>
-Output written on 2022_PSeffect_RiskStatus.pdf (46 pages, 355156 bytes).
+Output written on 2022_PSeffect_RiskStatus.pdf (46 pages, 355160 bytes).
 PDF statistics:
  679 PDF objects out of 1000 (max. 8388607)
  586 compressed objects within 6 object streams
